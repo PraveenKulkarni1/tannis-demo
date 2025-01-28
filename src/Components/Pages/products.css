@@ -124,7 +124,7 @@
 }
 
 .card:hover .proCartBtn {
-  display: block; /* Show button on hover */
+  display: block;
 }
 
 .proCartBtn {
@@ -139,7 +139,7 @@
   padding: 8px;
   border-radius: 0 0 5px 5px;
   font-family: "PP Object sans", sans-serif;
-  display: none; /* Hide by default */
+  display: none;
   cursor: pointer;
 }
 

@@ -41,11 +41,11 @@ const Products = () => {
     <Layout title={"All-Tannis-products"}>
       <div className="container ">
         <div className="row filter-container ">
-          <div className="col-md-3  ">
+          <div className="col-md-4 col-lg-3  ">
             <FiltrProduct />
           </div>
 
-          <div className="col-md-9 mt-3">
+          <div className="col-md-8 col-lg-9 mt-3">
             <div className="row">
               <div className=" selectDrop ">
                 <div className="col-md-4 col-10 d-flex justify-content-end">
