@@ -1,0 +1,26 @@
+.brandContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 boxes per row */
+  gap: 10px;
+}
+
+.brandBox {
+  width: 10vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.box-image {
+  max-width: 80%; /* Adjust size as needed */
+  max-height: 80%; /* Ensure it fits within the box */
+}
+
+@media (max-width: 991px) {
+  .brandBoxMain {
+    display: none !important;
+  }
+}

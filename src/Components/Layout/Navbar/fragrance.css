@@ -1,0 +1,12 @@
+.dropdown:hover .fragranceMenu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 991px) {
+  .fragranceMenu {
+    width: 90vw;
+    transform: translate3d(-320px, 4px, 0) !important;
+  }
+}

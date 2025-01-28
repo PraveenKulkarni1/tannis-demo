@@ -1,0 +1,244 @@
+.pdtStar {
+  font-size: 18px;
+  color: rgb(229, 133, 133);
+  font-weight: bold;
+}
+.pdtMainTxt,
+.pdtText {
+  color: #000;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+
+  max-width: 90%;
+  font-size: 15px;
+}
+.pdtGet {
+  font-size: 16px !important;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+}
+.IoShareIcon {
+  font-size: 22px;
+  color: #000;
+}
+.pdtMainTxt {
+  font-size: 25px;
+}
+.pdtText {
+  font-size: 15px;
+}
+.pdtSpan {
+  font-size: 15px;
+  color: rgb(187, 187, 187) !important;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+}
+.pdtHead {
+  font-size: 22px;
+  color: #211a1e;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+}
+.secpdtHead {
+  font-size: 20px;
+  color: rgb(110, 105, 105);
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+}
+.pdtOffer {
+  font-size: 20px;
+  color: #2d2a2b;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+}
+.pdtBtn,
+.pdtSaveBtn {
+  width: auto;
+  height: auto;
+  font-size: 14px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: 5px;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+}
+.pdtBtn {
+  width: 60% !important;
+  color: #fff;
+  background-color: #000000;
+  padding: 15px 70px;
+  font-size: bold;
+}
+.pdtSaveBtn {
+  background-color: #fff;
+  color: #211a1e;
+  padding: 5px 30px;
+}
+.offerViewBg {
+  width: auto;
+  height: auto;
+  background: linear-gradient(
+    to right,
+    rgb(250, 223, 223) 30%,
+    rgb(255, 243, 243)
+  );
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+.offetVp {
+  width: auto;
+  height: auto;
+  background: rgb(255, 243, 243);
+  padding: 3px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.offvBtn {
+  border: none;
+  font-size: 16px;
+  color: #2d2a2b;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+  background: none;
+}
+.pdtCheckbg {
+  width: auto;
+  height: auto;
+  background: rgb(236, 236, 236);
+  padding: 5px 50px;
+  border-radius: 20px;
+}
+.pdtcheck {
+  background: rgb(236, 236, 236);
+  color: #000;
+  font-size: 22px !important;
+}
+.pdtdelBorder {
+  width: auto !important;
+  height: auto !important;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 8px;
+}
+.pdtLocIcon,
+.pdtDelivery {
+  font-size: 18px;
+  color: #2d2a2b;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  font-style: bold;
+}
+
+.pdtLocIcon {
+  width: auto;
+  height: 35px;
+  background: rgb(236, 236, 236);
+  border-radius: 8px;
+  padding: 5px;
+}
+.pdtFbg {
+  width: auto;
+  height: auto;
+  background: rgb(236, 236, 236);
+  border-radius: 8px;
+  padding: 5px 5px;
+}
+
+.pdtFree {
+  font-size: 18px !important;
+  color: #2d2a2b;
+  font-weight: 501;
+  font-family: PP Object sans, sans-serif;
+  font-style: bold;
+}
+
+.pdtFaStar {
+  color: rgb(149, 60, 60);
+  font-size: 24px;
+}
+/* .pdtFaStar:hover {
+  background: rgb(149, 60, 60) !important;
+} */
+
+@media (min-width: 990px) and (max-width: 1200px) {
+  .pdtBtn {
+    width: 47% !important;
+    padding: 15px 21px;
+  }
+  .pdtCheckbg {
+    padding: 2px 23px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+  .pdtCheckbg {
+    padding: 5px 9px;
+  }
+  .pdtBtn {
+    width: 37% !important;
+
+    padding: 19px 0px;
+  }
+  .pdtSaveBtn {
+    padding: 8px 19px;
+  }
+}
+
+@media (max-width: 486px) {
+  .pdtBtn {
+    width: 38% !important;
+    padding: 6px 3px;
+    font-size: 13px;
+  }
+  .pdtCheckbg {
+    padding: 0px 5px;
+    font-size: 13px;
+  }
+
+  .pdtSaveBtn {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+  .pdtdelBorder {
+    padding: 5px;
+  }
+  .pdtMainTxt {
+    font-size: 20px;
+  }
+  .pdtHead {
+    font-size: 18px;
+  }
+  .secpdtHead,
+  .pdtOffer {
+    font-size: 15px;
+  }
+  .pdtFree,
+  .pdtGet {
+    font-size: 13px !important;
+  }
+  .pdtText {
+    font-size: 14px;
+  }
+  .pdtFaStar {
+    font-size: 14px !important;
+  }
+}

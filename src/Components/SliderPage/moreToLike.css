@@ -1,0 +1,106 @@
+.moreLikeArrow svg {
+  background-color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  z-index: 1;
+}
+
+.moreCard {
+  position: relative;
+  overflow: hidden; /* Ensure content stays inside the card */
+}
+
+.moreCard:hover .moreCartBtn {
+  display: block; /* Show the button when the card is hovered */
+}
+
+.moreCartBtn {
+  display: none; /* Hide the button by default */
+  position: absolute;
+  font-family: PP Object sans, sans-serif;
+  font-size: 14px;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.iconRel {
+  position: relative;
+}
+
+.iconRel img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.moreCard:hover .iconRel img {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.moreLikePrev {
+  position: absolute;
+  top: 220px;
+  left: 0rem;
+}
+.moreLikeNext {
+  position: absolute;
+  top: 220px;
+  right: 0rem;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .moreLikePrev,
+  .moreLikeNext {
+    top: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .moreCartBtn {
+    display: block !important;
+    position: static;
+    transform: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .moreCard {
+    overflow: visible !important; /* Allow content to overflow for small screens */
+  }
+}
+@media (min-width: 487px) and (max-width: 768px) {
+  .moreLikePrev,
+  .moreLikeNext {
+    top: 150px;
+  }
+  .moreCard {
+    overflow: none !important;
+  }
+  .moreCard:hover .moreCartBtn {
+    display: none;
+  }
+}
+@media (max-width: 486px) {
+  .moreLikeNext,
+  .moreLikePrev {
+    display: none;
+  }
+  .moreCard {
+    overflow: none !important;
+  }
+}

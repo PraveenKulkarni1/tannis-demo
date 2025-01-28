@@ -1,0 +1,69 @@
+.wishArrow svg {
+  background-color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  z-index: 1;
+}
+.wishPrev {
+  position: absolute;
+  top: 120px;
+  left: 0rem;
+}
+.wishNext {
+  position: absolute;
+  top: 120px;
+  right: 2rem;
+}
+.offerImg {
+  width: auto;
+  height: auto;
+}
+.offerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homehTag {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+  color: #211a1e;
+}
+
+.iconHidden {
+  display: none;
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .wishPrev {
+    top: 100px !important;
+  }
+  .wishNext {
+    top: 100px;
+    right: 1.1rem;
+  }
+}
+@media (min-width: 487px) and (max-width: 768px) {
+  .wishPrev,
+  .wishNext {
+    top: 90px;
+  }
+  .wishNext {
+    right: 1rem;
+  }
+}
+@media (max-width: 486px) {
+  .wishPrev,
+  .wishNext {
+    display: none;
+  }
+}

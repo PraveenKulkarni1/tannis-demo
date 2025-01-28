@@ -1,0 +1,79 @@
+.footerp {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: #211a1e;
+  font-size: 12px;
+  line-height: 160%;
+  max-width: 290px;
+}
+
+.footer1ul li a:hover {
+  color: red;
+}
+.footer1ull li a,
+.footer1ul li a {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+  color: #211a1e;
+  font-size: 14px;
+  line-height: 160%;
+  max-width: 290px;
+}
+
+.footer1ull li:first-child a,
+.footer1ul li:first-child a {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-size: 18px !important;
+  color: #000;
+  font-weight: 400;
+}
+.linkColor {
+  color: #f00000;
+}
+.horiRow {
+  border-bottom: 1px solid #897c83;
+}
+.TfooterEnd {
+  display: flex;
+  justify-content: space-between;
+}
+.TfooterEnd li a {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  color: #a6a3a5;
+  font-size: 12px;
+}
+.footerIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerIcon li a {
+  color: #000;
+  font-size: 22px;
+}
+
+@media (max-width: 991px) {
+  .TfooterEnd {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 486px) {
+  .footer1ull li:first-child a,
+  .footer1ul li:first-child a {
+    font-size: 15px !important;
+    color: #000;
+    font-weight: 400;
+  }
+  .footer1ull li a,
+  .footer1ul li a {
+    font-size: 13px !important;
+  }
+}

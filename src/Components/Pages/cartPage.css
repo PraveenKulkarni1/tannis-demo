@@ -1,0 +1,99 @@
+.cartBorder {
+  height: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.cartBorderTwo {
+  height: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.cartImg {
+  width: auto;
+  height: auto;
+}
+.cartItem,
+.cartSpan,
+.couHead .couP1 .couh1 {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+  color: #211a1e;
+  font-size: 14px;
+  line-height: 160%;
+}
+.cartItem {
+  font-size: 18px;
+}
+.cartSpan {
+  font-size: 15px;
+}
+.couHead {
+  font-size: 20px;
+}
+.couP1 {
+  font-size: 15px;
+}
+.couh1 {
+  font-size: 18px;
+}
+.couP2 {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #388e3c;
+  font-size: 15px;
+  line-height: 160%;
+}
+.cartIconBorder {
+  width: auto;
+  height: auto;
+  border: 1px solid black !important;
+  border-radius: 20px !important;
+  padding: 5px 15px;
+}
+
+/* coupen */
+
+.coupenOne {
+  border-bottom: 1px solid black;
+}
+.couSave {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+  color: #388e3c;
+  font-size: 14px;
+  line-height: 160%;
+  height: auto;
+  width: auto;
+  background: rgb(236, 236, 236);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.couCheckOut {
+  height: auto;
+  width: 80%;
+  color: #fff;
+  background: #000;
+  border-radius: 10px;
+  padding: 10px 30px;
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+@media (max-width: 990px) {
+  .cartBorder,
+  .cartBorderTwo {
+    border: none;
+  }
+  .cartIconBorder {
+    display: flex !important;
+    flex-direction: row;
+  }
+}

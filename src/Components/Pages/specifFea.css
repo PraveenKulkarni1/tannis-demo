@@ -1,0 +1,16 @@
+.speBorder {
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.iconText {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #494447;
+  font-size: 14px;
+  line-height: 160%;
+}

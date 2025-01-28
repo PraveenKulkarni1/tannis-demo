@@ -1,0 +1,35 @@
+.filterUl a {
+  list-style: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+.filterReset {
+  list-style: none;
+  color: rgb(184, 178, 178) !important;
+  font-size: 18px;
+  font-weight: 500;
+}
+.fltMain {
+  border: 1px solid rgb(184, 178, 178);
+  /* padding: 10px 20px; */
+  border-radius: 5px;
+}
+.filDropText {
+  list-style: none;
+  color: #211a1e !important;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+}
+.fil-border {
+  height: auto;
+  width: auto;
+  border-bottom: 1px solid #897c83;
+  padding: 0px 10px;
+  margin: 10px 0px;
+}
+.fil-last {
+  padding: 0px 10px;
+}

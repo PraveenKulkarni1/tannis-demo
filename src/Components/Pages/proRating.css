@@ -1,0 +1,92 @@
+.proRatMain {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 18px;
+  color: #211a1e;
+  line-height: 160%;
+}
+.proRatspan {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 12px;
+  color: #211a1e;
+  line-height: 160%;
+}
+.proRatNum {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 25px !important;
+  color: #211a1e;
+  line-height: 160%;
+}
+.proRatLite {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 18px;
+  color: rgb(236, 236, 236);
+  line-height: 160%;
+}
+.ratRel {
+  position: relative;
+  width: max-content;
+}
+
+.ratRel::after {
+  content: "";
+  background: black;
+  width: 1px;
+  height: 130px;
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+}
+
+.proFastar {
+  color: rgb(149, 60, 60);
+  font-size: 13px;
+}
+.starBg {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  color: #ce7c6d;
+  font-size: 18px;
+}
+
+.proRatImg {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.proRatingWidth {
+  width: 75%;
+}
+
+@media (max-width: 768px) {
+  .proRatingWidth {
+    width: 75%;
+  }
+}
+@media (max-width: 486px) {
+  .proRatingStar {
+    display: none !important;
+  }
+  .starBg {
+    font-size: 15px;
+  }
+  .ratRel::after {
+    top: 10px;
+    left: 80px;
+  }
+  .starBg {
+    font-size: 14px;
+  }
+  .proRatNum {
+    font-size: 20px !important;
+  }
+}

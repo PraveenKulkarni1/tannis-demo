@@ -1,0 +1,22 @@
+.slidImg {
+  width: 100%;
+  height: auto;
+}
+.pSliderclick {
+  border: 1px solid black;
+}
+.detail-container {
+  position: relative;
+  z-index: -1;
+}
+.detailSticky {
+  position: sticky !important;
+  top: 500px !important;
+
+  z-index: -1;
+}
+@media (max-width: 486px) {
+  .delCol2 {
+    display: none;
+  }
+}

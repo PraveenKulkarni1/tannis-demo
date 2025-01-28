@@ -1,0 +1,27 @@
+.secNav li a:hover {
+  color: red;
+}
+
+.secNav li:first-child a {
+  font-size: 18px;
+  color: #000;
+}
+
+.dropdown:hover .secNavMegMenu {
+  display: block; /* Make dropdown visible */
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* No shift */
+}
+
+@media screen and (min-width: 991px) {
+  .secNavMegMenu {
+    width: 90vw;
+    transform: translate3d(0px, 4px, 0) !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .secHeadNav {
+    display: none !important;
+  }
+}

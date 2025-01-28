@@ -1,0 +1,12 @@
+.dropdown:hover .skinMenu {
+  display: block; /* Make dropdown visible */
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* No shift */
+}
+
+@media screen and (min-width: 991px) {
+  .skinMenu {
+    width: 90vw;
+    transform: translate3d(-220px, 4px, 0) !important;
+  }
+}
