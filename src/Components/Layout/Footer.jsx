@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container mt-3">
         <div className="row">
           <div className="col-md-3 ">
-            <img src={logo1} style={{ width: "60px" }} />
+            <img src={logo1} className="footerLogo" />
             <p className="footerp my-3">
               For every day, for every mood, for every you
             </p>

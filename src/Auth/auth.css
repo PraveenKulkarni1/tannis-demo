@@ -1,0 +1,103 @@
+.loginBg {
+  width: auto;
+  min-height: 727px;
+  background-color: #f9f9f9;
+}
+.signupBg {
+  width: auto;
+  height: auto;
+  background-color: #f9f9f9;
+}
+
+.loginMain {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px !important;
+  color: #211a1e;
+  line-height: 160%;
+}
+.loginCard {
+  width: auto;
+}
+.signUpCard {
+  width: auto;
+}
+.loginLogo {
+  width: 100px;
+  height: auto;
+}
+.formLabel {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px !important;
+  color: #211a1e;
+
+  line-height: 160%;
+}
+.loginBtn {
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: 10px;
+  font-family: PP Object sans, sans-serif;
+
+  color: #fff;
+  background-color: #211a1e;
+  padding: 8px 40px;
+  font-size: bold;
+}
+
+.signUpRadio:checked {
+  background-color: black !important;
+  border-color: black !important;
+}
+
+.signupCheckbox:checked {
+  background-color: black !important;
+  border-color: black !important;
+}
+.signUpSpan,
+.singupLink {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px !important;
+  line-height: 17px;
+  letter-spacing: 0.1em;
+}
+.signUpSpan {
+  color: #211a1e;
+}
+.singupLink {
+  color: #f00000;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 486px) {
+  .loginMain {
+    font-size: 20px !important;
+  }
+  .loginLogo {
+    width: 80px;
+  }
+
+  .loginBtn {
+    font-size: 16px !important;
+    padding: 5px 20px;
+  }
+}

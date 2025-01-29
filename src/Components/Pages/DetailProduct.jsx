@@ -127,7 +127,7 @@ const DetailProduct = () => {
     <Layout>
       <div className="container">
         <div className="row m-2 d-flex justify-content-between">
-          <div className="col-md-2">
+          {/* <div className="col-md-2 sticky-top ">
             {data?.map((item, i) => {
               return (
                 <div className="m-2 delCol2" key={i}>
@@ -165,6 +165,39 @@ const DetailProduct = () => {
                   <img src={sliderData.img} className="slidImg" />
                 </div>
               </>
+            )}
+          </div> */}
+          <div className="col-md-2 ">
+            {data?.map((item, i) => {
+              return (
+                <div className="m-2 delCol2" key={i}>
+                  <img
+                    className={sliderData.id === i ? "pSliderclick" : ""}
+                    src={item.img}
+                    height="60px"
+                    width="60px"
+                    onClick={() => handleClick(i)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="col-md-4">
+            {isMobile ? (
+              <Slider {...settings}>
+                {data?.map((item, i) => {
+                  return (
+                    <div className="mt-5" key={i}>
+                      <img src={item.img} className="slidImg" />
+                    </div>
+                  );
+                })}
+              </Slider>
+            ) : (
+              <div className="mt-5">
+                <img src={sliderData.img} className="slidImg" />
+              </div>
             )}
           </div>
 

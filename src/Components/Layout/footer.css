@@ -11,6 +11,10 @@
 .footer1ul li a:hover {
   color: red;
 }
+.footerLogo {
+  width: 80px;
+  height: auto;
+}
 .footer1ull li a,
 .footer1ul li a {
   font-family: PP Object sans, sans-serif;
@@ -75,5 +79,8 @@
   .footer1ull li a,
   .footer1ul li a {
     font-size: 13px !important;
+  }
+  .footerLogo {
+    width: 65px;
   }
 }

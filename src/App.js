@@ -8,12 +8,16 @@ import CartPage from "./Components/Pages/CartPage";
 import Footer from "./Components/Layout/Footer";
 import Header from "./Components/Layout/Header";
 import RadioDropdown from "./Components/SliderPage/MoreToLike";
+import SignUp from "./Auth/SignUp";
+import Login from "./Auth/Login";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/register" element={<SignUp />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/detail-product" element={<DetailProduct />}></Route>

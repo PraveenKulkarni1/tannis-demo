@@ -62,7 +62,7 @@ const FiltrProduct = () => {
             </div>
           </div>
         </div>
-        <div className="fltMain">
+        <div className="fltMain ">
           <div className="mb-3 ">
             <ul className="d-flex justify-content-around fil-border my-2 filterUl">
               <li>
@@ -82,7 +82,7 @@ const FiltrProduct = () => {
               <ul className="nav flex-column ">
                 {/* Dropdown Menu */}
                 <li className="nav-item  mb-2 fil-border ">
-                  <div className="dropdown">
+                  <div className="dropdown mb-1">
                     <Link
                       className={`filDropText  text-start d-flex justify-content-between align-items-center  ${
                         dropdownOpen1 ? "show" : ""
@@ -91,9 +91,9 @@ const FiltrProduct = () => {
                     >
                       Category
                       {dropdownOpen1 ? (
-                        <FaChevronUp className="ms-2" />
+                        <FaChevronUp className="ms-2 FaCheColor" />
                       ) : (
-                        <FaChevronDown className="ms-2" />
+                        <FaChevronDown className="ms-2 FaCheColor" />
                       )}
                     </Link>
                     <ul
@@ -179,7 +179,7 @@ const FiltrProduct = () => {
                   </div>
                 </li>
                 <li className="nav-item mb-2 fil-border">
-                  <div className="dropdown">
+                  <div className="dropdown mb-1">
                     <Link
                       className={`filDropText  text-start d-flex justify-content-between align-items-center  ${
                         dropdownOpen1 ? "show" : ""
@@ -188,9 +188,9 @@ const FiltrProduct = () => {
                     >
                       Brand
                       {dropdownOpen2 ? (
-                        <FaChevronUp className="ms-2" />
+                        <FaChevronUp className="ms-2 FaCheColor" />
                       ) : (
-                        <FaChevronDown className="ms-2" />
+                        <FaChevronDown className="ms-2 FaCheColor" />
                       )}
                     </Link>
                     <ul
@@ -281,19 +281,19 @@ const FiltrProduct = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="nav-item mb-2 fil-border">
-                  <div className="dropdown">
+                <li className="nav-item mb-2  fil-border">
+                  <div className="dropdown mb-1">
                     <Link
-                      className={`filDropText  text-start d-flex justify-content-between align-items-center  ${
+                      className={`filDropText  text-start d-flex justify-content-between align-items-center   ${
                         dropdownOpen1 ? "show" : ""
                       }`}
                       onClick={toggleDropdown3}
                     >
                       Price
                       {dropdownOpen3 ? (
-                        <FaChevronUp className="ms-2" />
+                        <FaChevronUp className="ms-2 FaCheColor" />
                       ) : (
-                        <FaChevronDown className="ms-2" />
+                        <FaChevronDown className="ms-2 FaCheColor" />
                       )}
                     </Link>
                     <ul
@@ -320,7 +320,7 @@ const FiltrProduct = () => {
                   </div>
                 </li>
                 <li className="nav-item mb-2 fil-border">
-                  <div className="dropdown">
+                  <div className="dropdown mb-1">
                     <Link
                       className={`filDropText  text-start d-flex justify-content-between align-items-center  ${
                         dropdownOpen1 ? "show" : ""
@@ -329,9 +329,9 @@ const FiltrProduct = () => {
                     >
                       Discount
                       {dropdownOpen4 ? (
-                        <FaChevronUp className="ms-2" />
+                        <FaChevronUp className="ms-2 FaCheColor" />
                       ) : (
-                        <FaChevronDown className="ms-2" />
+                        <FaChevronDown className="ms-2 FaCheColor" />
                       )}
                     </Link>
                     <ul
@@ -357,7 +357,7 @@ const FiltrProduct = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="nav-item mb-2 fil-last">
+                <li className="nav-item mb-2 fil-border border-0">
                   <div className="dropdown">
                     <Link
                       className={`filDropText  text-start d-flex justify-content-between align-items-center  ${
@@ -367,9 +367,9 @@ const FiltrProduct = () => {
                     >
                       Colour
                       {dropdownOpen5 ? (
-                        <FaChevronUp className="ms-2" />
+                        <FaChevronUp className="ms-2 FaCheColor" />
                       ) : (
-                        <FaChevronDown className="ms-2" />
+                        <FaChevronDown className="ms-2 FaCheColor" />
                       )}
                     </Link>
                     <ul

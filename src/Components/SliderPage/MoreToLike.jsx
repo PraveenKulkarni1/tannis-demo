@@ -171,8 +171,8 @@ function MoreToLike() {
                   />
                 </div>
                 <div className="card-body">
-                  <p className="card-title proTitle">{item.c_name}</p>
-                  <h6 className="card-text proText">{item.c_name}</h6>
+                  <p className="card-title proTitle">{item.brand}</p>
+                  <h6 className="card-text proText">{item.p_name}</h6>
                   <h6 className="titilHead ">
                     <MdCurrencyRupee />
                     {item.mrp - item.discount}

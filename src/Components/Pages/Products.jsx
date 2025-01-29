@@ -72,6 +72,7 @@ const Products = () => {
                     discount,
                     category,
                     p_name,
+                    brand,
                     product_type,
                     mrp,
                     sub_category,
@@ -90,8 +91,10 @@ const Products = () => {
                           />
                         </div>
                         <div className="card-body">
-                          <p className="card-title proTitle">{p_name}</p>
-                          <h6 className="card-text proText">{p_name}</h6>
+                          <p className="card-title proTitle">{brand}</p>
+                          <h6 className="card-text proText">
+                            {p_name.substring(0, 50)}
+                          </h6>
                           <h6 className="titilHead">
                             <MdCurrencyRupee />
                             {mrp - discount}
