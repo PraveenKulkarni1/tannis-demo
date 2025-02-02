@@ -5,7 +5,8 @@ import { IoMdClose } from "react-icons/io";
 import logo1 from "./../assets/logo1.jpeg";
 
 function SignUp() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -45,16 +46,29 @@ function SignUp() {
             onSubmit={handleSubmit}
             className="px-2 px-sm-3 px-md-3 px-lg-5"
           >
-            <div className="mb-3">
-              <label className="form-label formLabel">Name</label>
-              <input
-                type="text"
-                className="form-control p-0 p-sm-1 p-md-1 p-lg-1"
-                placeholder="Enter email"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
+            <div className="row ">
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label formLabel">Fisrt Name</label>
+                <input
+                  type="text"
+                  className="form-control p-0 p-sm-1 p-md-1 p-lg-1"
+                  placeholder="Enter first name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label formLabel">last Name</label>
+                <input
+                  type="text"
+                  className="form-control p-0 p-sm-1 p-md-1 p-lg-1"
+                  placeholder="Enter last name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </div>
             </div>
             <div className="mb-3">
               <label className="form-label formLabel">Email Address</label>
@@ -78,20 +92,22 @@ function SignUp() {
                 required
               />
             </div>
-            <div className="input-group mb-3 d-flex gap-2  p-0 p-sm-1 p-md-1 p-lg-1">
-              <span className="input-group-text bg-white p-0 p-sm-1 p-md-1 p-lg-1">
-                +91
-              </span>
-              <input
-                type="text"
-                className="form-control p-0 p-sm-1 p-md-1 p-lg-1"
-                placeholder="Enter phone number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-              />
+            <div>
+              <label className="form-label formLabel">Phone number</label>
+              <div className="input-group mb-3 d-flex gap-2  p-0 p-sm-1 p-md-1 p-lg-1">
+                <span className="input-group-text bg-white p-0 p-sm-1 p-md-1 p-lg-1">
+                  +91
+                </span>
+                <input
+                  type="text"
+                  className="form-control p-0 p-sm-1 p-md-1 p-lg-1"
+                  placeholder="Enter phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
+              </div>
             </div>
-
             <div className="row g-2 mb-3">
               <div className="col-12 col-sm-4">
                 <div className="form-check">

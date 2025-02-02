@@ -106,8 +106,78 @@ const Header = () => {
                       <IoBagOutline size={24} />
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <IoPersonOutline size={24} className="" />
+
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link "
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <IoPersonOutline size={24} className="" />
+                    </a>
+                    <ul className="dropdown-menu navProDrop">
+                      <li>
+                        <Link to="/profile" className="dropdown-item">
+                          Personal Details
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/order" className="dropdown-item">
+                          Orders
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/address" className="dropdown-item">
+                          Addresses
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/" className="dropdown-item">
+                          Tannis Treats
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/refer" className="dropdown-item">
+                          Refer & Earn
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/top-shelf" className="dropdown-item">
+                          Top Shelf
+                        </Link>
+                      </li>
+
+                      <li>
+                        <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                        <li>
+                          <Link to="/contact-us" className="dropdown-item">
+                            Contact Us
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/help-support" className="dropdown-item">
+                            Help & Support
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/private-policy" className="dropdown-item">
+                            Privace Policy
+                          </Link>
+                        </li>
+                      </li>
+                      <li>
+                        <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                        <Link to="/logout" className="dropdown-item HlogOut">
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
                   </li>
                 </ul>{" "}
               </div>

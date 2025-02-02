@@ -84,6 +84,22 @@
   color: #211a1e !important;
   font-size: 14px;
 }
+.navProDrop li a {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.navProDrop li a:hover {
+  color: #211a1e !important;
+}
+.HlogOut {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #f00000 !important;
+  font-size: 14px;
+}
 
 @media screen and (min-width: 992px) {
   .tiraNavDropdown:hover .tiraNavMenu {
@@ -117,7 +133,17 @@
     width: 100% !important;
   }
 }
-
+.dropdown:hover .navProDrop {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  color: #211a1e !important;
+}
+@media (min-width: 990px) {
+  .navProDrop {
+    transform: translate3d(-120px, 4px, 0) !important;
+  }
+}
 @media (max-width: 486px) {
   .logoImg {
     width: 65px;

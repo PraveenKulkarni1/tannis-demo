@@ -7,7 +7,7 @@
   color: #000;
 }
 
-.dropdown:hover .secNavMegMenu {
+.secDropdown:hover .secNavMegMenu {
   display: block; /* Make dropdown visible */
   opacity: 1; /* Fully visible */
   transform: translateY(0); /* No shift */

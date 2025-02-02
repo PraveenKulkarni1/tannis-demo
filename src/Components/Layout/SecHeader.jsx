@@ -21,7 +21,7 @@ const SecHeader = () => {
           <nav className="navbar navbar-expand-lg  bg-body-tertiar">
             <div className="container">
               <ul className="navbar-nav">
-                <li className="dropdown mainDropdown">
+                <li className="dropdown secDropdown mainDropdown">
                   <Link
                     to="/"
                     className="nav-link px-3  bg-white cardTextp"
@@ -33,7 +33,7 @@ const SecHeader = () => {
                   <WhatsNew />
                 </li>
 
-                <li className="dropdown mainDropdown">
+                <li className="dropdown secDropdown mainDropdown">
                   <Link
                     to="/"
                     className="nav-link px-3  bg-white cardTextp"
@@ -44,7 +44,7 @@ const SecHeader = () => {
                   </Link>
                   <Makeup />
                 </li>
-                <li className="dropdown mainDropdown">
+                <li className="dropdown secDropdown mainDropdown">
                   <Link
                     to="/"
                     className="nav-link px-3  bg-white cardTextp"
@@ -55,7 +55,7 @@ const SecHeader = () => {
                   </Link>
                   <Skin />
                 </li>
-                <li className="dropdown mainDropdown">
+                <li className="dropdown secDropdown mainDropdown">
                   <Link
                     to="/"
                     className="nav-link px-3  bg-white cardTextp"
@@ -66,7 +66,7 @@ const SecHeader = () => {
                   </Link>
                   <Hair />
                 </li>
-                <li className="dropdown mainDropdown">
+                <li className="dropdown secDropdown mainDropdown">
                   <Link
                     to="/"
                     className="nav-link px-3  bg-white cardTextp"
@@ -77,7 +77,7 @@ const SecHeader = () => {
                   </Link>
                   <Fragrance />
                 </li>
-                <li className="dropdown mainDropdown">
+                <li className="dropdown secDropdown mainDropdown">
                   <Link
                     to="/"
                     className="nav-link px-3  bg-white cardTextp"

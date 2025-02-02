@@ -1,7 +1,7 @@
 .dropdown:hover .skinMenu {
-  display: block; /* Make dropdown visible */
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* No shift */
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 991px) {
