@@ -141,7 +141,9 @@ function UserProfile() {
                 </span>
               </div>
 
-              <button className="userPbtn my-3 ">Save</button>
+           <div className="dCenter1">
+           <button className="userPbtn my-3 ">Save</button>
+           </div>
               <div className="col-12 horiRow "></div>
               <div className="my-3">
                 <div className="dropdown mb-1">
@@ -192,7 +194,7 @@ function UserProfile() {
           {/* Upload Button (Triggers File Input) */}
           <div className="d-flex justify-content-center align-items-center flex-column  gap-3">
             <button
-              className="d-flex gap-2 justify-content-center align-items-center userPbtn w-75"
+              className="d-flex gap-2 justify-content-center align-items-center userPbtn2 w-75"
               onClick={() => document.getElementById("fileInput").click()}
             >
               <CiImageOn size={20} /> Upload Photo

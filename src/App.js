@@ -19,6 +19,7 @@ import Faq from "./UserPage/Faq";
 import ReferEarn from "./UserPage/ReferEarn";
 import TopShelf from "./UserPage/TopShelf";
 import LoginOtp from "./Auth/LoginOtp";
+import AddAddress from "./UserPage/AddAddress";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/refer" element={<ReferEarn />} />
         <Route path="/top-shelf" element={<TopShelf />} />
+        <Route path="/add-address" element={<AddAddress />} />
         {/* userMenu */}
         <Route path="/register" element={<SignUp />}></Route>
         <Route path="/login" element={<Login />}></Route>

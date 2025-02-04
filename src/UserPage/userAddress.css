@@ -1,0 +1,58 @@
+.locImg1 {
+  width: 150px;
+  height: 150px;
+}
+.locImg2 {
+  width: auto;
+  height: auto;
+}
+.noAddress {
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px !important;
+  color: #41434c;
+  line-height: 160%;
+}
+.addAddress {
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: 30px;
+  font-family: PP Object sans, sans-serif;
+
+  color: #fff;
+  background-color: #211a1e;
+  padding: 8px 40px;
+  font-size: bold;
+}
+.addRedAddress {
+  color: #f00000;
+  font-size: 15px;
+}
+.storeAdd1 {
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  padding: 5px 5px;
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #211a1e;
+  font-family: PP Object sans, sans-serif;
+}
+.storeName {
+  font-size: 17px;
+  font-family: PP Object sans, sans-serif;
+  font-weight: 500;
+  color: #211a1e;
+}
+.storeData {
+  font-size: 14px;
+  font-family: PP Object sans, sans-serif;
+  font-weight: 400;
+  color: #211a1e;
+}

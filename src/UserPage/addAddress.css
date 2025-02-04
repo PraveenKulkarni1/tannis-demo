@@ -1,0 +1,30 @@
+.adrsHeading {
+  font-size: 18px !important;
+  font-weight: bold;
+
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #211a1e;
+}
+.adrsLabel1 {
+  font-size: 15px !important;
+  font-weight: bold;
+
+  font-family: PP Object sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #afacae;
+}
+.proErr {
+  color: #f00000;
+}
+
+@media (max-width: 486px) {
+  .adrsHeading {
+    font-size: 16px;
+  }
+  .adrsLabel1 {
+    font-size: 13px;
+  }
+}

@@ -26,7 +26,14 @@
   line-height: 160%;
   max-width: 290px;
 }
-
+.footerIpmain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerInput {
+  width: 50%;
+}
 .footer1ull li:first-child a,
 .footer1ul li:first-child a {
   font-family: PP Object sans, sans-serif;
@@ -52,6 +59,9 @@
   color: #a6a3a5;
   font-size: 12px;
 }
+.footerbg {
+  background: #f7f0f5;
+}
 .footerIcon {
   display: flex;
   justify-content: center;
@@ -61,6 +71,20 @@
   color: #000;
   font-size: 22px;
 }
+.footerNav1 .footerNav2 {
+  font-family: PP Object sans, sans-serif;
+  font-style: bold;
+  font-weight: 400;
+  color: #211a1e;
+
+  line-height: 160%;
+}
+.footerNav1 {
+  font-size: 24px;
+}
+.footerNav2 {
+  font-size: 18px;
+}
 
 @media (max-width: 991px) {
   .TfooterEnd {
@@ -69,7 +93,34 @@
   }
 }
 
+@media (min-width: 487px) and (max-width: 786px) {
+  .footerNav1 {
+    font-size: 20px;
+  }
+  .footerNav2 {
+    font-size: 16px;
+  }
+  .footerIpmain {
+    display: block !important;
+  }
+  .footerInput {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 486px) {
+  .footerNav1 {
+    font-size: 18px;
+  }
+  .footerNav2 {
+    font-size: 15px;
+  }
+  .footerIpmain {
+    display: block !important;
+  }
+  .footerInput {
+    width: 100% !important;
+  }
   .footer1ull li:first-child a,
   .footer1ul li:first-child a {
     font-size: 15px !important;

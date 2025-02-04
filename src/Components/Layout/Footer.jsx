@@ -10,14 +10,39 @@ const Footer = () => {
     <div>
       <div className="container mt-3">
         <div className="row">
+          <div className="col-12 d-flex justify-content-center align-items-center flex-column">
+            <h1 className="text-center footerNav1 mb-3">
+              Be the first to hear about all things Tannis
+            </h1>
+            <p className="text-center footerNav2 mb-3">
+              Stay connected for exclusive offers and latest updates, delivered
+              straight to your inbox
+            </p>
+          </div>
+          <div className="footerIpmain my-3">
+            <div className="input-group d-flex gap-3 footerInput col-lg-6 mb-3">
+              <input
+                type="text"
+                className="form-control footerbg"
+                placeholder="Enter Your Email Address"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button className="loginBtn" type="button" id="button-addon2">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="row">
           <div className="col-md-3 ">
             <img src={logo1} className="footerLogo" />
             <p className="footerp my-3">
               For every day, for every mood, for every you
             </p>
           </div>
-          <div className="col-md-2">
-            <ul className="footer1ul p-0">
+          <div className="col-md-2 ">
+            <ul className="footer1ul p-0 d-flex gap-2 flex-column">
               <li>
                 <Link to="/">Tira</Link>
               </li>
@@ -43,7 +68,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-md-2">
-            <ul className="footer1ul p-0">
+            <ul className="footer1ul p-0 d-flex gap-2 flex-column">
               <li>
                 <Link to="/">Customer Care</Link>
               </li>
@@ -57,7 +82,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-md-2">
-            <ul className="footer1ul p-0">
+            <ul className="footer1ul p-0 d-flex gap-2 flex-column">
               <li>
                 <Link to="/">Categories</Link>
               </li>
@@ -91,7 +116,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-md-3">
-            <ul className="footer1ull p-0">
+            <ul className="footer1ull p-0 d-flex gap-2 flex-column">
               <li>
                 <Link to="/">Contact Us</Link>
               </li>
