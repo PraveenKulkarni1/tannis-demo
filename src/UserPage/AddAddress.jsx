@@ -36,7 +36,7 @@ function AddAddress() {
           <div className="col-md-4">
             <UserMemu />
           </div>
-          <div className="col-md-7">
+          <div className="col-md-8">
             <h3 className="userMenuh1 my-2 my-xl-5 my-lg-5 my-md-3 my-sm-3">
               My Address
             </h3>
