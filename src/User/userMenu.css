@@ -60,8 +60,12 @@
 }
 
 .activeMenu {
-  background-color: #007bff;
   color: white;
+  background: linear-gradient(
+    to right,
+    rgb(250, 223, 223) 30%,
+    rgb(255, 243, 243)
+  ) !important;
 }
 
 .menu-item {

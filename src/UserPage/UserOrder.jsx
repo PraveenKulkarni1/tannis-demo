@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import Layout from "../Components/Layout/Layout";
 import UserMemu from "../User/UserMemu";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa";
 import { MdCurrencyRupee } from "react-icons/md";
 import "./userOrder.css";
 import p1 from "../assets/p1.avif";
+import p2 from "../assets/p2.avif";
+import p3 from "../assets/p3.avif";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -27,6 +30,40 @@ function UserOrder() {
       product_type: "simple",
       brand: "Lakme",
       color: "red",
+      status: "Delivered on",
+      statusColor: "#26A541",
+      message: "Your item has beed delivered",
+      date: "1 Feb",
+    },
+    {
+      id: 1,
+      thumbnail: p2,
+      p_name:
+        "Lakme Xtraordin-airy Mattereal Mousse Foundation, 03 Golden Sand (25 g)",
+      mrp: 500.0,
+      product_type: "simple",
+      brand: "Lakme",
+      color: "red",
+      status: "Return Complited on",
+      statusColor: "#FF9F00",
+      message:
+        "You returned this order because you don't want this item anymore.",
+      date: "25 Jan",
+    },
+    {
+      id: 1,
+      thumbnail: p3,
+      p_name:
+        "Lakme Xtraordin-airy Mattereal Mousse Foundation, 03 Golden Sand (25 g)",
+      mrp: 500.0,
+      product_type: "simple",
+      brand: "Lakme",
+      color: "red",
+      status: "Cancelled on",
+      statusColor: "#FF6161",
+      message:
+        " You requested a cancellation  because of the issue with the delivery date",
+      date: "5 Jan",
     },
   ];
 
@@ -190,8 +227,22 @@ function UserOrder() {
                       </div>
                     </div>
                     <div className="col-md-4 my-1 my-xl-3 my-lg-3 my-md-2 my-sm-2 deliveryMain">
-                      <h2 className="orderName">Delivered on Feb 1</h2>
-                      <p className="orderTitle">Your item has beed delivered</p>
+                      <h2 className="orderName d-flex gap-2 ">
+                        <span>
+                          <FaCircle
+                            size={7}
+                            style={{
+                              backgroundColor: item.statusColor,
+                              padding: "5px",
+                              borderRadius: "50%",
+                              marginBottom: "3px",
+                              color: "#fff",
+                            }}
+                          />
+                        </span>
+                        {item.status} {item.date}
+                      </h2>
+                      <p className="orderTitle">{item.message}</p>
                       <Link to="/" className="orderName">
                         <FaStar className="icons my-2" /> Rate & Review Product
                       </Link>

@@ -49,7 +49,7 @@ function UserProfile() {
 
             <form onSubmit={handleSubmit} className="profile-form">
               <div className="gender-container mb-3">
-                {/* Male Button */}
+          
                 <button
                   className={`gender-button ${
                     selectedGender === "male" ? "active" : ""
@@ -59,7 +59,7 @@ function UserProfile() {
                   Male
                 </button>
 
-                {/* Female Button */}
+              
                 <button
                   className={`gender-button ${
                     selectedGender === "female" ? "active" : ""
@@ -69,7 +69,7 @@ function UserProfile() {
                   Female
                 </button>
 
-                {/* Other Button */}
+            
                 <button
                   className={`gender-button ${
                     selectedGender === "nonBinary" ? "active" : ""
