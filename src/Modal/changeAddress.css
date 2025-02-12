@@ -1,0 +1,26 @@
+.right-side-modal .modal-dialog {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  margin: 0;
+  max-width: 400px;
+}
+
+.right-side-modal .modal-content {
+  height: 100vh;
+  border-radius: 0;
+}
+.right-side-modal .modal-dialog {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  margin: 0;
+  max-width: 400px;
+}
+
+.right-side-modal .modal-content {
+  height: 100vh;
+  border-radius: 0;
+}

@@ -8,9 +8,9 @@ import {} from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
-      <div className="container mt-3">
+      <div className="container ">
         <div className="row">
-          <div className="col-12 d-flex justify-content-center align-items-center flex-column">
+          <div className="col-12 d-flex justify-content-center align-items-center flex-column mt-2 mt-xl-4 mt-lg-4 mt-md-3 mt-sm-3 ">
             <h1 className="text-center footerNav1 mb-3">
               Be the first to hear about all things Tannis
             </h1>
@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="col-md-2 ">
             <ul className="footer1ul p-0 d-flex gap-2 flex-column">
               <li>
-                <Link to="/">Tira</Link>
+                <Link to="/">Tannis</Link>
               </li>
 
               <li>
@@ -54,13 +54,13 @@ const Footer = () => {
                 <Link to="/">For You</Link>
               </li>
               <li>
-                <Link to="/">Tira Red</Link>
+                <Link to="/">Tannis Red</Link>
               </li>
               <li>
                 <Link to="/">Offers</Link>
               </li>
               <li>
-                <Link to="/">Tira Tribe</Link>
+                <Link to="/">Tannis Tribe</Link>
               </li>
               <li>
                 <Link to="/">Site Map</Link>
@@ -77,7 +77,7 @@ const Footer = () => {
                 <Link to="/">Help Centre</Link>
               </li>
               <li>
-                <Link to="/">FAQs</Link>
+                <Link to="/faq">FAQs</Link>
               </li>
             </ul>
           </div>
@@ -118,7 +118,7 @@ const Footer = () => {
           <div className="col-md-3">
             <ul className="footer1ull p-0 d-flex gap-2 flex-column">
               <li>
-                <Link to="/">Contact Us</Link>
+                <Link to="/contact-us">Contact Us</Link>
               </li>
               <li>
                 <Link to="/">
@@ -134,7 +134,8 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/">
-                  Email: <span className="linkColor">help@tirabeauty.com</span>
+                  Email:{" "}
+                  <span className="linkColor">help@tannisbeauty.com</span>
                 </Link>
               </li>
             </ul>
@@ -149,28 +150,34 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-10">
-            <p>© 2024 Tira. All Rights Reserved.</p>
+            <p>© 2025 Tannis. All Rights Reserved.</p>
             <ul className="TfooterEnd p-0">
               <li>
-                <Link to="/">Terms & Conditions</Link>
+                <Link to="/terms-conditions">Terms & Conditions</Link>
               </li>
               <li>
-                <Link to="/">Fees & Payments</Link>
+                <Link to="/fees-payments">Fees & Payments</Link>
               </li>
               <li>
-                <Link to="/">Cancellation & Refund Policy</Link>
+                <Link to="/cancel-refund-policy">
+                  Cancellation & Refund Policy
+                </Link>
               </li>
               <li>
-                <Link to="/">Privacy Policy</Link>
+                <Link to="/private-policy">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/">Shipping & Delivery Policy</Link>
+                <Link to="/shipping-delivery-policy">
+                  Shipping & Delivery Policy
+                </Link>
               </li>
               <li>
-                <Link to="/">Rewards Policy</Link>
+                <Link to="/rewards-policy">Rewards Policy</Link>
               </li>
               <li>
-                <Link to="/">Promotions Terms & Conditions</Link>
+                <Link to="/promotions-terms-conditions">
+                  Promotions Terms & Conditions
+                </Link>
               </li>
             </ul>
           </div>

@@ -48,8 +48,10 @@
 .tiraNavMain a:hover {
   color: red;
 }
-.tWidth {
-  border-bottom: 1px solid black;
+.tWidth,
+.ttWidth {
+  border-bottom: 1px solid rgb(106, 105, 105);
+  /* box-shadow: 0px 1px 1px rgb(134, 133, 133); */
 }
 
 .navBorder {

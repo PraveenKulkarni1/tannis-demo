@@ -86,7 +86,7 @@ const Fragrance = () => {
             </li>
             <li className="nav-item">
               <Link to="/" className="nav-link px-4">
-                Tira Loves
+                Tannis Loves
               </Link>
             </li>
           </div>

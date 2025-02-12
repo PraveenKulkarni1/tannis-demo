@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 
 function Login() {
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -34,7 +35,7 @@ function Login() {
             onSubmit={handleSubmit}
             className="px-2 px-sm-3 px-md-3 px-lg-5"
           >
-            <div>
+            {/* <div>
               <label className="form-label formLabel">Phone number</label>
               <div className="input-group mb-3 d-flex gap-2  p-0 p-sm-1 p-md-1 p-lg-1">
                 <span className="input-group-text bg-white p-0 p-sm-1 p-md-1 p-lg-1">
@@ -46,6 +47,19 @@ function Login() {
                   placeholder=""
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
+              </div>
+            </div> */}
+            <div>
+              <label className="form-label formLabel">Email address</label>
+              <div className="input-group mb-3 d-flex gap-2  p-0 p-sm-1 p-md-1 p-lg-1">
+                <input
+                  type="email"
+                  className="form-control p-0 p-sm-1 p-md-1 p-lg-1"
+                  placeholder=""
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -77,7 +91,6 @@ function Login() {
                   <Link to="/" className="singupLink">
                     Privacy Policy
                   </Link>
-                  .
                 </label>
               </div>
             </div>

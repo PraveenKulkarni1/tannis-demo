@@ -271,7 +271,7 @@ function UserOrder() {
                   Oops! Looks like we haven't seen you around yet!
                 </h2>
                 <p className="inStoreP">
-                  Visit your nearest Tira store for a new and exciting beauty
+                  Visit your nearest Tannis store for a new and exciting beauty
                   shopping experience
                 </p>
               </div>

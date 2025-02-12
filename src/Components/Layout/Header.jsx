@@ -5,6 +5,7 @@ import { IoBagOutline, IoPersonOutline } from "react-icons/io5";
 import Brand from "./Brand";
 import logo1 from "../../assets/logo1.jpeg";
 import SecHeader from "./SecHeader";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 const Header = () => {
   return (
@@ -34,10 +35,31 @@ const Header = () => {
                 </div>
 
                 {/* Search & Icons for Smaller Screens */}
-                <div className=" d-flex  d-lg-none align-items-center  me-2">
-                  <IoBagOutline className="" size={24} />
-                  <IoPersonOutline size={24} />
-                </div>
+                {/* <div className=" d-flex  gap-1 d-lg-none align-items-center  me-2">
+                  <FaRegHeart size={20} />
+                  <IoBagOutline className="" size={20} />
+                  <IoPersonOutline size={20} />
+                </div> */}
+                <ul className="d-flex d-lg-none gap-1">
+                  <li className="nav-item me-2">
+                    <Link to="/" className="headerIcon">
+                      {" "}
+                      <IoIosHeartEmpty size={20} />
+                    </Link>
+                  </li>
+                  <li className="nav-item me-2">
+                    <Link to="/cart" className="headerIcon">
+                      {" "}
+                      <IoBagOutline size={20} />
+                    </Link>
+                  </li>
+                  <li className="nav-item me-2">
+                    <Link to="/profile" className="headerIcon">
+                      {" "}
+                      <IoPersonOutline size={20} />
+                    </Link>
+                  </li>
+                </ul>
               </div>
 
               {/* <div className="d-flex d-lg-none "></div> */}
@@ -66,7 +88,7 @@ const Header = () => {
                     </li>
                     <li className="nav-item cardTextp">
                       <Link to="/products" className="nav-link navBorder ">
-                        Tira Red
+                        Tannis Red
                       </Link>
                     </li>
 
@@ -100,23 +122,28 @@ const Header = () => {
                       />
                     </form>
                   </li>
-                  <li className="nav-item me-2">
-                    <Link to="/cart" className="headerIcon">
-                      {" "}
-                      <IoBagOutline size={24} />
-                    </Link>
-                  </li>
+                  <ul className="d-flex gap-1">
+                    <li className="nav-item me-2">
+                      <Link to="/" className="headerIcon">
+                        {" "}
+                        <IoIosHeartEmpty size={24} />
+                      </Link>
+                    </li>
+                    <li className="nav-item me-2">
+                      <Link to="/cart" className="headerIcon">
+                        {" "}
+                        <IoBagOutline size={24} />
+                      </Link>
+                    </li>
+                    <li className="nav-item me-2">
+                      <Link to="/profile" className="headerIcon">
+                        {" "}
+                        <IoPersonOutline size={24} />
+                      </Link>
+                    </li>
+                  </ul>
 
                   <li className="nav-item dropdown">
-                    <a
-                      className="nav-link "
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <IoPersonOutline size={24} className="" />
-                    </a>
                     <ul className="dropdown-menu navProDrop">
                       <li>
                         <Link to="/profile" className="dropdown-item">
@@ -154,12 +181,12 @@ const Header = () => {
                       </li>
                       <li>
                         <li>
-                          <Link to="/contact-us" className="dropdown-item">
+                          <Link to="/write-to-us" className="dropdown-item">
                             Contact Us
                           </Link>
                         </li>
                         <li>
-                          <Link to="/help-support" className="dropdown-item">
+                          <Link to="/faq" className="dropdown-item">
                             Help & Support
                           </Link>
                         </li>
@@ -171,6 +198,16 @@ const Header = () => {
                       </li>
                       <li>
                         <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                        <Link to="/register" className="dropdown-item ">
+                          SignUp
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/login" className="dropdown-item ">
+                          Login
+                        </Link>
                       </li>
                       <li>
                         <Link to="/logout" className="dropdown-item HlogOut">

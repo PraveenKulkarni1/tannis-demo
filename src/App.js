@@ -15,11 +15,35 @@ import UserProfile from "./UserPage/UserProfile";
 import UserOrder from "./UserPage/UserOrder";
 import UserAddress from "./UserPage/UserAddress";
 import AboutUs from "./UserPage/AboutUs";
-import Faq from "./UserPage/Faq";
+
 import ReferEarn from "./UserPage/ReferEarn";
 import TopShelf from "./UserPage/TopShelf";
 import LoginOtp from "./Auth/LoginOtp";
 import AddAddress from "./UserPage/AddAddress";
+import ScrollToTopButton from "./Scroll/ScrollToTop";
+import OrderDetails from "./Components/Pages/OrderDetails";
+
+import ChangeAddress from "./Modal/ChangeAddress";
+import Faq from "./UserPage/Help&FAQ/Faq";
+import ManageYourAcc from "./UserPage/Help&FAQ/ManageYourAcc";
+import Shopping from "./UserPage/Help&FAQ/Shoppig";
+import OrderStatus from "./UserPage/Help&FAQ/OrderStatus";
+import Cancellation from "./UserPage/Help&FAQ/Cancellation";
+import ReturnRefund from "./UserPage/Help&FAQ/ReturnRefund";
+import Payments from "./UserPage/Help&FAQ/Payments";
+import OffersPromotions from "./UserPage/Help&FAQ/OffersPromotions";
+import Authenticity from "./UserPage/Help&FAQ/Authenticity";
+import GenrealQueries from "./UserPage/Help&FAQ/GenralQueries";
+import WriteToUs from "./UserPage/Help&FAQ/WriteToUs";
+import TannisTribe from "./UserPage/Help&FAQ/TannisTribe";
+import Rev from "./UserPage/Rev";
+import TermsAndCond from "./Terms&Codition/TermsAndCond";
+import FeesPayment from "./Terms&Codition/FeesPayment";
+import CancellationRefund from "./Terms&Codition/CancellationRefund";
+import ShippingDelivery from "./Terms&Codition/ShippingDelivery";
+import RewardPolicy from "./Terms&Codition/RewardPolicy";
+import PromotionTerms from "./Terms&Codition/PromotionTerms";
+import PrivatePolicy from "./Terms&Codition/PrivatePolicy";
 
 function App() {
   return (
@@ -43,6 +67,9 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/detail-product" element={<DetailProduct />}></Route>
+
+        <Route path="/order-details" element={<OrderDetails />}></Route>
+        <Route path="/change-aadress" element={<ChangeAddress />}></Route>
         <Route
           path="/cart"
           element={
@@ -53,7 +80,36 @@ function App() {
             </>
           }
         ></Route>
+        {/* FAQ Links */}
+        <Route path="/manage-account" element={<ManageYourAcc />}></Route>
+        <Route path="/shopping" element={<Shopping />} />
+        <Route path="/rev" element={<Rev />} />
+        <Route path="/order-status" element={<OrderStatus />} />
+        <Route path="/cancel-refunds" element={<Cancellation />} />
+        <Route path="/return-refund" element={<ReturnRefund />} />
+        <Route path="/faq-payments" element={<Payments />} />
+        <Route path="/faq-offers" element={<OffersPromotions />} />
+        <Route path="/autenticity" element={<Authenticity />} />
+        <Route path="/genral-queries" element={<GenrealQueries />} />
+        <Route path="/write-to-us" element={<WriteToUs />} />
+        <Route path="/tannis-tribute" element={<TannisTribe />} />
+
+        {/* Terms and Condition */}
+        <Route path="/terms-conditions" element={<TermsAndCond />} />
+        <Route path="/fees-payments" element={<FeesPayment />} />
+        <Route path="/cancel-refund-policy" element={<CancellationRefund />} />
+        <Route
+          path="/shipping-delivery-policy"
+          element={<ShippingDelivery />}
+        />
+        <Route path="/private-policy" element={<PrivatePolicy />} />
+        <Route path="/rewards-policy" element={<RewardPolicy />} />
+        <Route
+          path="/promotions-terms-condtions"
+          element={<PromotionTerms />}
+        />
       </Routes>
+      <ScrollToTopButton />
     </>
   );
 }

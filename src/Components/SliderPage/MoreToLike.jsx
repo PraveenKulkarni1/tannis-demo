@@ -158,8 +158,8 @@ function MoreToLike() {
       <div className="row moreRow">
         <Slider {...settings}>
           {moredata.map((item, i) => (
-            <div key={i} className="col-md-4 col-sm-6 col-6 mb-3">
-              <div className="card moreCard border-0">
+            <div key={i} className="col-md-4 col-sm-6 col-6 mb-3 ">
+              <div className="card moreCard border-0 shadow-sm gx-2">
                 <div className="iconAbs d-flex justify-content-end align-items-center">
                   <CiHeart className="ciHeart" />
                 </div>

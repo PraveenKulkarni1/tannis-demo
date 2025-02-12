@@ -15,6 +15,7 @@
 .moreCard {
   position: relative;
   overflow: hidden; /* Ensure content stays inside the card */
+  width: 18vw;
 }
 
 .moreCard:hover .moreCartBtn {
@@ -81,6 +82,7 @@
 
   .moreCard {
     overflow: visible !important; /* Allow content to overflow for small screens */
+    width: auto;
   }
 }
 @media (min-width: 487px) and (max-width: 768px) {

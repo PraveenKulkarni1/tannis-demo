@@ -7,6 +7,7 @@ import { FiBox } from "react-icons/fi";
 import { GiDialPadlock } from "react-icons/gi";
 import { TfiHelpAlt } from "react-icons/tfi";
 import { BsPersonPlusFill } from "react-icons/bs";
+import { CgCardSpades } from "react-icons/cg";
 
 function UserMenu() {
   const menuItems = [
@@ -54,7 +55,7 @@ function UserMenu() {
     },
     {
       path: "/top-shelf",
-      icon: <IoPersonOutline size={24} className="usermenuIcon" />,
+      icon: <CgCardSpades size={24} className="usermenuIcon" />,
       title: "Top Shelf",
       description: "Beauty news, reviews, and trends",
     },
@@ -75,7 +76,7 @@ function UserMenu() {
               <div className="menu-item">
                 <div className="icon-container">{item.icon}</div>
                 <div className="text-container">
-                  <h6 className="usermenuH6">{item.title}</h6>
+                  <h6 className="usermenuH6 ">{item.title}</h6>
                   <p className="usermenuP">{item.description}</p>
                 </div>
               </div>
@@ -84,12 +85,12 @@ function UserMenu() {
         </div>
         <ul className="ProfilesubUl d-flex gap-2  flex-column mt-2 mt-xl-5 mt-lg-5 mt-md-3  mt-sm-3">
           <li>
-            <Link to="/contact-us" className="">
+            <Link to="/write-to-us" className="">
               Conatct Us
             </Link>
           </li>
           <li>
-            <Link to="/help-support" className="">
+            <Link to="/faq" className="">
               Help & Support
             </Link>
           </li>{" "}

@@ -33,7 +33,7 @@ const PdtDetail = () => {
         <div className="d-flex gap-1 my-3">
           <h6 className="d-flex gap-1 pdtText">
             4.6<span className="pdtSpan">/5</span>
-            <FaStar className="pdtStar" />
+            <FaStar className="pdtStar me-2" />
             <u>
               <Link to="/" className="pdtText">
                 35 Ratings
@@ -70,13 +70,13 @@ const PdtDetail = () => {
         <div className="d-flex justify-content-between offerViewBg my-3">
           <div className="">
             <p className="offetVp">
-              <TbCircleDashedPercentage /> 2 Offers
+              <TbCircleDashedPercentage className="me-2" size={15} /> 2 Offers
             </p>
           </div>
           <button className="offvBtn">
             {" "}
             View All
-            <MdKeyboardArrowRight />
+            <MdKeyboardArrowRight size={15} className="ms-2" />
           </button>
         </div>
         <div className="d-flex justify-content-between">
@@ -110,7 +110,7 @@ const PdtDetail = () => {
               </Link>
 
               <Link to="/" className="pdtLocIcon d-flex">
-                <CiLocationOn />
+                <CiLocationOn className="me-2" />
                 <span className="pdtText"> 560036</span>
               </Link>
             </div>
@@ -127,7 +127,7 @@ const PdtDetail = () => {
           <div className="d-flex pdtFbg">
             <p className="pdtFree">
               {" "}
-              <RiTruckLine className="pdtFree mb-1" />
+              <RiTruckLine className="pdtFree mb-1 me-2" />
               Free develory
             </p>
             <p className="pdtGet"> - Get it by Sun, Jan 26</p>

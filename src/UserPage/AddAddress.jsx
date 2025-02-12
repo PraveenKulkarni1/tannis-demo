@@ -17,7 +17,6 @@ function AddAddress() {
   const [pincode, setPincode] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [date, setDate] = useState("");
   const [country, setCountry] = useState("");
   const [fullName, setFullName] = useState("");
   const [contact, setContact] = useState("");

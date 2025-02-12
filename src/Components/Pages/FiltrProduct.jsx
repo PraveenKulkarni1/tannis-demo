@@ -41,7 +41,7 @@ const FiltrProduct = () => {
   };
   return (
     <>
-      <div className="mb-3 sticky-top" style={{ top: "20px" }}>
+      <div className="mb-3 sticky-top" style={{ top: "40px" }}>
         <h5 className="producth5 ">
           Lip Blam <span className="productp1">(123 items)</span>
         </h5>

@@ -4,7 +4,7 @@
   border-radius: 10px;
 }
 .cartBorderTwo {
-  height: auto;
+  height: 430px;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: 400;
 
-  color: #211a1e;
+  color: #211a1e !important;
   font-size: 14px;
   line-height: 160%;
 }
@@ -57,7 +57,7 @@
 /* coupen */
 
 .coupenOne {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(177, 175, 175);
 }
 .couSave {
   font-family: PP Object sans, sans-serif;

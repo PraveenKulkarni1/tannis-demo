@@ -10,14 +10,15 @@ import { Link } from "react-router-dom";
 
 import { FiPlus } from "react-icons/fi";
 import MoreToLike from "./../SliderPage/MoreToLike";
-import Header from "./../Layout/Header";
+
+import Header2 from "./../Layout/Header2";
 function CartPage() {
   return (
     <>
       <div className="position-sticky top-0 start-0 z-3 bg-white">
-        <Header />
+        <Header2 />
       </div>
-      <div className="container mt-5">
+      <div className="container my-2 my-xl-5 my-lg-5 my-md-3 my-sm-3">
         <div className="row d-flex gap-3">
           <div className="col-md-7 cartBorder  ">
             <div className="card mb-2 border-0">
@@ -111,7 +112,7 @@ function CartPage() {
           <div className="col-md-4 cartBorderTwo p-0">
             <div className="coupenOne p-2">
               <h3 className="couHead">
-                <TbCircleDashedPercentage />
+                <TbCircleDashedPercentage className="me-2" />
                 <span className="">Coupons & Bank Offers</span>
               </h3>
               <p className="couP1">Login to Apply Coupons & Bank Offers</p>
@@ -121,7 +122,7 @@ function CartPage() {
               <div className="d-flex justify-content-between">
                 <div>
                   <h3 className="couP1">Total MRP</h3>
-                  <p className="">Inclusive of All Taxes</p>
+                  <p className="couP5">Inclusive of All Taxes</p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
                   <h3 className="couP1">
@@ -157,13 +158,13 @@ function CartPage() {
                 </h4>
               </div>
               <h3 className="couSave mb-2">
-                <LuPartyPopper />
+                <LuPartyPopper className="me-2" />
                 Woohoo! You save <MdCurrencyRupee />
                 1343.01 on this order.
               </h3>
               <div className="d-flex justify-content-center align-items-center">
                 <Link
-                  to="/"
+                  to="/order-details"
                   className="couCheckOut d-flex justify-content-center align-items-center"
                 >
                   Checkout

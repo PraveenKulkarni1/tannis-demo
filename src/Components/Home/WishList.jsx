@@ -8,7 +8,7 @@ import wish2 from "../../assets/wish2.jpg";
 import wish3 from "../../assets/wish3.jpg";
 import wish4 from "../../assets/wish4.jpg";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
+import { NavLink } from "react-router-dom";
 const WishList = () => {
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -80,8 +80,11 @@ const WishList = () => {
           <Slider {...settings}>
             {data?.map((item, i) => {
               return (
-                <div div className="">
-                  <div className=" col-2 card topCateCard border-0 d-flex justify-content-between ">
+                <div className="">
+                  <NavLink
+                    to="/products"
+                    className=" col-2 card topCateCard border-0 d-flex justify-content-between "
+                  >
                     <img
                       src={item.img}
                       className="card-img-top hcateImg"
@@ -90,7 +93,7 @@ const WishList = () => {
                     <div className="card-body">
                       <p className="cardTextp">{item.name}</p>
                     </div>
-                  </div>
+                  </NavLink>
                 </div>
               );
             })}

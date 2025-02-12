@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import UseMediaQuery from "./../../UseMediaQuery";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const TopCate = () => {
   const [category, setCategory] = useState([]);
@@ -86,7 +87,10 @@ const TopCate = () => {
             {category?.map((item, i) => {
               return (
                 <div div className="">
-                  <div className=" col-2 card topCateCard border-0 d-flex justify-content-between ">
+                  <NavLink
+                    to="/"
+                    className=" col-2 card topCateCard border-0 d-flex justify-content-between "
+                  >
                     <img
                       src={`https://tannis.in${item.image}`}
                       className="card-img-top hcateImg"
@@ -95,7 +99,7 @@ const TopCate = () => {
                     <div className="card-body">
                       <p className="cardTextp">{item.c_name}</p>
                     </div>
-                  </div>
+                  </NavLink>
                 </div>
               );
             })}

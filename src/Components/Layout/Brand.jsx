@@ -101,7 +101,7 @@ const Brand = () => {
             <ul>
               <li>
                 <Link to="/" className="dropdown-item ">
-                  Tira Red
+                Tannis Red
                 </Link>
               </li>
             </ul>
