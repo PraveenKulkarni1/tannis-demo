@@ -142,15 +142,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container ">
+      <div className="container  ">
         <div className="row">
-          <div className="col-12 horiRow"></div>
+          <div className="col-12 horiRow  "></div>
         </div>
       </div>
-      <div className="container">
+      <div className="container my-2 my-xl-3 my-lg-3 my-md-2 my-sm-2">
         <div className="row">
-          <div className="col-md-10">
-            <p>© 2025 Tannis. All Rights Reserved.</p>
+          <div className="col-md-10 ">
+            <p className="">© 2025 Tannis. All Rights Reserved.</p>
             <ul className="TfooterEnd p-0">
               <li>
                 <Link to="/terms-conditions">Terms & Conditions</Link>

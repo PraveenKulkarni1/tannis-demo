@@ -9,6 +9,7 @@ import { MdPhotoCamera } from "react-icons/md";
 import { Modal, Button } from "react-bootstrap";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { TbCameraPlus } from "react-icons/tb";
 
 function UserProfile() {
   const [firstName, setFirstName] = useState("");
@@ -49,7 +50,6 @@ function UserProfile() {
 
             <form onSubmit={handleSubmit} className="profile-form">
               <div className="gender-container mb-3">
-          
                 <button
                   className={`gender-button ${
                     selectedGender === "male" ? "active" : ""
@@ -59,7 +59,6 @@ function UserProfile() {
                   Male
                 </button>
 
-              
                 <button
                   className={`gender-button ${
                     selectedGender === "female" ? "active" : ""
@@ -69,7 +68,6 @@ function UserProfile() {
                   Female
                 </button>
 
-            
                 <button
                   className={`gender-button ${
                     selectedGender === "nonBinary" ? "active" : ""
@@ -136,8 +134,10 @@ function UserProfile() {
                 />
                 <span className="userPSpan">
                   Email is not verified.{" "}
-                  <span className="userPLink">Click here</span> to verify your
-                  email
+                  <span className="">
+                    <button className="userPLink">Click here</button>
+                  </span>{" "}
+                  to verify your email
                 </span>
               </div>
 

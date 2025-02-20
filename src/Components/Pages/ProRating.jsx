@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa6";
 import Stars from "./../Home/Stars";
 import p1 from "../../assets/p1.avif";
 import UseMediaQuery from "./../../UseMediaQuery";
-
+import { PiSealCheckFill } from "react-icons/pi";
 function ProRating() {
   const [progressOne, setProgressOne] = useState(70);
   const [progressTwo, setProgressTwo] = useState(30);
@@ -19,8 +19,12 @@ function ProRating() {
         <div className="col-md-7">
           <h3 className="proRatMain">Rating</h3>
           <p className="">
-            <FaCheckCircle className="text-success me-2" />
-            <span className="proRatspan">By 14 verified Tira customers</span>
+            <PiSealCheckFill
+              className=" me-2"
+              size={18}
+              style={{ color: "green" }}
+            />
+            <span className="proRatspan">By 14 verified Tannis customers</span>
           </p>
           <div className="d-flex gap-4">
             <div className="container">

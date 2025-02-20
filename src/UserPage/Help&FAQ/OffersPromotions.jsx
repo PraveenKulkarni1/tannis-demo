@@ -105,10 +105,10 @@ function OffersPromotions() {
                   answer: (
                     <span>
                       Our benefits are tailored individually for each tier.
-                      Please refer to ‘Table A’ under ‘Tira Treats Overview’ in
-                      the Tannis Treats Terms and Conditions for an overview of
-                      the benefits specific to each tier. For more information
-                      please refer to the Tannis Treats{" "}
+                      Please refer to ‘Table A’ under ‘Tannis Treats Overview’
+                      in the Tannis Treats Terms and Conditions for an overview
+                      of the benefits specific to each tier. For more
+                      information please refer to the Tannis Treats{" "}
                       <span>
                         <Link>Terms and Conditions</Link>
                       </span>
@@ -223,7 +223,7 @@ function OffersPromotions() {
                   answer: (
                     <span>
                       In the profile section, you’ll find a dedicated area
-                      specifically for “Tira Treats.” This section provides a
+                      specifically for “Tannis Treats.” This section provides a
                       comprehensive overview of your activities and
                       corresponding Tannis points earned. It will also offer a
                       detailed history of your activities vis a vis the Tannis
@@ -406,7 +406,7 @@ function OffersPromotions() {
                       <br />
                       (All days, between 8am-8pm)
                       <br />
-                      Email: help@tirabeauty.com
+                      Email: help@tannisbeauty.com
                     </span>
                   ),
                 },

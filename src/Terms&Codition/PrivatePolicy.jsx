@@ -20,7 +20,7 @@ function PrivatePolicy() {
               Floor, Court House, Lokmanya Tilak Marg, Dhobi Talao,
               Mumbai–400002, Maharashtra, India, India (“Reliance”, “we”, “us”
               or “our”) is managing and operating the website, and mobile or
-              tablet applications www.tirabeauty.com (collectively referred to
+              tablet applications www.tannisbeauty.com (collectively referred to
               as “Tannis”, or “website”, or “app”), through which inter alia
               facilitate the sale and purchase of various beauty and personal
               care products (“products”) to the Customer (“Customer” or “user”
@@ -39,13 +39,13 @@ function PrivatePolicy() {
               1.3 Tannis is committed to protecting and respecting your privacy.
               This privacy policy (“privacy policy”) to be read together with
               the Terms and Conditions and all other policies listed and
-              notified on Tira. This privacy policy outlines Tannis privacy
+              notified on Tannis. This privacy policy outlines Tannis privacy
               practices regarding the collection, use disclosure, processing,
               transfer, storage and safeguarding of the information provided to
               us by you through the website and the services offered thereupon.
             </p>
             <p className="termsP">
-              1.4 By using, browsing, accessing, or purchasing on Tira,
+              1.4 By using, browsing, accessing, or purchasing on Tannis,
               submission of personal information and in case of a minor – the
               submission of your personal information either by your parents or
               your guardian, you agree to be bound by the terms of this Privacy
@@ -64,10 +64,10 @@ function PrivatePolicy() {
               providing your information or availing our product/service, you
               expressly agree to be bound by the terms and conditions of this
               privacy policy, the Terms and Conditions and all other policies
-              listed and notified on tira, and agree to be governed by the laws
-              of India including but not limited to the laws applicable to data
-              protection and privacy. If you do not agree please do not use or
-              access our website.
+              listed and notified on tannis, and agree to be governed by the
+              laws of India including but not limited to the laws applicable to
+              data protection and privacy. If you do not agree please do not use
+              or access our website.
             </p>
             <p className="termsP">
               1.6 This document is an electronic record and is governed by the
@@ -81,7 +81,7 @@ function PrivatePolicy() {
             <p className="termsP">
               1.7 Please take a moment to familiarise yourself with our privacy
               policy. If you do not agree with any provisions of the Terms or
-              this privacy policy, we advise you to not use or access tira.
+              this privacy policy, we advise you to not use or access tannis.
             </p>
             <h3 className="termsh1">2.Type Of Information collected</h3>
 
@@ -126,7 +126,7 @@ function PrivatePolicy() {
               2.4 You agree to provide information, which shall be true,
               correct, up to date and accurate. You may access, amend, alter or
               require the deletion of your information partially or fully by
-              contacting us at help@tirabeauty.com
+              contacting us at help@tannisbeauty.com
             </p>
             <p className="termsP">
               2.5 We may collect a variety of information from you, including
@@ -227,10 +227,10 @@ function PrivatePolicy() {
               4.1 We may from time to time be required to disclose the
               information collected from you to our trusted third-party service
               providers who assist us in order to facilitate the provision of
-              services and purchase of products on tira. For instance, we may
+              services and purchase of products on tannis. For instance, we may
               share your information with third-party payment gateway provider
-              to process transactions on tira. By using tira, you consent to any
-              such disclosure of your information with third-party service
+              to process transactions on tannis. By using tannis, you consent to
+              any such disclosure of your information with third-party service
               providers. We ensure that such third-party service providers are
               bound by reasonable confidentiality obligations and/ or use,
               maintain and follow generally accepted industry and security
@@ -289,10 +289,10 @@ function PrivatePolicy() {
             </p>
             <p className="termsP">
               4.6 Your information may also be transferred, stored or processed
-              in any country other than the one where you access tira. For
+              in any country other than the one where you access tannis. For
               purposes of sharing or disclosing data in accordance with the
               privacy policy, we reserve the right to transfer your information
-              outside of your country. By using tira, you consent to such
+              outside of your country. By using tannis, you consent to such
               transfer of your information outside of your country and also
               within our affiliates, subsidiaries and partners whose personnel
               and subcontractors, provided they have agreed to ensure the same
@@ -307,11 +307,11 @@ function PrivatePolicy() {
               and reviews given by you on Tannis in relation to the Services or
               the Products. You agree that we may edit the testimonials and
               reviews provided by you and reproduce/publish such edited or
-              paraphrased versions of the testimonials and reviews on Tira, or
+              paraphrased versions of the testimonials and reviews on Tannis, or
               on any other platform, third-party website, app, social media or
               channels, at our discretion. If you have any concerns with the
               reproduction/publication of any testimonial or review provided by
-              you, you may contact us at help@tirabeauty.com.
+              you, you may contact us at help@tannisbeauty.com.
             </p>
             <h3 className="termsh1">5.Security</h3>
 
@@ -323,7 +323,7 @@ function PrivatePolicy() {
               security measures to protect the personal Information that it has
               under its control from unauthorized access, improper use or
               disclosure, unauthorized modification and unlawful destruction or
-              accidental loss. When you submit your information on tira, your
+              accidental loss. When you submit your information on tannis, your
               information is protected through our security systems. Please note
               that we use international and industry-recognized standards such
               as per applicable laws, rules and regulations.
@@ -355,10 +355,10 @@ function PrivatePolicy() {
 
             <p className="termsP">
               6.1 Due to the communications standards on the Internet, when you
-              visit, access or browse the tira, we automatically receive the
+              visit, access or browse the tannis, we automatically receive the
               uniform resource locator of the site from which you visit, access
-              or browse the tira, details of the website you visit on leaving
-              the tira, the internet protocol (“IP”) address of each user’s
+              or browse the tannis, details of the website you visit on leaving
+              the tannis, the internet protocol (“IP”) address of each user’s
               computer operating system, type of web browser the user is using,
               email patterns, and the name of the user’s internet service
               provider. This information is used solely to analyze overall user
@@ -391,7 +391,7 @@ function PrivatePolicy() {
               6.3 You understand that you may set or amend your web browsers to
               delete or disable cookies. If you choose to disable cookies on
               your computer or mobile telecommunication device, it may impair,
-              degrade or restrict access to certain areas of the tira.{" "}
+              degrade or restrict access to certain areas of the tannis.{" "}
             </p>
 
             <p className="termsP">
@@ -407,18 +407,19 @@ function PrivatePolicy() {
             </p>
             <p className="termsP">
               6.5 You agree and understand that we do not exercise control over
-              third-party websites displayed as search results or links on Tira.
-              These other sites may place their own cookies or other files on
-              the User’s computer, collect data, or solicit Personal Information
-              from the Users, over which we have no control and shall not be
-              held responsible or liable. We do not make any representations
-              concerning the privacy practices or policies of such third parties
-              or terms of use of such websites, nor do we guarantee the
-              accuracy, integrity, or quality of the information, data, text,
-              software, sound, photographs, graphics, videos, messages, or other
-              materials available on such websites. The inclusion or exclusion
-              does not imply any endorsement by us of such websites, the
-              website’s provider, or the information on the website.
+              third-party websites displayed as search results or links on
+              Tannis. These other sites may place their own cookies or other
+              files on the User’s computer, collect data, or solicit Personal
+              Information from the Users, over which we have no control and
+              shall not be held responsible or liable. We do not make any
+              representations concerning the privacy practices or policies of
+              such third parties or terms of use of such websites, nor do we
+              guarantee the accuracy, integrity, or quality of the information,
+              data, text, software, sound, photographs, graphics, videos,
+              messages, or other materials available on such websites. The
+              inclusion or exclusion does not imply any endorsement by us of
+              such websites, the website’s provider, or the information on the
+              website.
             </p>
             <p className="termsP">
               6.6 We may keep records of telephone calls received from and make
@@ -449,7 +450,7 @@ function PrivatePolicy() {
               and Conditions and Privacy Policy, you provide explicit consent to
               us, to have access to your camera and gallery or the mic, as the
               case may be, applications installed in your personal handheld
-              phone or computer, through which you access Tira.
+              phone or computer, through which you access Tannis.
             </p>
             <p className="termsP">
               8.2 You acknowledge and accept that for the purpose of providing
@@ -474,7 +475,7 @@ function PrivatePolicy() {
               9.2 If you wish to remove your contact information from all our
               mailing lists and newsletters, you can click on the “unsubscribe”
               link or follow the instructions in each e-mail message.
-              Alternatively, you can contact us at help@tirabeauty.com . We
+              Alternatively, you can contact us at help@tannisbeauty.com . We
               reserve the right to limit membership based on the availability of
               contact information. All users will be notified by email prior to
               any actions taken.
@@ -523,7 +524,7 @@ function PrivatePolicy() {
             <p className="termsP">
               13.1 We reserve the right to amend this privacy policy at any
               time. The privacy policy, as and when modified, shall be updated
-              on tira. We encourage you to review this privacy policy whenever
+              on tannis. We encourage you to review this privacy policy whenever
               you visit our tannis to understand how your personal Information
               is used. 14.
             </p>

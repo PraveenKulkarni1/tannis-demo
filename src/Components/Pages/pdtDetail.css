@@ -4,7 +4,8 @@
   font-weight: bold;
 }
 .pdtMainTxt,
-.pdtText {
+.pdtText,
+.pdtSaveAdd {
   color: #000;
   font-weight: 500;
   font-family: PP Object sans, sans-serif;
@@ -23,13 +24,28 @@
 }
 .pdtMainTxt {
   font-size: 25px;
+  font-weight: 601;
 }
+
+.pdtSaveAdd {
+  font-size: 20px;
+}
+
 .pdtText {
   font-size: 15px;
 }
 .pdtSpan {
   font-size: 15px;
   color: rgb(187, 187, 187) !important;
+  font-weight: 500;
+  font-family: PP Object sans, sans-serif;
+  -webkit-line-clamp: 1;
+  max-width: 90%;
+  -webkit-box-orient: vertical;
+}
+.pdtCity {
+  font-size: 15px;
+  color: rgb(103, 100, 100) !important;
   font-weight: 500;
   font-family: PP Object sans, sans-serif;
   -webkit-line-clamp: 1;
@@ -99,6 +115,9 @@
   );
   padding: 5px 10px;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 .offetVp {
   width: auto;
@@ -126,6 +145,10 @@
   background: rgb(236, 236, 236);
   padding: 5px 50px;
   border-radius: 20px;
+}
+.pdtcheck1 {
+  color: rgb(236, 236, 236);
+  font-size: 22px !important;
 }
 .pdtcheck {
   background: rgb(236, 236, 236);
@@ -160,7 +183,7 @@
   height: auto;
   background: rgb(236, 236, 236);
   border-radius: 8px;
-  padding: 5px 5px;
+  padding: 5px;
 }
 
 .pdtFree {
@@ -175,10 +198,102 @@
   color: rgb(149, 60, 60);
   font-size: 24px;
 }
+.pdtEmpty {
+  color: "";
+  font-size: 24px;
+}
 /* .pdtFaStar:hover {
   background: rgb(149, 60, 60) !important;
 } */
 
+.shadeBorder {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgb(110, 105, 105);
+  cursor: pointer;
+}
+
+.shadeBorder.active {
+  border: 2px solid blue;
+}
+.shadeColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.shadeSelect {
+  width: auto;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid rgb(110, 105, 105);
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.selectText {
+  color: #000;
+  font-weight: 500;
+  font-family: "PP Object sans", sans-serif;
+
+  font-size: 15px;
+}
+.shadeSize {
+  width: auto;
+  height: 10px !important;
+}
+.shadeSelect.active {
+  border: 2px solid blue;
+}
+
+.revCamera {
+  width: auto;
+  height: auto;
+
+  overflow: hidden;
+  font-weight: 500;
+  border: none;
+
+  color: rgb(110, 105, 105);
+  background-color: rgb(233, 227, 227);
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-size: bold;
+}
+
+.revSubmit {
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+
+  font-family: PP Object sans, sans-serif;
+
+  color: #fff;
+  background-color: #211a1e;
+  padding: 8px 40px;
+  font-size: bold;
+}
+
+/* change Loc */
+
+.locModelBg1 {
+  width: auto;
+  height: auto;
+  background: rgb(233, 227, 227);
+  padding: 10px;
+  border-radius: 10px;
+}
+.locIcon1 {
+  width: auto;
+  height: auto;
+  background: #ff5353;
+  padding: 10px;
+  cursor: pointer;
+}
 @media (min-width: 990px) and (max-width: 1200px) {
   .pdtBtn {
     width: 47% !important;
@@ -203,6 +318,18 @@
   }
 }
 
+@media (min-width: 487px) and (max-width: 786px) {
+  .revCamera {
+    padding: 5px 15px;
+  }
+
+  .revSubmit {
+    font-size: 15px;
+
+    padding: 5px 25px;
+    font-size: bold;
+  }
+}
 @media (max-width: 486px) {
   .pdtBtn {
     width: 38% !important;
@@ -240,5 +367,64 @@
   }
   .pdtFaStar {
     font-size: 14px !important;
+  }
+  .pdtLocIcon,
+  .pdtDelivery {
+    font-size: 15px;
+  }
+  .pdtSpan {
+    font-size: 13px;
+  }
+
+  .shadeBorder {
+    width: 25px;
+    height: 25px;
+  }
+
+  .shadeBorder.active {
+    border: 1px solid blue;
+  }
+  .shadeColor {
+    width: 15px;
+    height: 15px;
+  }
+
+  .selectText {
+    font-size: 11px;
+  }
+  .shadeSelect {
+    padding: 0px 5px;
+    border-radius: 7px;
+  }
+  .pdtFaStar .pdtEmpty {
+    font-size: 18px;
+  }
+
+  .offerViewBg {
+    width: auto;
+    height: auto;
+    background: linear-gradient(
+      to right,
+      rgb(250, 223, 223) 30%,
+      rgb(255, 243, 243)
+    );
+    padding: 3px 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .revCamera {
+    padding: 3px 10px;
+  }
+  .revSubmit {
+    font-size: 13px;
+    padding: 3px 17px;
+    font-size: bold;
+  }
+  .pdtSaveAdd {
+    font-size: 15px;
   }
 }

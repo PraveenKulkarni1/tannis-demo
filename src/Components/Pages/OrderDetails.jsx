@@ -234,14 +234,17 @@ function OrderDetails() {
           {addresses.map((address) => (
             <div
               key={address.id}
-              className="card p-3 shadow-sm mb-2 d-flex justify-content-between"
+              className="card p-3 shadow-sm  d-flex justify-content-between"
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex gap-2 flex-start align-items-start">
                 <input type="radio" name="selectedAddress" className="me-2" />
                 <div className="flex-grow-2">
-                  <h5 className="mb-1">{address.name}</h5>
-                  <span className="copBorder">{address.type}</span>
-                  <p className="mb-1">{address.address}</p>
+                  <h5 className="">
+                    {address.name}{" "}
+                    <span className="copBorder">{address.type}</span>
+                  </h5>
+                  <span className="">{address.address}</span>
+
                   <p className="mb-0">Mobile: {address.contact}</p>
                 </div>
 

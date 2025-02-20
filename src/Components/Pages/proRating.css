@@ -1,7 +1,7 @@
 .proRatMain {
-  font-family: PP Object sans, sans-serif;
+  font-family: "PP Object sans", sans-serif;
   font-style: normal;
-  font-weight: 501;
+  font-weight: 600;
   font-size: 18px;
   color: #211a1e;
   line-height: 160%;
@@ -88,5 +88,12 @@
   }
   .proRatNum {
     font-size: 20px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ratRel::after {
+    height: 0;
+    width: 0;
   }
 }

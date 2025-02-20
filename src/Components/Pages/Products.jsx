@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./products.css";
 import Layout from "./../Layout/Layout";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { MdCurrencyRupee } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 
@@ -78,7 +78,10 @@ const Products = () => {
                     sub_category,
                   } = item;
                   return (
-                    <div className="d-flex col-md-4  col-sm-6 col-6 mb-3">
+                    <NavLink
+                      to="/product-details"
+                      className="d-flex col-md-4  col-sm-6 col-6 mb-3"
+                    >
                       <div className="card  productCard border-0 shadow-sm g-2">
                         <div className="iconAbs d-flex justify-content-end align-items-center ">
                           <CiHeart className="ciHeart" />
@@ -120,7 +123,7 @@ const Products = () => {
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </NavLink>
                   );
                 })}
             </div>

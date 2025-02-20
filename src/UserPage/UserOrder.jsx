@@ -13,7 +13,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function UserOrder() {
-  const [selectedOrderType, setSelectedOrderType] = useState("null");
+  const [selectedOrderType, setSelectedOrderType] = useState("online");
   const [dropdownOpen1, setDropdownOpen1] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [selectedSort1, setSelectedSort1] = useState("Recent");

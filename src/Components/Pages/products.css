@@ -210,6 +210,10 @@
   .offerP4 {
     width: auto;
     max-width: 80%;
+    font-size: 12px;
+  }
+  .proCartBtn {
+    font-size: 13px;
   }
   .pdtFbg {
     display: flex;
@@ -220,6 +224,6 @@
     font-size: 12px;
   }
   .proText {
-    font-size: 14px;
+    font-size: 12px;
   }
 }

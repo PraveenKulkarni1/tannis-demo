@@ -124,7 +124,7 @@ function Rev() {
                 <div className="refBorder3  p-3 ">
                   <p className="refh1 ">Refer & Earn</p>
                   <p className="refAns text-justify">
-                    Refer our app to your friends and family to earn  200 Tira
+                    Refer our app to your friends and family to earn  200 Tannis
                     points for each member who signs u
                   </p>
                   <p className="refdashborder refAns me-2 p-2">

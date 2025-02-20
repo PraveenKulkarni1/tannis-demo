@@ -23,19 +23,19 @@ function AboutUs() {
           </div>
           <div className="col-12 col-12 d-flex justify-content-center align-items-center flex-column abtCol2 my-2 my-xl-5 my-lg-5 my-md-3 my-sm-3 ">
             <p className="abtPara text-center">
-              Tira is inspired by the Goddess Rati, who symbolises love, passion
-              and beauty. The name Tira recognises your inner superpower that
-              makes you feel beautiful on the inside and out. It celebrates the
-              unique spirit that makes you – truly you.
+              Tannis is inspired by the Goddess Rati, who symbolises love,
+              passion and beauty. The name Tannis recognises your inner
+              superpower that makes you feel beautiful on the inside and out. It
+              celebrates the unique spirit that makes you – truly you.
             </p>
             <p className="abtPara text-center">
               We understand that beauty means different things to different
               people, and that it can change from day to day and mood to mood.
-              Tira celebrates that feeling.
+              Tannis celebrates that feeling.
             </p>
             <p className="abtPara text-center">
-              At Tira, we curate the best global and homegrown beauty brands and
-              inspire you to explore and express your every idea of beauty.
+              At Tannis, we curate the best global and homegrown beauty brands
+              and inspire you to explore and express your every idea of beauty.
             </p>
             <p className="abtPara text-center">
               We are here to be your companion in this journey – For every day,

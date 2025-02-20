@@ -105,6 +105,7 @@ import UseMediaQuery from "./../../UseMediaQuery";
 import PdtDetail from "./PdtDetail";
 import ProRating from "./ProRating";
 import MoreToLike from "./../SliderPage/MoreToLike";
+import Review from "./ProReview";
 
 const DetailProduct = () => {
   const isMobile = UseMediaQuery("(max-width:486px)");
@@ -136,7 +137,7 @@ const DetailProduct = () => {
           <div className="col-md-6">
             <div
               className="row sticky-top d-flex justify-content-around"
-              style={{ top: "130px", zIndex: "1" }}
+              style={{ top: "170px", zIndex: "1" }}
             >
               <div className="col-md-2 ">
                 {data?.map((item, i) => {
@@ -180,6 +181,7 @@ const DetailProduct = () => {
         </div>
       </div>
       <ProRating />
+      <Review />
       <MoreToLike />
     </Layout>
   );

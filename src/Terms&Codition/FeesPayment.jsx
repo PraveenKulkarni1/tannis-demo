@@ -21,7 +21,7 @@ function FeesPayment() {
               Floor, Court House, Lokmanya Tilak Marg, Dhobi Talao,
               Mumbai–400002, Maharashtra, India, India (“Reliance”, “we”, “us”
               or “our”) is managing and operating the website, and mobile or
-              tablet applications www.tirabeauty.com (collectively referred to
+              tablet applications www.tannisbeauty.com (collectively referred to
               as “Tannis”, or “website”, or “app”), through which inter alia
               facilitate the sale and purchase of various beauty and personal
               care products (“products”) to the Customer (“Customer” or “user”

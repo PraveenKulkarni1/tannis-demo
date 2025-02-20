@@ -139,7 +139,7 @@ function Cancellation() {
                 {
                   id: 5,
                   question:
-                    "Will shipping charges be refunded if I cancel my Tira order?",
+                    "Will shipping charges be refunded if I cancel my Tannis order?",
                   answer: (
                     <span>
                       Shipping charges will be refunded if the complete order is

@@ -37,3 +37,9 @@
 .FaCheColor {
   color: #897c83;
 }
+
+@media (max-width: 486px) {
+  .filDropText {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,207 @@
+.reviewNav {
+  width: auto;
+  height: auto;
+  background: #f6f6f6;
+  border: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 30px 20px;
+}
+.revButton2 {
+  border: none !important;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  background: #f6f6f6 !important;
+  color: #f00000 !important;
+  font-weight: 600;
+}
+
+.revh1 {
+  font-size: 16px;
+  font-weight: 501;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  color: #211a1e;
+  font-weight: 600;
+}
+.ratLable {
+  font-size: 16px;
+  font-weight: 501;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  color: #211a1e;
+  width: auto;
+  height: auto;
+  background: #f6f6f6;
+  border-radius: 10px;
+  padding: 10px;
+}
+.revButton {
+  width: auto;
+  height: auto;
+  font-size: 15px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+  color: #211a1e;
+  border: 1px solid #211a1e;
+  background-color: #ffff;
+  padding: 5px 20px;
+  font-size: bold;
+}
+.revButtonImg {
+  width: auto;
+  height: auto;
+  font-size: 15px;
+  line-height: 140%;
+
+  font-weight: 500;
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+  color: #211a1e;
+  border: 1px solid #211a1e;
+  background-color: #ffff;
+  padding: 5px 20px;
+  font-size: bold;
+}
+.revButton3 {
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+  color: #211a1e;
+  border: 1px solid #211a1e;
+  background-color: #ffff;
+  padding: 5px 8px;
+  font-size: bold;
+}
+.revApply {
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+  color: #ffff;
+  border: 1px solid #211a1e;
+  background-color: #211a1e;
+  padding: 5px 8px;
+  font-size: bold;
+}
+.revColorName {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 15px;
+  color: #211a1e;
+  line-height: 160%;
+}
+
+/* second */
+
+.revviewBorder2 {
+  background: #fbfbfb;
+  border-radius: 30px;
+  padding: 10px;
+  width: 48%;
+}
+.reviewBorder1 {
+  width: auto;
+  height: auto;
+  border-top: 0px solid #211a1e;
+  border-left: 1px solid #211a1e;
+  border-right: 1px solid #211a1e;
+  border-bottom: 1px solid #211a1e;
+  overflow-y: 50vh;
+}
+
+.revBoderPara {
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: "vertical";
+  overflow: "hidden";
+  display: "-webkit-box";
+}
+
+.revReadMore {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 15px;
+  color: #211a1e;
+  line-height: 160%;
+  border: none;
+  background: none;
+}
+.revImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.revName {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 15px;
+  color: #211a1e;
+}
+.likeBtn {
+  width: auto;
+  height: 35px;
+  background: #eeee;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 501;
+  font-size: 18px;
+  padding: 1px 3px;
+  border: 1px solid rgba(199, 195, 195, 0.933);
+  border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+  .revButtonImg {
+    padding: 2px 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rev1Cont {
+    width: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+  }
+  .revviewBorder2 {
+    width: auto;
+  }
+}
+@media (max-width: 486px) {
+  .revButton2 .revButton .revButtonImg {
+    font-size: 13px;
+  }
+  .revButton {
+    padding: 3px 8px;
+  }
+  .revh1 {
+    font-size: 13px;
+  }
+  .ratLable,
+  .revColorName {
+    font-size: 13px;
+  }
+  .revName {
+    font-size: 13px;
+  }
+  .revButtonImg {
+    padding: 2px 12px;
+  }
+}

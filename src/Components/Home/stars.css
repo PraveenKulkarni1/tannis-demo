@@ -1,8 +1,9 @@
 .icon-style {
   display: flex;
   gap: 0.2rem;
-  align-items: center;
-  justify-content: center;
+  justify-content: start;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .icons {

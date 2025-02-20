@@ -6,10 +6,25 @@ import Brand from "./Brand";
 import logo1 from "../../assets/logo1.jpeg";
 import SecHeader from "./SecHeader";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { Badge } from "antd";
 
 const Header = () => {
   return (
     <>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 trackDetails">
+            <div className="d-flex justify-content-end gap-3 my-1">
+              <Link to="/order" className="trakNav ">
+                Track Order
+              </Link>
+              <Link to="/write-to-us" className="trakNav trackRel">
+                Help Center
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container">
         <div className="row">
           <nav className="navbar navbar-expand-lg ">
@@ -42,22 +57,110 @@ const Header = () => {
                 </div> */}
                 <ul className="d-flex d-lg-none gap-1">
                   <li className="nav-item me-2">
-                    <Link to="/" className="headerIcon">
-                      {" "}
-                      <IoIosHeartEmpty size={20} />
-                    </Link>
+                    <Badge
+                      count={1}
+                      style={{
+                        background: "none",
+                        color: "black",
+                        border: "none",
+                      }}
+                    >
+                      <Link to="/cart" className="headerIcon">
+                        {" "}
+                        <IoIosHeartEmpty size={20} />
+                      </Link>
+                    </Badge>
                   </li>
                   <li className="nav-item me-2">
-                    <Link to="/cart" className="headerIcon">
-                      {" "}
-                      <IoBagOutline size={20} />
-                    </Link>
+                    <Badge
+                      count={1}
+                      style={{ background: "none", color: "black" }}
+                    >
+                      <Link to="/cart" className="headerIcon">
+                        {" "}
+                        <IoBagOutline size={20} />
+                      </Link>
+                    </Badge>
                   </li>
+
                   <li className="nav-item me-2">
-                    <Link to="/profile" className="headerIcon">
-                      {" "}
-                      <IoPersonOutline size={20} />
-                    </Link>
+                    <li className="nav-item dropdown">
+                      <IoPersonOutline size={24} />
+                      <ul className="dropdown-menu navProDrop">
+                        <li>
+                          <Link to="/profile" className="dropdown-item">
+                            Personal Details
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/order" className="dropdown-item">
+                            Orders
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/address" className="dropdown-item">
+                            Addresses
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/" className="dropdown-item">
+                            Tannis Treats
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/refer" className="dropdown-item">
+                            Refer & Earn
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/top-shelf" className="dropdown-item">
+                            Top Shelf
+                          </Link>
+                        </li>
+
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                          <li>
+                            <Link to="/write-to-us" className="dropdown-item">
+                              Contact Us
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/faq" className="dropdown-item">
+                              Help & Support
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/private-policy"
+                              className="dropdown-item"
+                            >
+                              Privace Policy
+                            </Link>
+                          </li>
+                        </li>
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                          <Link to="/register" className="dropdown-item ">
+                            SignUp
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/login" className="dropdown-item ">
+                            Login
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/logout" className="dropdown-item HlogOut">
+                            Logout
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
                   </li>
                 </ul>
               </div>
@@ -124,98 +227,116 @@ const Header = () => {
                   </li>
                   <ul className="d-flex gap-1">
                     <li className="nav-item me-2">
-                      <Link to="/" className="headerIcon">
-                        {" "}
-                        <IoIosHeartEmpty size={24} />
-                      </Link>
+                      <Badge
+                        count={1}
+                        style={{ background: "none", color: "black" }}
+                      >
+                        <Link to="/cart" className="headerIcon">
+                          {" "}
+                          <IoIosHeartEmpty size={20} />
+                        </Link>
+                      </Badge>
                     </li>
+
                     <li className="nav-item me-2">
-                      <Link to="/cart" className="headerIcon">
-                        {" "}
-                        <IoBagOutline size={24} />
-                      </Link>
+                      <Badge
+                        count={5}
+                        style={{
+                          background: "none",
+                          color: "black",
+                          fontsize: "15px",
+                        }}
+                      >
+                        <Link to="/cart" className="headerIcon">
+                          {" "}
+                          <IoBagOutline size={20} />
+                        </Link>
+                      </Badge>
                     </li>
+
                     <li className="nav-item me-2">
-                      <Link to="/profile" className="headerIcon">
-                        {" "}
+                      <li className="nav-item dropdown">
                         <IoPersonOutline size={24} />
-                      </Link>
+                        <ul className="dropdown-menu navProDrop">
+                          <li>
+                            <Link to="/profile" className="dropdown-item">
+                              Personal Details
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/order" className="dropdown-item">
+                              Orders
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/address" className="dropdown-item">
+                              Addresses
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/" className="dropdown-item">
+                              Tannis Treats
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/refer" className="dropdown-item">
+                              Refer & Earn
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/top-shelf" className="dropdown-item">
+                              Top Shelf
+                            </Link>
+                          </li>
+
+                          <li>
+                            <hr className="dropdown-divider" />
+                          </li>
+                          <li>
+                            <li>
+                              <Link to="/write-to-us" className="dropdown-item">
+                                Contact Us
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/faq" className="dropdown-item">
+                                Help & Support
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                to="/private-policy"
+                                className="dropdown-item"
+                              >
+                                Privace Policy
+                              </Link>
+                            </li>
+                          </li>
+                          <li>
+                            <hr className="dropdown-divider" />
+                          </li>
+                          <li>
+                            <Link to="/register" className="dropdown-item ">
+                              SignUp
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/login" className="dropdown-item ">
+                              Login
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/logout"
+                              className="dropdown-item HlogOut"
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
                     </li>
                   </ul>
-
-                  <li className="nav-item dropdown">
-                    <ul className="dropdown-menu navProDrop">
-                      <li>
-                        <Link to="/profile" className="dropdown-item">
-                          Personal Details
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/order" className="dropdown-item">
-                          Orders
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/address" className="dropdown-item">
-                          Addresses
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/" className="dropdown-item">
-                          Tannis Treats
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/refer" className="dropdown-item">
-                          Refer & Earn
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/top-shelf" className="dropdown-item">
-                          Top Shelf
-                        </Link>
-                      </li>
-
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <li>
-                          <Link to="/write-to-us" className="dropdown-item">
-                            Contact Us
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/faq" className="dropdown-item">
-                            Help & Support
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/private-policy" className="dropdown-item">
-                            Privace Policy
-                          </Link>
-                        </li>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <Link to="/register" className="dropdown-item ">
-                          SignUp
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/login" className="dropdown-item ">
-                          Login
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/logout" className="dropdown-item HlogOut">
-                          Logout
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
                 </ul>{" "}
               </div>
             </div>

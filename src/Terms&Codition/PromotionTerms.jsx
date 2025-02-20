@@ -51,25 +51,26 @@ function PromotionTerms() {
               Reliance Retail Limited, a company incorporated under the laws of
               India, having its registered office at 3rd Floor, Court House,
               Lokmanya Tilak Marg, Dhobi Talao, Mumbai – 400 002, Maharashtra,
-              India ("Tannis") owns and operates the website www.tirabeauty.com
-              and its mobile and tablet applications (collectively, “Platforms”)
-              for sale of various beauty and personal care products ("Products")
-              to end customers on the Platforms ("Users").
+              India ("Tannis") owns and operates the website
+              www.tannisbeauty.com and its mobile and tablet applications
+              (collectively, “Platforms”) for sale of various beauty and
+              personal care products ("Products") to end customers on the
+              Platforms ("Users").
             </p>
             <h3 className="termsh1">What is this Tannis Promotions Policy?</h3>
             <p className="termsP">
               2.1. Tannis from time to time, may organise various promotions,
               contests, offers including discounts, vouchers, coupons,
               campaigns, and sales with respect to the Products sold on the
-              Platforms. This Tannis Promotions Policy (“TIRA Promotions
+              Platforms. This Tannis Promotions Policy (“TANNIS Promotions
               Policy”), together with the terms and conditions, the privacy
               policy, the fee and payments policy, and the delivery and the
-              shipping policy, set out TIRA’s procedures and policies in
+              shipping policy, set out TANNIS’s procedures and policies in
               offering promotions, contests, offers, discounts, vouchers,
               coupons, campaigns and sales on the Platforms from time to time
               (“Promotions”). In addition to this Tannis Promotions Policy, any
               return of the Products by Users shall also be governed by, and be
-              subject to the terms and conditions set out under TIRA’s return
+              subject to the terms and conditions set out under TANNIS’s return
               and refund policy.
             </p>
             <p className="termsP">
@@ -96,15 +97,15 @@ function PromotionTerms() {
             <p className="termsP">
               3.2. Tannis reserves the right to introduce the Promotions
               (individually or collectively) at intervals of its choice. While
-              the general terms of this Promotions Policy sets out TIRA’s terms
-              and conditions governing all of its Promotions, Tannis may also
-              provide separate terms governing each one of its Promotions. While
-              choosing to participate in the Promotions, the Users are, apart
-              from this Promotions Policy, requested to peruse and understand
-              the terms which govern individual Promotions. Tannis may, at any
-              time and without having to service any prior notice to the User,
-              modify or delete its Promotions or the terms and conditions
-              governing such Promotions.
+              the general terms of this Promotions Policy sets out TANNIS’s
+              terms and conditions governing all of its Promotions, Tannis may
+              also provide separate terms governing each one of its Promotions.
+              While choosing to participate in the Promotions, the Users are,
+              apart from this Promotions Policy, requested to peruse and
+              understand the terms which govern individual Promotions. Tannis
+              may, at any time and without having to service any prior notice to
+              the User, modify or delete its Promotions or the terms and
+              conditions governing such Promotions.
             </p>
             <p className="termsP">
               3.3. Tannis may provide the Promotions on a select range or on all
@@ -181,7 +182,7 @@ function PromotionTerms() {
               such Product would be the value of the Product calculated on a
               weighted average basis. The number and catalogue of Products
               available under the BA AB Offer will be displayed on the Platforms
-              from time to time, at TIRA’s sole discretion.
+              from time to time, at TANNIS’s sole discretion.
             </p>
             <p className="termsP">
               3.9. If Tannis partners with any third party in connection with a
@@ -199,11 +200,11 @@ function PromotionTerms() {
               value.
             </p>
             <p className="termsP">
-              3.11. Cancellation of Products: Subject to paragraph 3.1 of TIRA’s
-              cancellation, return and refund policy, if a User intends to
-              cancel the purchase of a Product offered through a Promotion, and
-              such cancellation has been accepted by Tannis, such User shall be
-              entitled to a refund of the exact amount paid by the User for
+              3.11. Cancellation of Products: Subject to paragraph 3.1 of
+              TANNIS’s cancellation, return and refund policy, if a User intends
+              to cancel the purchase of a Product offered through a Promotion,
+              and such cancellation has been accepted by Tannis, such User shall
+              be entitled to a refund of the exact amount paid by the User for
               purchase of such Product or Products on the Platforms. By way of
               an illustration:
             </p>
@@ -239,7 +240,7 @@ function PromotionTerms() {
               processed in the original mode of payment.
             </p>
             <p className="termsP">
-              3.12. Return of Products: Subject to paragraph 3 of TIRA’s
+              3.12. Return of Products: Subject to paragraph 3 of TANNIS’s
               cancellation, return and refund policy, if a User desires to
               return a Product or Products which have been purchased during the
               term of a Promotion, and such return has been accepted by Tannis,
@@ -413,7 +414,7 @@ function PromotionTerms() {
             <p className="termsP">
               5.1 Any grievances relating to the Tannis Promotions Policy may be
               directed by you to the grievance officer of Tannis who can be
-              contacted at grievance.officer@tirabeauty.com
+              contacted at grievance.officer@tannisbeauty.com
             </p>
             <h3 className="termsh1">ICICI Bank Credit Card Offer </h3>
             <h3 className="termsh1">
@@ -788,9 +789,9 @@ function PromotionTerms() {
             <h2 className="termHead">DIAL TO WIN TERMS AND CONDITIONS</h2>
             <h3 className="termsh1">I. CONTEST DESCRIPTION:</h3>
             Dial to Win is a game conducted by Reliance Retail Limited (“RRL”),
-            which can be played on the website www.tirabeauty.com and its
+            which can be played on the website www.tannisbeauty.com and its
             corresponding mobile application (hereinafter collectively defined
-            as “Tira Platform”)
+            as “Tannis Platform”)
             <h3 className="termsh1">II. DEFINITIONS:</h3>
             <p className="termsP">
               For the purposes of these Terms and Conditions, the expressions

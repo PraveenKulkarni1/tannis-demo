@@ -66,7 +66,7 @@ function App() {
         <Route path="/login-otp" element={<LoginOtp />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route path="/detail-product" element={<DetailProduct />}></Route>
+        <Route path="/product-details" element={<DetailProduct />}></Route>
 
         <Route path="/order-details" element={<OrderDetails />}></Route>
         <Route path="/change-aadress" element={<ChangeAddress />}></Route>

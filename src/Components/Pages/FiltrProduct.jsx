@@ -41,7 +41,7 @@ const FiltrProduct = () => {
   };
   return (
     <>
-      <div className="mb-3 sticky-top" style={{ top: "40px" }}>
+      <div className="mb-3 sticky-top" style={{ top: "60px" }}>
         <h5 className="producth5 ">
           Lip Blam <span className="productp1">(123 items)</span>
         </h5>
@@ -57,7 +57,7 @@ const FiltrProduct = () => {
             <div>
               <p className="dAddres">
                 560036
-                <IoIosArrowDown />
+                <IoIosArrowDown className="ms-2" />
               </p>
             </div>
           </div>
