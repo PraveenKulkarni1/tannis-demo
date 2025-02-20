@@ -290,7 +290,8 @@
 .locIcon1 {
   width: auto;
   height: auto;
-  background: #ff5353;
+  background: #211a1e;
+  color: #fff;
   padding: 10px;
   cursor: pointer;
 }
@@ -421,7 +422,7 @@
   }
   .revSubmit {
     font-size: 13px;
-    padding: 3px 17px;
+    padding: 8px 17px;
     font-size: bold;
   }
   .pdtSaveAdd {

@@ -55,7 +55,6 @@ const PdtDetail = () => {
   const changeLocClose = () => setShowChangeLoc(false);
   const changeLocShow = () => setShowChangeLoc(true);
 
-  const [showLocation, setShowLocation] = useState(false);
   const [shadeSelect, setShadeSelect] = useState(0);
   const [sizeSelect, setSizeSelect] = useState(0);
   const shadeData = [
@@ -339,9 +338,9 @@ const PdtDetail = () => {
                             </h5>
 
                             <p className="pdtText m-0 p-0">
-                              {address.houseNo}
+                              {address.houseNo},
                               <span className="">
-                                {address.buildingName}{" "}
+                                {address.buildingName},{" "}
                                 <span>{address.city}-</span>
                                 <span>
                                   {address.state}

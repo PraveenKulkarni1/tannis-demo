@@ -35,17 +35,11 @@ function Review() {
     fontFamily: "PP Object sans",
   };
 
-  const shadeData = [
-    { color: " #f00000" },
-    { color: "#994449" },
-    { color: "#dc3545;" },
-    { color: "#58151c" },
-  ];
   const data = [
     { color: " #f00000", name: "Red" },
     { color: "#994449", name: "Purple" },
   ];
-
+  const [shadeSelect, setShadeSelect] = useState(0);
   const reviewData = [
     {
       name: "Kulpreet Kaur",
@@ -165,18 +159,37 @@ function Review() {
                     {data?.map((item, i) => {
                       return (
                         <>
-                          <li key={i} className="d-flex align-items-center">
-                            <div
-                              className="me-2"
-                              style={{
-                                width: "15px",
-                                height: "15px",
-                                backgroundColor: `${item.color}`,
-                                borderRadius: "50%",
-                              }}
-                            ></div>
-                            <h2 className="revColorName mt-2">{item.name}</h2>
-                          </li>
+                          {/* <div
+                            className={` ${
+                              shadeSelect === i ? "revShadeActve" : ""
+                            }`}
+                            key={i}
+                            onClick={() => setShadeSelect(i)}
+                          >
+                            <li className="d-flex align-items-center">
+                              <div
+                                className="me-2 revCshades"
+                                style={{
+                                  backgroundColor: `${item.color}`,
+                                }}
+                              ></div>
+                              <h2 className="revColorName mt-2">{item.name}</h2>
+                            </li>
+                          </div> */}
+                          <div key={i} onClick={() => setShadeSelect(i)}>
+                            <li className="d-flex align-items-center">
+                              <div
+                                className={`revCshades ${
+                                  shadeSelect === i ? "revShadeActve" : ""
+                                }`}
+                                style={{
+                                  backgroundColor: `${item.color}`,
+                                }}
+                                onClick={() => setShadeSelect(i)}
+                              ></div>
+                              <h2 className="revColorName mt-2">{item.name}</h2>
+                            </li>
+                          </div>
                         </>
                       );
                     })}

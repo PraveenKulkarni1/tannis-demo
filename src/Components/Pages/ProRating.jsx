@@ -14,9 +14,9 @@ function ProRating() {
   const [progressFive, setProgressFive] = useState(0);
   const isMobile = UseMediaQuery("(max-width:486px)");
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-7">
+    <div className="container ">
+      <div className="row my-2">
+        <div className="col-md-7 ">
           <h3 className="proRatMain">Rating</h3>
           <p className="">
             <PiSealCheckFill

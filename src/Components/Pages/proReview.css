@@ -166,6 +166,39 @@
   border-radius: 5px;
 }
 
+/* .revCshades {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+} */
+/* .revShareBor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgb(110, 105, 105);
+  cursor: pointer;
+}
+.revShadeActve {
+  width: 30px;
+  height: 30px;
+  border: 1px solid blue;
+} */
+
+.revCshades {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.revShadeActve {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  border: 2px solid blue;
+  border-radius: 50%;
+}
+
 @media (max-width: 991px) {
   .revButtonImg {
     padding: 2px 22px;
