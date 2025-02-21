@@ -44,6 +44,7 @@ import ShippingDelivery from "./Terms&Codition/ShippingDelivery";
 import RewardPolicy from "./Terms&Codition/RewardPolicy";
 import PromotionTerms from "./Terms&Codition/PromotionTerms";
 import PrivatePolicy from "./Terms&Codition/PrivatePolicy";
+import OfferHome from "./Offers/OfferHome";
 
 function App() {
   return (
@@ -108,6 +109,9 @@ function App() {
           path="/promotions-terms-condtions"
           element={<PromotionTerms />}
         />
+
+        {/* OfferHome */}
+        <Route path="/offers" element={<OfferHome />} />
       </Routes>
       <ScrollToTopButton />
     </>

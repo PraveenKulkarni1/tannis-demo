@@ -196,10 +196,7 @@ const Header = () => {
                     </li>
 
                     <li className="nav-item cardTextp">
-                      <Link
-                        to="/detail-product"
-                        className="nav-link navBorder "
-                      >
+                      <Link to="/offers" className="nav-link navBorder ">
                         Offers
                       </Link>
                     </li>

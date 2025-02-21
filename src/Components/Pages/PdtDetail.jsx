@@ -296,7 +296,7 @@ const PdtDetail = () => {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Enter Pincode</Form.Label>
-                      <div className="d-flex gap-2 ">
+                      <div className="d-flex gap-3 ">
                         <Form.Control
                           type="text"
                           placeholder=""
@@ -328,7 +328,7 @@ const PdtDetail = () => {
                           <input
                             type="radio"
                             name="selectedAddress"
-                            className="me-2"
+                            className="me-2 mt-1"
                             style={{ accentColor: "black" }}
                           />
                           <div className="col-10">

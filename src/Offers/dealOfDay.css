@@ -1,0 +1,25 @@
+.DealBody .moreCartBtn {
+  display: none;
+}
+
+.DealBody .offerP4 {
+  display: block;
+}
+
+.DealCard:hover .offerP4 {
+  display: none;
+}
+
+.DealCard:hover .moreCartBtn {
+  display: block;
+}
+
+.dealCard {
+  width: 95% !important;
+}
+
+@media (max-width: 768px) {
+  .dealCard {
+    width: 100% !important;
+  }
+}

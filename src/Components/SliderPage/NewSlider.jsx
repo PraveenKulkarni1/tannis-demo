@@ -77,8 +77,8 @@ const NewSlider = () => {
   };
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12">
+      <div className="row my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2">
+        <div className="col-12 ">
           {isMobile ? (
             <>
               <Slider {...settings}>

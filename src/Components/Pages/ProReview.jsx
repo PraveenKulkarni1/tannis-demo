@@ -159,23 +159,6 @@ function Review() {
                     {data?.map((item, i) => {
                       return (
                         <>
-                          {/* <div
-                            className={` ${
-                              shadeSelect === i ? "revShadeActve" : ""
-                            }`}
-                            key={i}
-                            onClick={() => setShadeSelect(i)}
-                          >
-                            <li className="d-flex align-items-center">
-                              <div
-                                className="me-2 revCshades"
-                                style={{
-                                  backgroundColor: `${item.color}`,
-                                }}
-                              ></div>
-                              <h2 className="revColorName mt-2">{item.name}</h2>
-                            </li>
-                          </div> */}
                           <div key={i} onClick={() => setShadeSelect(i)}>
                             <li className="d-flex align-items-center">
                               <div
