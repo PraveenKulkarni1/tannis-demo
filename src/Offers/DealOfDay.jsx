@@ -8,7 +8,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 function DealOfDay() {
   const [moredata, setMoreData] = useState([]);
 
@@ -87,7 +87,12 @@ function DealOfDay() {
   return (
     <div className="container my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2">
       <div className="row">
-        <h1 className="homehTag">Deals Of The Day</h1>
+        <div className="col-12  d-flex justify-content-between">
+          <h1 className="homehTag">Deals Of The Day</h1>
+          <Link to="/products" className="proText">
+            View All <IoIosArrowForward size={15} className=" mb-1" />
+          </Link>
+        </div>
       </div>
       <div className="row moreRow">
         <Slider {...settings}>

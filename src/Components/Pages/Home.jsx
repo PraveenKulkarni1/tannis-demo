@@ -6,6 +6,7 @@ import Offers from "./../Home/Offers";
 import TopCate from "./../Home/TopCate";
 import WishList from "./../Home/WishList";
 import Layout from "./../Layout/Layout";
+import Statistics from "./../../Offers/Statistics";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <TopCate />
       <Offers />
       <WishList />
+      <Statistics />
     </Layout>
   );
 };

@@ -1,0 +1,70 @@
+.statisBg {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  background-color: #fcf1ed;
+  border-radius: 20px;
+}
+.staticIcon {
+  font-size: 25px;
+  text-align: center !important;
+}
+.sticImg {
+  width: 30px;
+  height: 30px;
+}
+.statich1,
+.staticp {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  color: #211a1e;
+}
+.statich1 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.staticp {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (min-width: 487px) and (max-width: 768px) {
+  .statisBg {
+    border-radius: 0px;
+  }
+  .staticIcon {
+    font-size: 22px;
+  }
+  .statich1 {
+    font-size: 14px;
+  }
+  .staticp {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 486px) {
+  .statcol1 {
+    display: flex;
+    gap: 15px;
+  }
+  .stacol2 {
+    margin-top: 7px;
+  }
+  .statisBg {
+    border-radius: 0px;
+  }
+  .staticIcon {
+    font-size: 20px;
+  }
+  .statich1 {
+    font-size: 13px;
+  }
+  .staticp {
+    font-size: 13px;
+  }
+  .sticImg {
+    width: 25px;
+    height: 25px;
+  }
+}
