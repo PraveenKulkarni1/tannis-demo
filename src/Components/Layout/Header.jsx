@@ -49,12 +49,6 @@ const Header = () => {
                   </NavLink>
                 </div>
 
-                {/* Search & Icons for Smaller Screens */}
-                {/* <div className=" d-flex  gap-1 d-lg-none align-items-center  me-2">
-                  <FaRegHeart size={20} />
-                  <IoBagOutline className="" size={20} />
-                  <IoPersonOutline size={20} />
-                </div> */}
                 <ul className="d-flex d-lg-none gap-1">
                   <li className="nav-item me-2">
                     <Badge
@@ -65,7 +59,7 @@ const Header = () => {
                         border: "none",
                       }}
                     >
-                      <Link to="/cart" className="headerIcon">
+                      <Link to="/wishlist" className="headerIcon">
                         {" "}
                         <IoIosHeartEmpty size={20} />
                       </Link>
@@ -190,7 +184,7 @@ const Header = () => {
                       <Brand />
                     </li>
                     <li className="nav-item cardTextp">
-                      <Link to="/products" className="nav-link navBorder ">
+                      <Link to="/tannis-red" className="nav-link navBorder ">
                         Tannis Red
                       </Link>
                     </li>
@@ -228,7 +222,7 @@ const Header = () => {
                         count={1}
                         style={{ background: "none", color: "black" }}
                       >
-                        <Link to="/cart" className="headerIcon">
+                        <Link to="/wishlist" className="headerIcon">
                           {" "}
                           <IoIosHeartEmpty size={20} />
                         </Link>

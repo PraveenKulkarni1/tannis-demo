@@ -64,12 +64,12 @@ function Review() {
   return (
     <>
       <div
-        className="container reviewBorder1 d-flex flex-wrap gap-2"
+        className="container reviewBorder1 d-flex flex-wrap gap-2 "
         style={{ rowGap: "10px" }}
       >
         <div className="row px-3">
           {reviewData.map((item, index) => (
-            <div key={index} className="col-md-6 my-2 revviewBorder2">
+            <div key={index} className="col-md-6 my-2 revviewBorder2 ">
               <Stars
                 stars={parseFloat(item.rating)}
                 className="text-start me-2"

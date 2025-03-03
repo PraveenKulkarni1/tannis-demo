@@ -28,7 +28,7 @@ const SecHeader = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Whats New
+                    What's New
                   </Link>
                   <WhatsNew />
                 </li>

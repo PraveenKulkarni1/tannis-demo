@@ -56,13 +56,13 @@ const DealToSheal = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3.5,
         },
       },
       {
         breakpoint: 486,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.5,
         },
       },
     ],
@@ -73,7 +73,7 @@ const DealToSheal = () => {
     },
   };
   return (
-    <div className="container mt-xxl-5 mt-lg-5 mt-md-3 mt-sm-2 mt-2 ">
+    <div className="container mt-xxl-4 mt-lg-4 mt-md-3 mt-sm-2 mt-2 ">
       <div className="row">
         <h3 className="homehTag  ">Deals To Steal</h3>
         <div className="  my-xl-5 my-xxl-5 my-lg-5 my-md-3 my-sm-2 my-2 ">
@@ -87,7 +87,7 @@ const DealToSheal = () => {
                   >
                     <img
                       src={item.img}
-                      className="card-img-top hcateImg"
+                      className="card-img-top hcateImg rounded"
                       alt={item.name}
                     />
                     <div className="card-body">

@@ -8,9 +8,8 @@ import { NavLink } from "react-router-dom";
 import { BiRupee } from "react-icons/bi";
 
 function CantMiss() {
-  const [oldSlide, setOldSlide] = useState(0);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [activeSlide2, setActiveSlide2] = useState(0);
+  const [isFirstSlide, setIsFirstSlide] = useState(true);
+  const [isLastSlide, setIsLastSlide] = useState(false);
   const isMobile = UseMediaQuery("(max-width:486px)");
   const data = [
     {
@@ -19,7 +18,10 @@ function CantMiss() {
         <>
           Under
           <BiRupee className="mb-1 ms-2" />
-          <span style={{ fontStyle: "italic" }}> 999</span>
+          <span style={{ fontStyle: "italic" }} className="me-2">
+            {" "}
+            999
+          </span>
         </>
       ),
     },
@@ -28,33 +30,36 @@ function CantMiss() {
   ];
 
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
+    dots: false,
+    infinite: false,
+    speed: 3000,
+    slidesToShow: 1.5,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     pauseOnHover: true,
     beforeChange: (current, next) => {
-      setOldSlide(current);
-      setActiveSlide(next);
+      setIsFirstSlide(next === 0); // First slide
+      setIsLastSlide(next === data.length - 2); // Last slide
     },
-    afterChange: (current) => setActiveSlide2(current),
   };
   return (
-    <div className="container my-xl-5 my-xxl-5 my-lg-5 my-md-3 my-sm-2 my-2r">
+    <div className="container my-xl-5 my-xxl-5 my-lg-5 my-md-3 my-sm-2 my-2">
       <div className="row ">
         <div className="col-12  my-xl-2 my-xxl-2 my-lg-2 my-1">
           <h1 className="homehTag">Can't Miss This</h1>
         </div>
       </div>
-      <div className="row">
+      <div className="row ">
         {isMobile ? (
           <Slider {...settings}>
             {data.length > 0 &&
               data?.map((item, i) => {
                 return (
-                  <NavLink to="/products" className="col-md-4" key={i}>
+                  <NavLink
+                    to="/products"
+                    className="col-md-4 px-xl-0 px-lg-0 px-md-0 px-sm-0 px-2 "
+                    key={i}
+                  >
                     <div className=" offFocusBg text-center p-3">
                       <h3 className="offH2">{item.title}</h3>
                       <h1 className="offH1">{item.offer}</h1>

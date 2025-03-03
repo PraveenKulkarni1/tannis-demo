@@ -161,7 +161,6 @@
   font-weight: 500;
   margin-bottom: -58px;
   z-index: 1;
-
   border-radius: 50%;
   background: #fff;
 }
@@ -183,6 +182,27 @@
   color: #2d2a2b;
 }
 
+/* Default Heart Icon */
+.heartIcon {
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: -58px;
+  z-index: 1;
+  border-radius: 50%;
+  background: white; /* Default background */
+  padding: 10px;
+  color: black; /* Default color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pFaHeaert {
+  color: #f00000;
+}
+/* When heart is clicked, it turns red inside */
+
 @media (min-width: 489px) and (max-width: 991px) {
   .offerP3,
   .offerP4 {
@@ -202,6 +222,9 @@
 
   .offerP4 {
     display: block !important;
+  }
+  .heartIcon {
+    font-size: 18px;
   }
 }
 
@@ -225,5 +248,8 @@
   }
   .proText {
     font-size: 12px;
+  }
+  .heartIcon {
+    font-size: 16px;
   }
 }

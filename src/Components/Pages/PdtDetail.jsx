@@ -14,6 +14,19 @@ import { PiSealCheck } from "react-icons/pi";
 import { RiTruckLine } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 import { TbCameraPlus } from "react-icons/tb";
+import { FaCheck } from "react-icons/fa6";
+import Select, { components } from "react-select";
+import shade1 from "../../assets/shade1.avif";
+import shade2 from "../../assets/shade2.avif";
+import shade3 from "../../assets/shade3.avif";
+import shade4 from "../../assets/shade4.avif";
+import shade5 from "../../assets/shade5.avif";
+import shade6 from "../../assets/shade6.avif";
+import shade7 from "../../assets/shade7.avif";
+import shade8 from "../../assets/shade8.avif";
+import shade9 from "../../assets/shade9.avif";
+import shade10 from "../../assets/shade10.avif";
+import shade11 from "../../assets/shade11.avif";
 
 import { GoDash } from "react-icons/go";
 // modal
@@ -22,6 +35,8 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
 import SpecifFea from "./SpecifFea";
+
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import MoreToLike from "./../SliderPage/MoreToLike";
 const PdtDetail = () => {
   //  Rate and Review modal modal
@@ -30,6 +45,7 @@ const PdtDetail = () => {
   const handleReviewShow = () => setShowReview(true);
 
   const [hoveredStar, setHoveredStar] = useState(-1);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const [addresses, setAddresses] = useState([
     {
@@ -47,6 +63,13 @@ const PdtDetail = () => {
       contact: "7406506051",
     },
   ]);
+  const DropdownIndicator = (props) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        {menuIsOpen ? <FaChevronUp /> : <FaChevronDown />}
+      </components.DropdownIndicator>
+    );
+  };
   const [isHovered, setIsHovered] = useState(false);
   const totalStars = 5; // Total number of stars
 
@@ -55,21 +78,87 @@ const PdtDetail = () => {
   const changeLocClose = () => setShowChangeLoc(false);
   const changeLocShow = () => setShowChangeLoc(true);
 
-  const [shadeSelect, setShadeSelect] = useState(0);
+  const [shadeSelect, setShadeSelect] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [sizeSelect, setSizeSelect] = useState(0);
-  const shadeData = [
-    { color: " #f00000" },
-    { color: "#994449" },
-    { color: "#dc3545" },
-    { color: "#58151c" },
+
+  const shadeOptions = [
+    {
+      value: "21C Cool lvory",
+      label: "21C Cool lvory",
+      image: shade1,
+    },
+    {
+      value: "23N Sand",
+      label: "23N Sand",
+      image: shade2,
+    },
+    {
+      value: "22C Cool lvory",
+      label: "22C Cool lvory",
+      image: shade3,
+    },
+    {
+      value: "33N Sand",
+      label: "33N Sand",
+      image: shade4,
+    },
+    {
+      value: "11C Cool lvory",
+      label: "11C Cool lvory",
+      image: shade5,
+    },
+    {
+      value: "43N Sand",
+      label: "43N Sand",
+      image: shade6,
+    },
+    {
+      value: "1C Cool lvory",
+      label: "1C Cool lvory",
+      image: shade7,
+    },
+    {
+      value: "N Sand",
+      label: "N Sand",
+      image: shade8,
+    },
+    {
+      value: "C Cool lvory",
+      label: "C Cool lvory",
+      image: shade9,
+    },
+    {
+      value: "55N Sand",
+      label: "55N Sand",
+      image: shade10,
+    },
+    {
+      value: "9N Sand",
+      label: "9N Sand",
+      image: shade11,
+    },
   ];
   const fileInputRef = useRef(null);
   const sizedata = [
-    { size: "20g" },
-    { size: "25g" },
-    { size: "30g" },
-    { size: "35g" },
+    { size: "20ml" },
+    { size: "25ml" },
+    { size: "30ml" },
+    { size: "35ml" },
   ];
+
+  const handleShadeClick = (index) => {
+    setShadeSelect(index);
+    setSelectedOption(shadeOptions[index]);
+  };
+
+  const handleSelectChange = (option) => {
+    setSelectedOption(option);
+    setShadeSelect(
+      shadeOptions.findIndex((shade) => shade.value === option.value)
+    );
+  };
+
   return (
     <>
       <div className=" my-5">
@@ -129,79 +218,89 @@ const PdtDetail = () => {
             <MdKeyboardArrowRight size={15} className="ms-2" />
           </button>
         </div>
-        <div className="d-flex gap-2 my-xl-4 my-lg-4 my-md-3 my-sm-2 my-2 ">
-          <p className="pdtText mt-1">Shade</p>
-          {shadeData?.map((item, i) => {
-            return (
-              <div
-                className={`shadeBorder ${shadeSelect == i ? "active" : ""}`}
-                key={i}
-                onClick={() => setShadeSelect(i)}
-              >
-                <li
-                  key={i}
-                  className="d-flex justify-content-center align-items-center mt-1"
-                >
-                  <div
-                    className="shadeColor d-flex "
-                    style={{
-                      backgroundColor: `${item.color}`,
-                    }}
-                  ></div>
-                </li>
+        <div className="my-2">
+          <p className="pdtText my-auto"> Select Shades</p>
+          <Select
+            value={selectedOption}
+            onChange={handleSelectChange}
+            options={shadeOptions}
+            onMenuOpen={() => setMenuIsOpen(true)}
+            onMenuClose={() => setMenuIsOpen(false)}
+            components={{ DropdownIndicator }}
+            getOptionLabel={(e) => (
+              <div className="d-flex gap-2">
+                <img
+                  src={e?.image}
+                  alt={e?.label}
+                  style={{ width: 22, height: 22, marginRight: 10 }}
+                />
+                {e?.label}
               </div>
-            );
-          })}
+            )}
+          />
         </div>
-        <div className="d-flex gap-2 my-xl-4 my-lg-4 my-md-3 my-sm-2 my-2 ">
-          <p className="pdtText my-auto">Size</p>
 
-          {sizedata?.map((item, i) => {
-            return (
-              <div
-                className={`shadeSelect ${sizeSelect == i ? "active" : ""}`}
-                key={i}
-                onClick={() => setSizeSelect(i)}
-              >
-                <li
-                  key={i}
-                  className="d-flex justify-content-center align-items-center mt-1"
-                >
-                  <div
-                    className="shadeSize d-flex "
-                    style={{
-                      backgroundColor: `${item.size}`,
-                    }}
-                  >
-                    {" "}
-                    <p className="p-0 selectText">{item.size}</p>
-                  </div>
-                </li>
-              </div>
-            );
-          })}
+        <div className="shade-images my-2 d-flex flex-wrap gap-2">
+          {shadeOptions?.map((shade, index) => (
+            <div
+              key={index}
+              className="shade-item text-center position-relative"
+              onClick={() => handleShadeClick(index)}
+              style={{ cursor: "pointer" }}
+            >
+              <img
+                src={shade?.image}
+                alt={shade?.label}
+                style={{ width: 30, height: 30 }}
+                className={`shadeColor ${
+                  shadeSelect === index ? "active" : ""
+                }`}
+                onClick={() => setShadeSelect(index)}
+              />
+              {shadeSelect === index && (
+                <FaCheck
+                  className="checkShade"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    color: "white",
+                    fontSize: "16px",
+                  }}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+        <p className="pdtText my-auto"> Select Size</p>
+        <div className="d-flex gap-2 my-xl-4 my-lg-4 my-md-3 my-sm-2 my-2">
+          {sizedata?.map((item, i) => (
+            <button
+              key={i}
+              className={`sizeSelect ${sizeSelect === i ? "active" : ""}`}
+              onClick={() => setSizeSelect(i)}
+            >
+              {item.size}
+            </button>
+          ))}
         </div>
         <div className="d-flex justify-content-between">
           <button className="pdtBtn ">Add to Bag</button>
           <button className="pdtSaveBtn">Save to Wishlist</button>
         </div>
-
         <div className="d-flex justify-content-between my-3">
           <div className="text-center pdtCheckbg">
             <p>
               <PiSealCheck className="pdtcheck" />
             </p>
             <p className="cardTextp">Authentic Products</p>
-            <div className=""></div>
-            <div className=""></div>
           </div>
           <div className="text-center pdtCheckbg">
             <p>
               <MdOutlineSwapHorizontalCircle className="pdtcheck" />
             </p>
             <p className="cardTextp">Easy Return</p>
-            <div className=""></div>
-            <div className=""></div>
           </div>
         </div>
         <div className="pdtdelBorder mb-3">
@@ -232,11 +331,9 @@ const PdtDetail = () => {
             <p className="pdtGet"> - Get it by Sun, Jan 26</p>
           </div>
         </div>
-
         <div className="mb-3">
           <SpecifFea />
         </div>
-
         <div className="offerViewBg  p-2">
           <h3 className="pdtText p-1" onClick={handleReviewShow}>
             Rate & Review Product{" "}
@@ -261,7 +358,6 @@ const PdtDetail = () => {
           </div>
         </div>
         {/* Change Location modal */}
-
         <>
           <Modal show={showChangeLoc} onHide={changeLocClose}>
             <Modal.Header closeButton>

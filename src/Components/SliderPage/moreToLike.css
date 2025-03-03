@@ -49,9 +49,9 @@
   transition: transform 0.3s ease;
 }
 
-.moreCard:hover .iconRel img {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-}
+/* .moreCard:hover .iconRel img {
+  transform: scale(1.05);
+} */
 
 .moreLikePrev {
   position: absolute;

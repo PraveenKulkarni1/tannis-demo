@@ -46,12 +46,16 @@ import PromotionTerms from "./Terms&Codition/PromotionTerms";
 import PrivatePolicy from "./Terms&Codition/PrivatePolicy";
 import OfferHome from "./Offers/OfferHome";
 
+import WishlistPage from "./Components/Pages/WishlistPage";
+import HomeTannisRed from "./TannisRed/HomeTannisRed";
+
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/user-dashboard" element={<UserDashboard />}></Route>
+        <Route path="/tannis-red" element={<HomeTannisRed />}></Route>
         {/* userMenu */}
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/order" element={<UserOrder />} />
@@ -67,6 +71,7 @@ function App() {
         <Route path="/login-otp" element={<LoginOtp />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/wishlist" element={<WishlistPage />}></Route>
         <Route path="/product-details" element={<DetailProduct />}></Route>
 
         <Route path="/order-details" element={<OrderDetails />}></Route>

@@ -1,0 +1,108 @@
+.tannisRedLexBg {
+  width: auto;
+  height: auto;
+  background-color: rgb(245, 245, 245);
+  margin-top: 170px !important;
+  border-radius: 10px;
+}
+.lexuryRow2 {
+  margin-top: 300px !important;
+}
+.TannisRedh2 {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-size: 55px;
+  font-weight: 500;
+  color: #211a1e;
+}
+.redTannis1 {
+  border-radius: 20px;
+}
+.tannisRedP1 {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #211a1e;
+}
+.lexuryImg {
+  margin-top: -80px;
+}
+
+@media (min-width: 487px) and (max-width: 768px) {
+  .tannisRedLexBg {
+    margin-top: 100px !important;
+  }
+  .lexuryh2 {
+    font-size: 50px;
+  }
+
+  .lexuryHSpan {
+    font-size: 16px;
+  }
+  .lexuryImg {
+    margin-top: -50px;
+  }
+  .lexuryImg img {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 486px) {
+  .tannisRedLexBg {
+    margin-top: 80px !important;
+  }
+  .homeLexBg {
+    border-radius: 0px;
+  }
+  .lexuryRow2 {
+    display: none;
+  }
+  .TannisRedBg {
+    width: 100%;
+    height: 200px;
+    position: relative;
+  }
+
+  .TannisRedBg::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/redTannis2.avif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 1;
+    padding: 50px;
+    border-radius: 10px;
+  }
+
+  .TannisRedh2 {
+    position: relative;
+    z-index: 1;
+    font-size: 24px !important;
+    font-style: normal;
+    color: #fff !important;
+  }
+  .tannisRedP1 {
+    font-family: "PP Object sans", sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lexuryHSpan {
+    position: relative;
+    font-size: 13px;
+    color: #fff;
+    z-index: 1;
+  }
+}

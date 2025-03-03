@@ -202,9 +202,6 @@
   color: "";
   font-size: 24px;
 }
-/* .pdtFaStar:hover {
-  background: rgb(149, 60, 60) !important;
-} */
 
 .shadeBorder {
   width: 30px;
@@ -223,13 +220,38 @@
   border-radius: 50%;
 }
 
-.shadeSelect {
+.checkShade {
+  position: absolute;
+  top: 50%;
+  left: "50%";
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+}
+.shadeColor.active {
+  border: 2px solid rgb(110, 105, 105);
+}
+.sizeSelect {
   width: auto;
-  height: 30px;
-  border-radius: 15px;
-  border: 1px solid rgb(110, 105, 105);
+  height: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  padding: 0px 10px;
+  background-color: #fff;
+  color: black;
+  transition: background-color 0.3s ease;
+  border: 1px solid rgba(172, 166, 166, 0.933);
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #211a1e;
+}
+.sizeSelect.active {
+  background-color: black;
+  color: white;
 }
 
 .selectText {
@@ -242,9 +264,6 @@
 .shadeSize {
   width: auto;
   height: 10px !important;
-}
-.shadeSelect.active {
-  border: 2px solid blue;
 }
 
 .revCamera {
@@ -330,6 +349,11 @@
     padding: 5px 25px;
     font-size: bold;
   }
+  .sizeSelect {
+    border-radius: 7px;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
 }
 @media (max-width: 486px) {
   .pdtBtn {
@@ -393,9 +417,10 @@
   .selectText {
     font-size: 11px;
   }
-  .shadeSelect {
-    padding: 0px 5px;
+  .sizeSelect {
     border-radius: 7px;
+    padding: 3px 7px;
+    font-size: 13px;
   }
   .pdtFaStar .pdtEmpty {
     font-size: 18px;

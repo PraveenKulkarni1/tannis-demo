@@ -166,24 +166,6 @@
   border-radius: 5px;
 }
 
-/* .revCshades {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-} */
-/* .revShareBor {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid rgb(110, 105, 105);
-  cursor: pointer;
-}
-.revShadeActve {
-  width: 30px;
-  height: 30px;
-  border: 1px solid blue;
-} */
-
 .revCshades {
   width: 15px;
   height: 15px;
@@ -236,5 +218,8 @@
   }
   .revButtonImg {
     padding: 2px 12px;
+  }
+  .reviewBorder1 {
+    border: none;
   }
 }

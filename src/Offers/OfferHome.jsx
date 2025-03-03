@@ -8,6 +8,9 @@ import Statistics from "./Statistics";
 import OfferInFocus from "./OfferInFocus";
 import OfferBanner from "./OfferBanner";
 import CantMiss from "./CantMiss";
+import BransToBang from "./BrandsToBang";
+import HiddenGems from "./HiddenGems";
+import LexuryBeauty from "./LexuryBeauty";
 
 function OfferHome() {
   return (
@@ -17,7 +20,10 @@ function OfferHome() {
 
       <DealToSheal />
       <OfferInFocus />
+      <BransToBang />
       <CantMiss />
+      <HiddenGems />
+      <LexuryBeauty />
       <Statistics />
     </Layout>
   );

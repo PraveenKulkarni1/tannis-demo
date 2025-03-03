@@ -345,7 +345,7 @@ function Review() {
             reviewData?.map((item, index) => {
               return (
                 <>
-                  <div className="col-md-6  mx-auto my-2  revviewBorder2  ">
+                  <div className="col-md-6  mx-auto my-2  revviewBorder2 px=z ">
                     <Stars
                       stars={parseFloat(item.rating)}
                       className="text-start me-2"

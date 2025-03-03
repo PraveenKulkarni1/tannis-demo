@@ -7,9 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 
 function OfferInFocus() {
-  const [oldSlide, setOldSlide] = useState(0);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [activeSlide2, setActiveSlide2] = useState(0);
+  const [isFirstSlide, setIsFirstSlide] = useState(true);
+  const [isLastSlide, setIsLastSlide] = useState(false);
+
   const isMobile = UseMediaQuery("(max-width:486px)");
   const data = [
     { title: "Minimun", offer: "30% Off" },
@@ -18,18 +18,17 @@ function OfferInFocus() {
   ];
 
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: false,
+    infinite: false,
     speed: 1000,
-    slidesToShow: 1,
+    slidesToShow: 1.5,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     pauseOnHover: true,
     beforeChange: (current, next) => {
-      setOldSlide(current);
-      setActiveSlide(next);
+      setIsFirstSlide(next === 0);
+      setIsLastSlide(next === data.length - 2);
     },
-    afterChange: (current) => setActiveSlide2(current),
   };
   return (
     <div className="container ">
@@ -44,7 +43,11 @@ function OfferInFocus() {
             {data.length > 0 &&
               data?.map((item, i) => {
                 return (
-                  <NavLink to="/products" className="col-md-4" key={i}>
+                  <NavLink
+                    to="/products"
+                    className="col-md-4  px-xl-0 px-lg-0 px-md-0 px-sm-0 px-2"
+                    key={i}
+                  >
                     <div className=" offFocusBg text-center p-3">
                       <h3 className="offH2">{item.title}</h3>
                       <h1 className="offH1">{item.offer}</h1>

@@ -37,26 +37,26 @@ const TopCate = () => {
     infinite: false,
     slidesToShow: 5,
     autoplay: false,
-    slidesToScroll: 1,
+    slidesToScroll: 1.5,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3.5,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3.5,
         },
       },
       {
         breakpoint: 486,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3.5,
         },
       },
     ],
@@ -82,7 +82,7 @@ const TopCate = () => {
     <div className="container mt-xxl-5 mt-lg-5 mt-md-3 mt-sm-2 mt-2 ">
       <div className="row">
         <h3 className="homehTag  ">Top Categories</h3>
-        <div className="  my-xl-5 my-xxl-5 my-lg-5 my-md-3 my-sm-2 my-2 ">
+        <div className="  my-xl-3 my-xxl-3 my-lg-3 my-md-3 my-sm-2 my-2 ">
           <Slider {...settings}>
             {category?.map((item, i) => {
               return (
@@ -93,7 +93,7 @@ const TopCate = () => {
                   >
                     <img
                       src={`https://tannis.in${item.image}`}
-                      className="card-img-top hcateImg"
+                      className="card-img-top hcateImg "
                       alt={item.c_name}
                     />
                     <div className="card-body">

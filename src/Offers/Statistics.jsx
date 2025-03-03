@@ -8,7 +8,7 @@ import staReturn from "../assets/staReturn.avif";
 function Statistics() {
   return (
     <div className="container statisBg my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2">
-      <div className="row px-2 ">
+      <div className="row px-2  ">
         <div className="statcol1 col-md-3 col-sm-6 my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2 ">
           <PiSealCheckBold className="my-2 staticIcon" />
           <div className="stacol2">

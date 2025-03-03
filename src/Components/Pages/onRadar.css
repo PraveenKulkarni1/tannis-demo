@@ -1,0 +1,38 @@
+.OnRadarBtn {
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  color: black;
+  transition: background-color 0.3s ease;
+  border: 1px solid rgba(172, 166, 166, 0.933);
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #211a1e;
+}
+
+.OnRadarBtn.active {
+  background-color: black;
+  color: white;
+}
+
+@media (min-width: 486px) and (max-width: 768px) {
+  .OnRadarBtn {
+    padding: 7px 15px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 486px) {
+  .OnRadarBtn {
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}

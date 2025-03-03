@@ -70,7 +70,6 @@ const NewSlider = () => {
     try {
       const result = await axios.get("https://tannis.in/api/banners/");
       setBanners(result.data);
-      console.log(result.data);
     } catch (error) {
       console.log(error);
     }

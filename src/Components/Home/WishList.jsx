@@ -43,26 +43,26 @@ const WishList = () => {
     infinite: false,
     slidesToShow: 4,
     autoplay: false,
-    slidesToScroll: 1,
+    slidesToScroll: 1.5,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 4.5,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3.5,
         },
       },
       {
         breakpoint: 486,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.5,
         },
       },
     ],
@@ -76,7 +76,7 @@ const WishList = () => {
     <div className="container mt-xxl-5 mt-lg-5 mt-md-3 mt-sm-2 mt-2 ">
       <div className="row">
         <h3 className="homehTag  ">For Your Wishlist</h3>
-        <div className="  my-xl-5 my-xxl-5 my-lg-5 my-md-3 my-sm-2 my-2 ">
+        <div className="  my-xl-3 my-xxl-3 my-lg-3 my-md-2 my-sm-2 my-2 ">
           <Slider {...settings}>
             {data?.map((item, i) => {
               return (
@@ -87,7 +87,7 @@ const WishList = () => {
                   >
                     <img
                       src={item.img}
-                      className="card-img-top hcateImg"
+                      className="card-img-top hcateImg rounded"
                       alt={item.name}
                     />
                     <div className="card-body">

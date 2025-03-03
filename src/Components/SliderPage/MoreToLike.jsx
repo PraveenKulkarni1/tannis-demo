@@ -4,83 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdCurrencyRupee } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import p1 from "../../assets/p1.avif";
-import p2 from "../../assets/p2.avif";
-import p3 from "../../assets/p3.avif";
 import "./moreToLike.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 function MoreToLike() {
-  const data = [
-    {
-      img: p1,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p2,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p3,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p1,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p2,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p3,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    // Add more items as needed
-  ];
   const [moredata, setMoreData] = useState([]);
 
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const [isLastSlide, setIsLastSlide] = useState(false);
-
+  const [likedProducts, setLikedProducts] = useState({});
   const NextArrow = ({ onClick }) => (
     <div
       className={`moreLikeArrow moreLikeNext ${
@@ -107,7 +41,7 @@ function MoreToLike() {
     infinite: false,
     slidesToShow: 4,
     autoplay: false,
-    slidesToScroll: 1,
+    slidesToScroll: 1.5,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -132,7 +66,7 @@ function MoreToLike() {
     ],
     beforeChange: (current, next) => {
       setIsFirstSlide(next === 0);
-      setIsLastSlide(next === data.length - 4);
+      setIsLastSlide(next === moredata.length - 4);
     },
   };
 
@@ -149,7 +83,13 @@ function MoreToLike() {
       console.log(error);
     }
   };
-
+  const toggleLike = (id, event) => {
+    event.preventDefault();
+    setLikedProducts((prevLiked) => ({
+      ...prevLiked,
+      [id]: !prevLiked[id],
+    }));
+  };
   return (
     <div className="container my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2">
       <div className="row">
@@ -177,7 +117,18 @@ function MoreToLike() {
                 >
                   <div className="card  productCard dealCard border-0 shadow-sm">
                     <div className="iconAbs d-flex justify-content-end align-items-center ">
-                      <CiHeart className="ciHeart" />
+                      <span
+                        className={`heartIcon ${
+                          likedProducts[id] ? "red-heart" : ""
+                        }`}
+                        onClick={(e) => toggleLike(id, e)}
+                      >
+                        {likedProducts[id] ? (
+                          <FaHeart className="pFaHeaert" />
+                        ) : (
+                          <CiHeart />
+                        )}
+                      </span>
                     </div>
                     <div className="iconRel">
                       <img

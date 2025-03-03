@@ -1,0 +1,71 @@
+.inFocusBg {
+  width: auto;
+  height: 300px;
+  background-color: rgb(245, 245, 245);
+}
+
+.inFocImg {
+  margin-top: 45px;
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+.inFocusP1 .inFocush1 .inFocusL {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  color: #211a1e;
+}
+.inFocusP1 {
+  font-style: "monospace";
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.inFocush1 {
+  font-size: 40px;
+}
+.inFocusL {
+  color: #211a1e !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .inFocusBg {
+    height: auto;
+  }
+  .inFocush1 {
+    font-size: 29px;
+  }
+}
+
+@media (min-width: 486px) and (max-width: 768px) {
+  .inFocush1 {
+    font-size: 24px;
+  }
+  .inFocusP1 {
+    font-size: 14px;
+  }
+
+  .inFocusL {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 486px) {
+  .inFocImg {
+    margin-top: 0px;
+  }
+  .inFocImg {
+    width: 100%;
+  }
+  .inFocush1 {
+    font-size: 24px;
+  }
+  .inFocusP1 {
+    font-size: 13px;
+  }
+
+  .inFocusL {
+    font-size: 13px;
+  }
+}
