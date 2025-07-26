@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: url("../../assets/make1.jpeg"); */
+
   background-repeat: no-repeat;
   background-size: 100% 100%;
   z-index: -1;
@@ -46,6 +46,12 @@
   color: #211a1e;
   font-size: 14px;
   line-height: 160%;
+}
+
+.bannerBg2 {
+  background: rgb(231, 227, 227);
+  width: auto;
+  height: auto;
 }
 .tBannerp {
   font-family: PP Object sans, sans-serif;
@@ -86,6 +92,28 @@
   margin-bottom: 2%;
 }
 
+/* Increase Dot Width & Height */
+.slick-dots li button {
+  width: 40px;
+  height: 1px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Increase Active Dot Size */
+.slick-dots li.slick-active button {
+  width: 20px;
+  margin-top: 1px;
+  height: 1px;
+  background-color: rgba(0, 0, 0);
+}
+
+/* Adjust Dot Positioning */
+.slick-dots {
+  bottom: -20px !important;
+}
+
 @media (max-width: 486px) {
   .secOneImg1,
   .secOneImg2 {
@@ -94,5 +122,16 @@
   .sec1Btn {
     font-size: 13px;
     padding: 4px 10px;
+  }
+
+  .slick-dots li button {
+    width: 20px;
+    height: 1px;
+  }
+
+  /* Increase Active Dot Size */
+  .slick-dots li.slick-active button {
+    height: 1px;
+    width: 30px !important;
   }
 }

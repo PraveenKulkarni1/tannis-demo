@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./userAddress.css";
 import Layout from "../Components/Layout/Layout";
 import UserMemu from "../User/UserMemu";
@@ -6,9 +6,32 @@ import { Link, useLocation } from "react-router-dom";
 import { FiPlus } from "react-icons/fi";
 import locImg1 from "../../src/assets/locImg1.png";
 import { FaRegEdit } from "react-icons/fa";
-
+import axios from "axios";
 function UserAddress() {
   const location = useLocation();
+  const [address, setAddress] = useState([]);
+
+  const getAllAddress = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios.get(
+        "https://tannis.in/api/get-shipping-address/",
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+      setAddress(res?.data);
+      console.log(address);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllAddress();
+  }, []);
   return (
     <Layout>
       <div className="container mt-3 p-3">
@@ -43,24 +66,43 @@ function UserAddress() {
               </Link>
             </div>
             <div className="col-12 horiRow  my-2 my-xl-4 my-lg-4 my-md-3 my-sm-3 "></div>
-            <div className="d-flex justify-content-between">
-              <div className="">
-                <div className="col-3">
-                  <h3 className="storeAdd1 col-6">Home</h3>
-                </div>
+            {address?.map((item, i) => {
+              let {
+                address1,
+                address2,
+                city,
+                state,
+                name,
+                is_default,
+                phone,
+                pin_code,
+                type_of_address,
+              } = item;
+              return (
+                <>
+                  <div className="d-flex justify-content-between  mt-3">
+                    <div className="">
+                      <div className="col-4">
+                        <h3 className="storeAdd1 ">{type_of_address}</h3>
+                      </div>
 
-                <h4 className="storeName m-0">Praveen K</h4>
-                <p className="storeData m-0">#32 </p>
-                <p className="storeData m-0">Munne</p>
-                <p className="storeData m-0">Mumbai, Maharashtra - 400093 </p>
-                <p className="storeData m-0">Mobile: 7406506051 </p>
-              </div>
-              <div className="">
-                <Link to="/add-address">
-                  <FaRegEdit size={20} className="text-dark" />
-                </Link>
-              </div>
-            </div>
+                      <h4 className="storeName m-0">{name}</h4>
+                      <p className="storeData m-0">{address1} </p>
+                      <p className="storeData m-0">{address2}</p>
+                      <p className="storeData m-0">
+                        {city}, {state} - {pin_code}{" "}
+                      </p>
+                      <p className="storeData m-0">Mobile: {phone} </p>
+                    </div>
+                    <div className="">
+                      <Link to="/add-address">
+                        <FaRegEdit size={20} className="text-dark" />
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
           </div>
         </div>
       </div>

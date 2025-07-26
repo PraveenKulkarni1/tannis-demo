@@ -1,7 +1,6 @@
 import React from "react";
 import "./homeLexury.css";
 import LexMake from "../../../assets/beauty2.avif";
-
 import HomeMustHaves from "./HomeMustHaves";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
@@ -21,7 +20,7 @@ function HomeLexury() {
           </div>
         </div>
       ) : (
-        <div className="row lexuryRow2">
+        <div className="row lexuryRow3">
           <div className="col-6  my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2 px-3">
             <h1 className=" lexuryh2">RED</h1>
             <h4 className=" homehTag">Lexury beauty for every you</h4>

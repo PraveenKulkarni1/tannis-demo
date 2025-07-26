@@ -1,0 +1,37 @@
+.userOnlineBtn {
+  padding: 3px 15px;
+  cursor: pointer;
+  border: none;
+  background: white;
+  color: black;
+  font-size: 13px;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  color: #211a1e;
+}
+.selectUserP {
+  color: rgb(207, 202, 202);
+  font-size: 12px;
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+}
+.showOptn {
+  border: 1px solid gray;
+  padding: 10px;
+  width: auto;
+}
+.showOptn2 {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  width: auto;
+}
+
+@media (max-width: 300px) {
+  .userOnlineBtn {
+    font-size: 12px;
+  }
+  .selectUserP {
+    font-size: 11px;
+  }
+}

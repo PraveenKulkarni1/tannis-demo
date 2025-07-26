@@ -52,6 +52,7 @@
 
 .iconRel img {
   width: 100%;
+  height: auto;
   transition: transform 0.3s ease;
 }
 
@@ -87,6 +88,7 @@
 .wishWidth {
   border-top: 1px solid #a6a3a5;
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
   .moreLikePrev,
   .moreLikeNext {
@@ -104,7 +106,7 @@
   }
 
   .moreCard {
-    overflow: visible !important; /* Allow content to overflow for small screens */
+    overflow: visible !important;
   }
   .wishSpan .wishListEnd {
     font-size: 15px;
@@ -124,6 +126,12 @@
   .ciClose {
     font-size: 20px;
   }
+
+  .moreCartBtn {
+    font-size: 14px;
+
+    padding: 8px 15px;
+  }
 }
 @media (max-width: 486px) {
   .moreLikeNext,
@@ -139,5 +147,9 @@
   }
   .ciClose {
     font-size: 17px;
+  }
+  .moreCartBtn {
+    font-size: 13px;
+    padding: 5px 8px;
   }
 }

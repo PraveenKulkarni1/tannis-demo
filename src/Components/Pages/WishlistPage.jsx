@@ -12,94 +12,19 @@ import p3 from "../../assets/p3.avif";
 import "./wishlistPage.css";
 import axios from "axios";
 import Layout from "../Layout/Layout";
+import { data } from "./data";
 
 function WishlistPage() {
-  const data = [
-    {
-      img: p1,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p2,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p3,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p1,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p2,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    {
-      img: p3,
-      title: "Inde Wild",
-      description: "Inde Wild Dewy Lip Treatment (15ml)",
-      price: "719",
-      offer1: "799",
-      offer2: "1 Offer",
-      offer3: "10%",
-      ml: "15 ml",
-    },
-    // Add more items as needed
-  ];
-  const [moredata, setMoreData] = useState([]);
+  const [moredata, setMoreData] = useState(data);
 
   //API
-
-  useEffect(() => {
-    getMoreData();
-  }, []);
-  const getMoreData = async () => {
-    try {
-      const result = await axios.get("https://tannis.in/api/products/");
-      setMoreData(result.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <Layout>
       <div className="container my-xl-5 my-lg-5 my-md-3 my-sm-2 my-2">
         <div className="row">
           <h1 className="homehTag">
-            My Wishlist <span className="wishSpan">(9 items)</span>
+            My Wishlist <span className="wishSpan">(6 items)</span>
           </h1>
         </div>
         <div className="row moreRow">
@@ -116,16 +41,14 @@ function WishlistPage() {
                   </div>
                   <div className="iconRel">
                     <img
-                      src={`https://tannis.in${item.thumbnail}`}
+                      src={item.img}
                       className="card-img-top"
                       alt={item.title}
                     />
                   </div>
                   <div className="card-body">
-                    <p className="card-title proTitle">{item.brand}</p>
-                    <h6 className="card-text proText">
-                      {item.p_name.substring(0, 50)}
-                    </h6>
+                    <p className="card-title proTitle">{item.title}</p>
+                    <h6 className="card-text proText">{item.description}</h6>
                     <h6 className="titilHead ">
                       <MdCurrencyRupee />
                       {item.mrp - item.discount}
@@ -142,7 +65,6 @@ function WishlistPage() {
                         )}
                       </span>
                     </h6>
-                    {/* <p className="offerP3">{item.offer2}</p> */}
 
                     <div className="my-xl-5 my-lg-5 my-md-4 my-sm-2 my-2">
                       <button className="moreCartBtn">Move to Bag</button>

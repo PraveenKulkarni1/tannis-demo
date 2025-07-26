@@ -46,7 +46,7 @@
   display: none;
 }
 .cardTextp {
-  font-family: PP Object sans, sans-serif;
+  font-family: "PP Object sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px !important;
@@ -73,7 +73,7 @@
   }
 
   .cardTextp {
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
   .hcateImg {
     height: auto;

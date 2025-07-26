@@ -7,32 +7,16 @@ import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import FiltrProduct from "./FiltrProduct";
 import axios from "axios";
+import { data } from "./data";
+import { useProductContext } from "../contextApi/ProductContext";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const { products } = useProductContext();
+
+  // const [products, setProducts] = useState(data);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [likedProducts, setLikedProducts] = useState({});
-
-  useEffect(() => {
-    getAllproduct();
-  }, []);
-
-  const getAllproduct = async () => {
-    try {
-      const result = await axios.get("https://tannis.in/api/products/");
-      if (result.data.data) {
-        setProducts(result.data.data);
-      } else {
-        setError("Data is Not Received");
-      }
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setError("Failed to Receive Data");
-      setLoading(false);
-    }
-  };
 
   const toggleLike = (id, event) => {
     event.preventDefault();
@@ -41,9 +25,6 @@ const Products = () => {
       [id]: !prevLiked[id],
     }));
   };
-
-  if (loading) return <h1>Loading Data...</h1>;
-  if (error) return <h1>{error}</h1>;
 
   return (
     <Layout title={"All-Tannis-products"}>
@@ -72,8 +53,21 @@ const Products = () => {
             </div>
             <div className="row productsRow">
               {products.length > 0 &&
-                products.map((item) => {
-                  let { id, thumbnail, discount, p_name, brand, mrp } = item;
+                products.map((item, i) => {
+                  let {
+                    id,
+                    product: {
+                      img,
+                      description,
+                      title,
+                      thumbnail,
+                      discount,
+                      p_name,
+                      brand,
+                      mrp,
+                    },
+                  } = item;
+
                   return (
                     <NavLink
                       to="/product-details"
@@ -97,16 +91,14 @@ const Products = () => {
                         </div>
                         <div className="iconRel">
                           <img
-                            src={`https://tannis.in${thumbnail}`}
+                            src={`https://tannis.in${item.thumbnail}`}
                             className="card-img-top"
                             alt="..."
                           />
                         </div>
                         <div className="card-body">
-                          <p className="card-title proTitle">{brand}</p>
-                          <h6 className="card-text proText">
-                            {p_name.substring(0, 50)}
-                          </h6>
+                          <p className="card-title proTitle">{title}</p>
+                          <h6 className="card-text proText">{p_name}</h6>
                           <h6 className="titilHead">
                             <MdCurrencyRupee />
                             {mrp - discount}

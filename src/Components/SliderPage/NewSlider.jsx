@@ -100,7 +100,7 @@ const NewSlider = () => {
                           </div>
                         </div>
 
-                        <div className="bg-warning d-flex justify-content-center align-items-center flex-column">
+                        <div className="bannerBg2 d-flex justify-content-center align-items-center flex-column">
                           <p
                             className="cardTextp"
                             dangerouslySetInnerHTML={{ __html: description }}

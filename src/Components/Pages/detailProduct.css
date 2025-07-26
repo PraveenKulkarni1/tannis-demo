@@ -1,6 +1,7 @@
 .slidImg {
   width: 100%;
   height: auto;
+  cursor: pointer;
 }
 .pSliderclick {
   border: 1px solid black;
@@ -15,8 +16,67 @@
 
   z-index: -1;
 }
+
+.detailArrow svg {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+
+  font-size: 3rem !important;
+  z-index: 1;
+}
+
+.detailPrev {
+  position: absolute;
+  top: 300px;
+  left: 0rem;
+}
+.detailNext {
+  position: absolute;
+  top: 300px;
+  right: 0rem;
+}
+
+.thumbnail-slider-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.thumbnail-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.active-thumbnail {
+  border: 1px solid black !important;
+}
+@media (min-width: 487px) and (max-width: 768px) {
+  .detailPrev,
+  .detailNext {
+    top: 250px;
+  }
+  .detailArrow svg {
+    font-size: 2rem !important;
+  }
+}
 @media (max-width: 486px) {
   .delCol2 {
+    display: none;
+  }
+
+  .detailPrev,
+  .detailNext {
     display: none;
   }
 }

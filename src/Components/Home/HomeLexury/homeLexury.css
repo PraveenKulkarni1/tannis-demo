@@ -2,10 +2,12 @@
   width: auto;
   height: auto;
   background-color: #fee8e6;
-  margin-top: 170px !important;
   border-radius: 10px;
 }
-.lexuryh2 {
+.lexuryRow3 {
+  margin-top: 130px !important;
+}
+.lexuryImg {
   font-family: "PP Object sans", sans-serif;
   font-style: italic;
   font-size: 55px;
@@ -24,11 +26,19 @@
   margin-top: -80px;
 }
 
+@media (max-width: 768px) and (max-width: 990px) {
+  .lexuryRow3 {
+    margin-top: 80px !important;
+  }
+}
+
 @media (min-width: 487px) and (max-width: 768px) {
   .lexuryh2 {
     font-size: 50px;
   }
-
+  .lexuryRow3 {
+    margin-top: 60px !important;
+  }
   .lexuryHSpan {
     font-size: 16px;
   }
@@ -45,7 +55,7 @@
   .homeLexBg {
     border-radius: 0px;
   }
-  .lexuryRow2 {
+  .lexuryRow3 {
     display: none;
   }
   .lexuryRedBg {
@@ -57,7 +67,7 @@
   .lexuryRedBg::before {
     content: "";
     position: absolute;
-    top: -50px;
+    top: -25px;
     left: 0;
     right: 0;
     bottom: 0;

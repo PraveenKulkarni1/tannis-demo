@@ -131,7 +131,7 @@ function Review() {
     <>
       <div className="container ">
         <div className="row">
-          <div className="col-12 my-2 my-xl-5 my-lg-5 my-md-3 my-sm-3 ">
+          <div className="col-12 my-1 ">
             <h3 className="proRatMain">Review</h3>
           </div>
         </div>

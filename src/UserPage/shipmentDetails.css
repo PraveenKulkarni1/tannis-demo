@@ -1,0 +1,96 @@
+.pTrach {
+  font-family: PP Object sans, sans-serif !important;
+  font-size: 15px;
+  color: red;
+  font-weight: 500;
+}
+.orderh1 {
+  font-family: PP Object sans, sans-serif !important;
+  font-size: 16px !important;
+  color: black !important;
+  font-weight: 500;
+}
+
+.orderP {
+  font-family: PP Object sans, sans-serif !important;
+  font-size: 15px !important;
+  color: rgb(141, 133, 133) !important;
+  font-weight: 500;
+}
+.orderP1 {
+  font-family: PP Object sans, sans-serif !important;
+  font-size: 14px !important;
+  color: rgb(33, 30, 30);
+  font-weight: 400;
+}
+.getInvocie {
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  color: black;
+  font-weight: 500;
+  background: white;
+  padding: 10px 20px;
+  border: 1px solid rgb(194, 190, 190);
+  border-radius: 5px;
+}
+
+.getInvocie:hover {
+  background: rgb(235, 231, 231);
+}
+.codOrder {
+  font-family: PP Object sans, sans-serif !important;
+  font-size: 17px !important;
+  color: rgb(186, 178, 178) !important;
+  font-weight: 500;
+  margin-top: 5px !important;
+}
+
+@media (max-width: 768px) {
+  .pTrach,
+  .orderP {
+    font-size: 15px;
+  }
+  .orderh1 {
+    font-size: 15px !important;
+  }
+
+  .orderP1 {
+    font-size: 14px !important;
+  }
+  .getInvocie {
+    font-size: 16px;
+
+    padding: 7px 15px;
+  }
+
+  .codOrder {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pTrach,
+  .orderP,
+  .orderP1 {
+    font-size: 13px;
+  }
+  .orderh1 {
+    font-family: PP Object sans, sans-serif !important;
+    font-size: 15px !important;
+    color: black !important;
+    font-weight: 500;
+  }
+  .orderh1 {
+    font-size: 14px !important;
+  }
+  .getInvocie {
+    font-size: 14px;
+
+    padding: 5px 12px;
+  }
+
+  .codOrder {
+    font-size: 15px !important;
+  }
+}

@@ -5,8 +5,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import UseMediaQuery from "../UseMediaQuery";
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 const BannerTannisRed = () => {
+  const navigate = useNavigate();
   const [banners, setBanners] = useState([]);
   const isMobile = UseMediaQuery("(max-width:486px)");
   function Arrow(props) {
@@ -105,7 +107,12 @@ const BannerTannisRed = () => {
                             className="cardTextp"
                             dangerouslySetInnerHTML={{ __html: description }}
                           ></p>
-                          <button className="sec1Btn">Shop Now</button>
+                          <button
+                            className="sec1Btn"
+                            onClick={() => navigate("/product-list")}
+                          >
+                            Shop Now
+                          </button>
                         </div>
                       </div>
                     );
@@ -135,7 +142,19 @@ const BannerTannisRed = () => {
                               className="tBannerp"
                               dangerouslySetInnerHTML={{ __html: description }}
                             ></p>
-                            <button className="sec1Btn">Shop Now</button>
+                            {/* <button
+                              className="sec1Btn"
+                              onClick={() => navigate("/product-details")}
+                            >
+                              Shop Now
+                            </button> */}
+                            <button
+                              type="button"
+                              className="sec1Btn"
+                              onClick={() => navigate("/product-list")}
+                            >
+                              Shop Now
+                            </button>
                           </div>
                         </div>
                       </>

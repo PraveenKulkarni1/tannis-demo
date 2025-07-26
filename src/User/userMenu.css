@@ -111,3 +111,19 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+@media (max-width: 768px) {
+  .usermenuH6 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 486px) {
+  .usermenuH6 {
+    font-size: 14px;
+  }
+  .ProfilesubUl li a,
+  .logAccount {
+    font-size: 13px;
+  }
+}

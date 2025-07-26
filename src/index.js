@@ -5,15 +5,21 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "antd/dist/reset.css";
+import { UserProvider } from "./Components/contextApi/UserContext";
+import { ProductProvider } from "./Components/contextApi/ProductContext";
+import { SearchProvider } from "./Components/contextApi/SearchContext";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <UserProvider>
+    <SearchProvider>
+      <ProductProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ProductProvider>
+    </SearchProvider>
+  </UserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

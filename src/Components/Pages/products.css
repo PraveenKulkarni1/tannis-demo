@@ -183,21 +183,49 @@
 }
 
 /* Default Heart Icon */
-.heartIcon {
+
+/* .heartIcon {
+  position: absolute;
+  right: 10px !important;
   font-size: 21px;
   font-weight: 500;
   margin-bottom: -58px;
   z-index: 1;
   border-radius: 50%;
-  background: white; /* Default background */
+  background: white;
   padding: 10px;
-  color: black; /* Default color */
+  color: black;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+
+.heartIcon {
+  position: absolute;
+  right: 10px !important;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: -58px;
+  z-index: 1;
+  border-radius: 50%;
+  background: white; /* Keep background white always */
+  padding: 10px;
+  color: rgb(223, 22, 22);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
 }
+
+.heartIcon svg {
+  font-size: 20px; /* Keep both icons same size */
+}
+
 .pFaHeaert {
   color: #f00000;
 }
@@ -251,5 +279,11 @@
   }
   .heartIcon {
     font-size: 16px;
+  }
+  .delProduct {
+    font-size: 13px;
+  }
+  .offdes {
+    font-size: 13px;
   }
 }

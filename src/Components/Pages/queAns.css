@@ -1,0 +1,71 @@
+.queBtn1,
+.queBtn2 {
+  width: auto;
+  height: auto;
+  font-size: 14px;
+  line-height: 140%;
+  overflow: hidden;
+  font-weight: 600;
+  border-radius: 10px;
+  font-family: "PP Object sans", sans-serif;
+
+  padding: 17px 50px;
+  border: 1px solid rgb(210, 207, 207);
+}
+.queBtn1 {
+  color: #211a1e;
+  background-color: #fff;
+}
+
+.queBtn2 {
+  background-color: #211a1e;
+  color: #fff;
+}
+.queh1 {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #211a1e;
+}
+.quePara {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  color: #828282;
+}
+.postQues {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 487px) and (max-width: 768px) {
+  .queBtn1,
+  .queBtn2 {
+    padding: 12px 35px;
+  }
+  .postQues {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 486px) {
+  .queBtn1,
+  .queBtn2 {
+    font-size: 13px;
+    padding: 8px 30px;
+  }
+
+  .queh1 {
+    font-size: 14px;
+  }
+  .quePara {
+    font-size: 13px;
+  }
+  .postQues {
+    display: flex;
+    justify-content: flex-start;
+  }
+}

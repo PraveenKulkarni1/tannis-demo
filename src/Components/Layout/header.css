@@ -125,6 +125,32 @@
   width: 1px;
   background: #897c83;
 }
+
+.bannerIpOne {
+  background: #fff;
+  padding: 7px;
+  border-radius: 30px;
+}
+.bannerIp {
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  background: #f4f4f4;
+}
+
+.bannerIp input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: #f4f4f4;
+}
+
+.bannerIp input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: #f4f4f4;
+}
 @media screen and (min-width: 992px) {
   .tiraNavDropdown:hover .tiraNavMenu {
     display: flex;
@@ -155,6 +181,9 @@
   }
   .navDf {
     width: 100% !important;
+  }
+  .SeachForm {
+    display: none;
   }
 }
 .dropdown:hover .navProDrop {
@@ -191,5 +220,8 @@
   }
   .navProDrop {
     transform: translate3d(-140px, 4px, 0) !important;
+  }
+  .bannerIpOne {
+    padding: 3px;
   }
 }

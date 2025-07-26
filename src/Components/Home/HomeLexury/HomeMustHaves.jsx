@@ -10,8 +10,9 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import axios from "axios";
 import { NavLink, Link } from "react-router-dom";
+import { data } from "./../../Pages/data";
 function HomeMustHaves() {
-  const [moredata, setMoreData] = useState([]);
+  const [moredata, setMoreData] = useState(data);
 
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -72,17 +73,6 @@ function HomeMustHaves() {
     },
   };
 
-  useEffect(() => {
-    getMoreData();
-  }, []);
-  const getMoreData = async () => {
-    try {
-      const result = await axios.get("https://tannis.in/api/products/");
-      setMoreData(result.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const toggleLike = (id, event) => {
     event.preventDefault();
     setLikedProducts((prevLiked) => ({
@@ -104,6 +94,9 @@ function HomeMustHaves() {
             {moredata?.map((item, i) => {
               let {
                 id,
+                img,
+                title,
+                description,
                 thumbnail,
                 discount,
                 category,
@@ -118,7 +111,7 @@ function HomeMustHaves() {
                   to="/product-details"
                   className="d-flex dealCard col-md-4  col-sm-6 col-6 mb-2 mb-xl-5 mb-lg-5 mb-md-3 mb-sm-2 "
                 >
-                  <div className="card  productCard  border-0 shadow-sm">
+                  <div className="card onRadarCard productCard  border-0 shadow-sm">
                     <div className="iconAbs d-flex justify-content-end align-items-center ">
                       <span
                         className={`heartIcon ${
@@ -134,17 +127,11 @@ function HomeMustHaves() {
                       </span>
                     </div>
                     <div className="iconRel">
-                      <img
-                        src={`https://tannis.in${thumbnail}`}
-                        className="card-img-top"
-                        alt="..."
-                      />
+                      <img src={img} className="card-img-top" alt="..." />
                     </div>
                     <div className="card-body">
-                      <p className="card-title proTitle">{brand}</p>
-                      <h6 className="card-text proText">
-                        {p_name.substring(0, 50)}
-                      </h6>
+                      <p className="card-title proTitle">{title}</p>
+                      <h6 className="card-text proText">{description}</h6>
                       <h6 className="titilHead">
                         <MdCurrencyRupee />
                         {mrp - discount}

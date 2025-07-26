@@ -1,0 +1,76 @@
+.brandToBg {
+  width: auto;
+  height: auto;
+  background: rgb(252, 241, 237);
+  border-radius: 20px;
+}
+.brandToBg2 {
+  width: auto;
+  height: auto;
+  background: rgb(252, 241, 237);
+}
+.brandToh1,
+.brandToP {
+  font-family: "PP Object sans", sans-serif;
+  font-style: normal;
+  color: #211a1e;
+}
+.brandToh1 {
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 501;
+}
+.brandToP {
+  font-size: 15px;
+  font-weight: 500;
+}
+.brandToArrow svg {
+  background-color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  z-index: 1;
+}
+.brandToPrev {
+  position: absolute;
+  top: 110px;
+  left: 0rem;
+}
+.brandToNext {
+  position: absolute;
+  top: 110px;
+  right: 0rem;
+}
+
+@media (max-width: 768px) {
+  .brandCard {
+    width: 95% !important;
+  }
+  .brandToh1 {
+    font-size: 17px;
+    line-height: 22px;
+  }
+  .brandToP {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 486px) {
+  .brandToPrev,
+  .brandToNext {
+    display: none;
+  }
+  .brandToh1 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .brandToP {
+    font-size: 14px;
+  }
+}

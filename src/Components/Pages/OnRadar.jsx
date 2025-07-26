@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Slider from "react-slick";
 import "../../Offers/dealOfDay.css";
 import "./onRadar.css";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdCurrencyRupee } from "react-icons/md";
@@ -12,9 +12,10 @@ import UseMediaQuery from "./../../UseMediaQuery";
 
 import axios from "axios";
 import { NavLink, Link } from "react-router-dom";
+import { data } from "./data";
 function OnRadar() {
   const [selectedCategory, setselectedCategory] = useState(null);
-  const [moredata, setMoreData] = useState([]);
+  const [moredata, setMoreData] = useState(data);
 
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -87,9 +88,13 @@ function OnRadar() {
   const setting = {
     dots: false,
     infinite: false,
-    speed: 2000,
-    slidesToShow: 3,
+    speed: 1200,
+    slidesToShow: 1,
     slidesToScroll: 1,
+    // autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -131,17 +136,17 @@ function OnRadar() {
     }));
   };
   return (
-    <div className="container  ">
+    <div className="container">
       <div className="row ">
         <div className="col-12  mt-xl-5 mt-lg-5 mt-md-3 mt-sm-2 my-2">
           <h1 className="homehTag ">On Our Radar</h1>
         </div>
 
-        <div className="col-12">
+        <div className="col-12 my-2 ">
           {isMobile ? (
             <Slider {...setting}>
               {cateData?.map((item, i) => (
-                <div key={i} className="d-flex justify-content-between px-2">
+                <div key={i} className="">
                   <button
                     className={`OnRadarBtn ${
                       selectedCategory === item ? "active" : ""
@@ -169,28 +174,29 @@ function OnRadar() {
             </div>
           )}
         </div>
-
-        <div className="row moreRow">
+      </div>
+      <div className="row">
+        <div className="col-12">
           <Slider {...settings}>
             {moredata.length > 0 &&
               moredata?.map((item, i) => {
                 let {
                   id,
+                  img,
+                  description,
+                  title,
                   thumbnail,
                   discount,
-                  category,
                   p_name,
                   brand,
-                  product_type,
                   mrp,
-                  sub_category,
                 } = item;
                 return (
                   <NavLink
                     to="/product-details"
                     className="d-flex dealCard col-md-4  col-sm-6 col-6 mb-3 "
                   >
-                    <div className="card  productCard  border-0 shadow-sm">
+                    <div className="card  onRadarCard productCard  border-0 shadow-sm">
                       <div className="iconAbs d-flex justify-content-end align-items-center ">
                         <span
                           className={`heartIcon ${
@@ -206,17 +212,11 @@ function OnRadar() {
                         </span>
                       </div>
                       <div className="iconRel">
-                        <img
-                          src={`https://tannis.in${thumbnail}`}
-                          className="card-img-top"
-                          alt="..."
-                        />
+                        <img src={img} className="card-img-top" alt="..." />
                       </div>
                       <div className="card-body">
-                        <p className="card-title proTitle">{brand}</p>
-                        <h6 className="card-text proText">
-                          {p_name.substring(0, 50)}
-                        </h6>
+                        <p className="card-title proTitle">{title}</p>
+                        <h6 className="card-text proText">{description}</h6>
                         <h6 className="titilHead">
                           <MdCurrencyRupee />
                           {mrp - discount}
@@ -235,7 +235,7 @@ function OnRadar() {
                             )}
                           </span>
                         </h6>
-                        <p className="offerP3">1 Offer</p>
+
                         <p className="offerP4">15ml</p>
                         <button className="proCartBtn hoverButton">
                           Add to Bag

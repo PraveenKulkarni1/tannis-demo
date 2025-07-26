@@ -62,8 +62,13 @@ function UserMenu() {
   ];
   return (
     <>
-      <div className="user-menu-container">
-        <h3 className="userMenuh1 my-3">My Account</h3>
+      <div
+        className="user-menu-container   "
+        // style={{ top: "130px", zIndex: "-1000" }}
+      >
+        <h3 className="userMenuh1 my-0 my-xl-3 my-lg-3 my-md-2 my-sm-1">
+          My Account
+        </h3>
         <div className="user-menu-list">
           {menuItems.map((item, index) => (
             <NavLink

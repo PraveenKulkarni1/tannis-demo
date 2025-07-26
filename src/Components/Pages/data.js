@@ -1,0 +1,67 @@
+import p1 from "../../assets/p1.avif";
+import p2 from "../../assets/p2.avif";
+import p3 from "../../assets/p3.avif";
+
+export const data = [
+  {
+    img: p1,
+    title: "Inde Wild",
+    description: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
+    mrp: "719",
+    discount: "99",
+    offer2: "1 Offer",
+    offer3: "10%",
+    offer3: "10%",
+    ml: "15 ml",
+  },
+  {
+    img: p2,
+    title: "Inde Wild",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    mrp: "719",
+    discount: "99",
+    offer2: "1 Offer",
+    offer3: "10%",
+    ml: "15 ml",
+  },
+  {
+    img: p3,
+    title: "Inde Wild",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    mrp: "719",
+    discount: "99",
+    offer2: "1 Offer",
+    offer3: "10%",
+    ml: "15 ml",
+  },
+  {
+    img: p1,
+    title: "Inde Wild",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    mrp: "719",
+    discount: "99",
+    offer2: "1 Offer",
+    offer3: "10%",
+    ml: "15 ml",
+  },
+  {
+    img: p2,
+    title: "Inde Wild",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    mrp: "719",
+    discount: "99",
+    offer2: "1 Offer",
+    offer3: "10%",
+    ml: "15 ml",
+  },
+  {
+    img: p3,
+    title: "Inde Wild",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    mrp: "719",
+    discount: "99",
+    offer2: "1 Offer",
+    offer3: "10%",
+    ml: "15 ml",
+  },
+];

@@ -1,0 +1,75 @@
+.WishPdtArrow svg {
+  background-color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  z-index: 1;
+}
+
+.WishPdtPrev {
+  position: absolute;
+  top: 90px;
+  left: 0rem;
+}
+.WishPdtNext {
+  position: absolute;
+  top: 90px;
+  right: 0rem;
+}
+.wishListSpan {
+  color: #211a1e;
+  font-size: 15px;
+  font-family: "PP Object sans", sans-serif;
+  font-weight: 500;
+}
+.wishlistpdth1 {
+  color: #211a1e;
+  font-size: 18px;
+  font-family: "PP Object sans", sans-serif;
+  font-weight: 600;
+}
+
+.wishScolBtn {
+  width: 100%;
+  height: auto;
+  background: #ffff;
+  color: #211a1e;
+  font-size: 16px;
+  font-family: "PP Object sans", sans-serif;
+  border: 1px solid #888486;
+  border-radius: 0px 0px 5px 5px;
+  font-weight: 600;
+  padding: 10px 30px;
+}
+
+.wishPdtRow {
+  width: 95%;
+}
+
+@media (max-width: 486px) {
+  .WishPdtPrev,
+  .WishPdtNext {
+    display: none;
+  }
+  .wishListBg {
+    background-color: #fcf2ef;
+    width: auto;
+    height: auto;
+    border-radius: 7px;
+  }
+  .wishlistpdth1 {
+    font-size: 14px;
+  }
+  .wishListSpan {
+    display: none;
+  }
+  .wishScolBtn {
+    font-size: 14px;
+  }
+}

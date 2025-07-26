@@ -1,0 +1,91 @@
+.tannisTPrev {
+  position: absolute;
+  top: 200px;
+  left: 0rem;
+}
+.tannisTNext {
+  position: absolute;
+  top: 200px;
+  right: 0rem;
+}
+.tannisPos {
+  position: relative;
+}
+.pFaHeaert {
+  position: absolute;
+  left: 10px;
+}
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.videoLockIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  background: rgb(97, 94, 94);
+  border-radius: 50%;
+  font-size: 18px;
+  padding: 6px 10px;
+  z-index: 2;
+}
+
+.videoLockText {
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px;
+  z-index: 2;
+}
+.videoCart {
+  height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .tannisTPrev,
+  .tannisTNext {
+    top: 150px;
+  }
+
+  .pFaHeaert {
+    position: absolute;
+    left: 10px;
+  }
+
+  .videoLockIcon {
+    font-size: 18px;
+    padding: 4px 9px;
+  }
+
+  .videoLockText {
+    font-size: 16px;
+  }
+  .videoCart {
+    height: 300px;
+  }
+}
+
+@media (max-width: 486px) {
+  .tannisTPrev,
+  .tannisTNext {
+    top: 140px;
+  }
+
+  .videoLockIcon {
+    font-size: 13px;
+    padding: 4px 9px;
+  }
+
+  .videoLockText {
+    font-size: 15px;
+  }
+  .videoCart {
+    height: 300px;
+  }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./header.css";
 import { NavLink, Link } from "react-router-dom";
 import { IoBagOutline, IoPersonOutline } from "react-icons/io5";
@@ -7,8 +7,66 @@ import logo1 from "../../assets/logo1.jpeg";
 import SecHeader from "./SecHeader";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { Badge } from "antd";
-
+import { FaSearch } from "react-icons/fa";
+import { useUserContext } from "../contextApi/UserContext";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { useGetCart } from "../contextApi/GetCart";
+import axios from "axios";
+import SeachForm from "./../Form/SeachForm";
 const Header = () => {
+  const navigate = useNavigate();
+  const { userId, setUserId } = useUserContext();
+  // const [cart] = useGetCart();
+  const [cart, setCart] = useState([]);
+
+  const [data, setData] = useState([]);
+  const [values, setValues] = useState("");
+
+  const handleSearch = async (e) => {
+    e.preventDefault(); // ✅ fix typo
+
+    try {
+      // ✅ pass search value as query param
+      const { data } = await axios.get(
+        `https://tannis.in/api/search-product/${values}`
+      );
+      setData(data);
+      console.log(data.data);
+    } catch (error) {
+      console.error("Search error:", error);
+    }
+  };
+
+  useEffect(() => {
+    getCart();
+  }, []);
+  const getCart = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get("https://tannis.in/api/get-cart", {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+      setCart(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getCart();
+  }, []);
+
+  const cartData = cart?.data?.data?.carts;
+
+  const handelLogout = () => {
+    setUserId({ userId: null, token: "" });
+    localStorage.removeItem("");
+    toast.success("Logout successfully");
+    navigate("/login");
+  };
   return (
     <>
       <div className="container">
@@ -52,7 +110,7 @@ const Header = () => {
                 <ul className="d-flex d-lg-none gap-1">
                   <li className="nav-item me-2">
                     <Badge
-                      count={1}
+                      count={0}
                       style={{
                         background: "none",
                         color: "black",
@@ -67,7 +125,7 @@ const Header = () => {
                   </li>
                   <li className="nav-item me-2">
                     <Badge
-                      count={1}
+                      count={cartData?.length}
                       style={{ background: "none", color: "black" }}
                     >
                       <Link to="/cart" className="headerIcon">
@@ -107,7 +165,7 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/top-shelf" className="dropdown-item">
+                          <Link to="/" className="dropdown-item">
                             Top Shelf
                           </Link>
                         </li>
@@ -138,21 +196,34 @@ const Header = () => {
                         <li>
                           <hr className="dropdown-divider" />
                         </li>
-                        <li>
-                          <Link to="/register" className="dropdown-item ">
-                            SignUp
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/login" className="dropdown-item ">
-                            Login
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/logout" className="dropdown-item HlogOut">
-                            Logout
-                          </Link>
-                        </li>
+
+                        {!userId ? (
+                          <>
+                            {" "}
+                            <li>
+                              <Link to="/register" className="dropdown-item ">
+                                SignUp
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/login" className="dropdown-item ">
+                                Login
+                              </Link>
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              <Link
+                                to="/login"
+                                className="dropdown-item HlogOut"
+                                onClick={handelLogout}
+                              >
+                                Logout
+                              </Link>
+                            </li>
+                          </>
+                        )}
                       </ul>
                     </li>
                   </li>
@@ -195,7 +266,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li className="nav-item cardTextp">
-                      <Link to="/about" className="nav-link navBorder ">
+                      <Link to="/" className="nav-link navBorder ">
                         Top Shelf
                       </Link>
                     </li>
@@ -207,14 +278,19 @@ const Header = () => {
                 {/* Search Bar and Icons for Larger Screens */}
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center searchNav">
                   <li className="nav-item me-2 ">
-                    <form className="d-flex" role="search">
+                    {/* <form className="d-flex" role="search">
                       <input
                         className="form-control me-2 customSearch "
                         type="search"
-                        placeholder="Search"
+                        placeholder="Searchcsv"
                         aria-label="Search"
                       />
-                    </form>
+                    </form> */}
+                    <div className="bannerIpOne">
+                      <div className="bannerIp ">
+                        <SeachForm />
+                      </div>
+                    </div>
                   </li>
                   <ul className="d-flex gap-1">
                     <li className="nav-item me-2">
@@ -231,7 +307,7 @@ const Header = () => {
 
                     <li className="nav-item me-2">
                       <Badge
-                        count={5}
+                        count={cartData?.length}
                         style={{
                           background: "none",
                           color: "black",
@@ -275,7 +351,7 @@ const Header = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link to="/top-shelf" className="dropdown-item">
+                            <Link to="/" className="dropdown-item">
                               Top Shelf
                             </Link>
                           </li>
@@ -306,24 +382,33 @@ const Header = () => {
                           <li>
                             <hr className="dropdown-divider" />
                           </li>
-                          <li>
-                            <Link to="/register" className="dropdown-item ">
-                              SignUp
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/login" className="dropdown-item ">
-                              Login
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/logout"
-                              className="dropdown-item HlogOut"
-                            >
-                              Logout
-                            </Link>
-                          </li>
+
+                          {!userId ? (
+                            <>
+                              {" "}
+                              <li>
+                                <Link to="/register" className="dropdown-item ">
+                                  SignUp
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="/login" className="dropdown-item ">
+                                  Login
+                                </Link>
+                              </li>
+                            </>
+                          ) : (
+                            <>
+                              <li>
+                                <Link
+                                  to="/login"
+                                  className="dropdown-item HlogOut"
+                                >
+                                  Logout
+                                </Link>
+                              </li>
+                            </>
+                          )}
                         </ul>
                       </li>
                     </li>
@@ -338,14 +423,7 @@ const Header = () => {
         <div className="row">
           <div className="col-12">
             <div className="d-lg-none my-2">
-              <form className="d-flex  px-3 px-lg-5" role="search">
-                <input
-                  class="form-control me-2 "
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </form>
+              <SeachForm />
             </div>
           </div>
         </div>

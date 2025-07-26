@@ -5,6 +5,7 @@ import "./footer.css";
 import { FaPlus } from "react-icons/fa";
 import { TiMinus } from "react-icons/ti";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 import UseMediaQuery from "./../../UseMediaQuery";
 const Footer = () => {
   const isMobile = UseMediaQuery("(max-width:486px)");
@@ -79,7 +80,10 @@ const Footer = () => {
           <>
             <div className="row">
               <div className="col-md-3 ">
-                <img src={logo1} className="footerLogo" />
+                <NavLink to="/">
+                  <img src={logo1} className="footerLogo" />
+                </NavLink>
+
                 <p className="footerp my-3">
                   For every day, for every mood, for every you
                 </p>
@@ -90,7 +94,6 @@ const Footer = () => {
                     key={item.id}
                     className="border-bottom border-secondary py-2 py-lg-3"
                   >
-                    {/* Question Header */}
                     <div
                       className="d-flex justify-content-between align-items-center px-2"
                       role="button"
@@ -106,7 +109,6 @@ const Footer = () => {
                       </h3>
                     </div>
 
-                    {/* Answer Section (Links Displayed in Rows) */}
                     {activeId === item.id && (
                       <div className="row mt-2 px-2">
                         {item.answer.map((linkItem, index) => (
@@ -165,7 +167,7 @@ const Footer = () => {
                   </li>
 
                   <li>
-                    <Link to="/write-to-us">Help Centre</Link>
+                    <Link to="/write-to-us">Help Center</Link>
                   </li>
                   <li>
                     <Link to="/faq">FAQs</Link>

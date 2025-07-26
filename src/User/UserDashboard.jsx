@@ -5,9 +5,9 @@ import UserMemu from "./UserMemu";
 function UserDashboard() {
   return (
     <Layout>
-      <div className="container m-3 p-3">
+      <div className="container m-3 p-3 ">
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-md-5 ">
             <UserMemu />
           </div>
           <div className="col-md-7"></div>

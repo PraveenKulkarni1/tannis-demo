@@ -37,7 +37,6 @@ function ForYou() {
         </>
       ) : (
         <>
-          {" "}
           <div className="container forYouBg">
             <div className="row px-3">
               <div className="col-5 my-xl-5 my-xxl-5 my-lg-5 my-md-3 my-sm-2 my-2">

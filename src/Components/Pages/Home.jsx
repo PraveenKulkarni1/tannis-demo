@@ -13,23 +13,25 @@ import ForYou from "./../Home/ForYou";
 import HomeLexury from "../Home/HomeLexury/HomeLexury";
 import OnRadar from "./OnRadar";
 import SecBannerOff from "./SecBannerOff";
+import BrandToKnow from "./BrandToKnow";
+import TannisTube from "./TannisTube";
 
 const Home = () => {
   return (
     <Layout>
-      {/* <div className="secHeadNav">
-        <SecHeader />
-      </div> */}
-
       <NewSlider />
       <TopCate />
 
       <TrendingOffer />
       <WishList />
       <RecentView />
+      <TannisTube />
       <OnRadar />
+      <BrandToKnow />
       <SecBannerOff />
+
       <HomeLexury />
+
       <ForYou />
       <Statistics />
     </Layout>

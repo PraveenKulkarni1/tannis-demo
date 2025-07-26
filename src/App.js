@@ -48,17 +48,26 @@ import OfferHome from "./Offers/OfferHome";
 
 import WishlistPage from "./Components/Pages/WishlistPage";
 import HomeTannisRed from "./TannisRed/HomeTannisRed";
+import UserOnline from "./UserPage/UserOnline";
+import WishlistProduct from "./Components/Pages/WishListProduct";
+import MainSubategory from "./Components/SubCategory/MainSubcategory";
+import Search from "./Components/Layout/Search";
+import ShipmentDetails from "./UserPage/ShipmentDetails";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/search/:slug" element={<Search />}></Route>
         <Route path="/user-dashboard" element={<UserDashboard />}></Route>
         <Route path="/tannis-red" element={<HomeTannisRed />}></Route>
         {/* userMenu */}
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/order" element={<UserOrder />} />
+        <Route path="/order" element={<UserOrder />}>
+          <Route path="shipment" element={<ShipmentDetails />} />
+        </Route>
+
         <Route path="/address" element={<UserAddress />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/faq" element={<Faq />} />
@@ -71,9 +80,16 @@ function App() {
         <Route path="/login-otp" element={<LoginOtp />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route path="/wishlist" element={<WishlistPage />}></Route>
-        <Route path="/product-details" element={<DetailProduct />}></Route>
+        <Route path="/:slug/products" element={<Products />}></Route>
 
+        <Route path="/wishlist" element={<WishlistPage />}></Route>
+        <Route
+          path="/product-details/:slug"
+          element={<DetailProduct />}
+        ></Route>
+        <Route path="/product-list" element={<DetailProduct />}></Route>
+
+        <Route path="/:slug" element={<MainSubategory />}></Route>
         <Route path="/order-details" element={<OrderDetails />}></Route>
         <Route path="/change-aadress" element={<ChangeAddress />}></Route>
         <Route
@@ -100,7 +116,6 @@ function App() {
         <Route path="/write-to-us" element={<WriteToUs />} />
         <Route path="/tannis-tribute" element={<TannisTribe />} />
 
-        {/* Terms and Condition */}
         <Route path="/terms-conditions" element={<TermsAndCond />} />
         <Route path="/fees-payments" element={<FeesPayment />} />
         <Route path="/cancel-refund-policy" element={<CancellationRefund />} />
@@ -117,6 +132,7 @@ function App() {
 
         {/* OfferHome */}
         <Route path="/offers" element={<OfferHome />} />
+        <Route path="/wishlist-product" element={<WishlistProduct />} />
       </Routes>
       <ScrollToTopButton />
     </>
@@ -124,3 +140,7 @@ function App() {
 }
 
 export default App;
+// "scripts": {
+//   "start": "node --max-old-space-size=4096 ./node_modules/react-scripts/scripts/start.js",
+//   "build": "node --max-old-space-size=4096 ./node_modules/react-scripts/scripts/build.js"
+// }

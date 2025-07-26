@@ -7,6 +7,6 @@
 @media screen and (min-width: 991px) {
   .secMakeup {
     width: 90vw;
-    transform: translate3d(-120px, 4px, 0) !important;
+    transform: translate3d(-95px, 4px, 0) !important;
   }
 }

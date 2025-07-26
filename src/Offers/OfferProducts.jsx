@@ -77,8 +77,9 @@ function OfferProducts() {
   }, []);
   const getMoreData = async () => {
     try {
-      const result = await axios.get("https://tannis.in/api/products/");
-      setMoreData(result.data.data);
+      const result = await axios.get("https://tannis.in/api/wishlist/");
+      setMoreData(result?.data?.data);
+      console.log(moredata);
     } catch (error) {
       console.log(error);
     }
@@ -101,15 +102,20 @@ function OfferProducts() {
           <Slider {...settings}>
             {moredata.length > 0 &&
               moredata?.map((item, i) => {
+                console.log(item, "------------");
                 let {
                   id,
                   thumbnail,
-                  discount,
-                  category,
-                  p_name,
-                  brand,
-                  product_type,
-                  mrp,
+
+                  product: {
+                    discount,
+                    category,
+                    p_name,
+                    brand,
+                    product_type,
+                    mrp,
+                  },
+
                   sub_category,
                 } = item;
                 return (

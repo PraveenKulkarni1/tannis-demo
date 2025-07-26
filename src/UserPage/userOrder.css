@@ -107,6 +107,19 @@
   text-align: center;
 }
 
+.orderTransit {
+  font-family: PP Object sans, sans-serif;
+  font-style: bold;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(201, 50, 32);
+  background: rgb(255, 223, 199);
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 60%;
+  text-align: center;
+}
+
 /* orderDetails */
 .serOrderBtn {
   width: auto;
@@ -146,6 +159,10 @@
     align-items: center;
     flex-direction: column;
   }
+  .onLineOrStatus {
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media (min-width: 486px) and (max-width: 768px) {
   .inStMain {
@@ -174,5 +191,15 @@
 
   .serOrderBtn {
     font-size: 13px;
+  }
+  .userOnlineFixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
   }
 }

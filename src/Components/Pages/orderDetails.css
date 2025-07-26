@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 .col2BorderTwo {
-  height: 330px;
+  height: auto;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -79,6 +79,7 @@
   height: 80px;
   box-sizing: border-box;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   position: relative;
   background: #fff;
@@ -90,8 +91,62 @@
   z-index: 1;
   width: 95%;
 }
+
+.defaultBtn {
+  background: #481db6;
+  border: none;
+  font-size: 16px;
+  color: white;
+  padding: 5px 10px;
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+}
+.setBefaultBtn {
+  background: #e1d6fc;
+  border: none;
+  font-size: 16px;
+  color: #211a1e;
+  padding: 5px 10px;
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .payObtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 486px) {
   .couP5 .couP4 .couP3 {
     font-size: 13px;
+  }
+  .totalPayP {
+    font-weight: 400;
+    font-size: 12px;
+    color: #7b6f76;
+  }
+  .totalPayh1 {
+    font-weight: 500;
+    font-size: 16px;
+    color: #211a1e;
+    font-weight: 500;
+  }
+  .totalPayh2 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #acacac;
+  }
+
+  .defaultBtn,
+  .setBefaultBtn {
+    font-size: 14px;
+
+    padding: 3px 7px;
   }
 }

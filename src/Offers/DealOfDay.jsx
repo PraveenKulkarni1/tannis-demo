@@ -77,7 +77,7 @@ function DealOfDay() {
   }, []);
   const getMoreData = async () => {
     try {
-      const result = await axios.get("https://tannis.in/api/products/");
+      const result = await axios.get("https://tannis.in/api/deals-of-the-day/");
       setMoreData(result.data.data);
     } catch (error) {
       console.log(error);
@@ -113,6 +113,7 @@ function DealOfDay() {
                   brand,
                   product_type,
                   mrp,
+                  first_variant_image: img,
                   sub_category,
                 } = item;
                 return (
@@ -137,7 +138,7 @@ function DealOfDay() {
                       </div>
                       <div className="iconRel">
                         <img
-                          src={`https://tannis.in${thumbnail}`}
+                          src={`https://tannis.in${img}`}
                           className="card-img-top"
                           alt="..."
                         />

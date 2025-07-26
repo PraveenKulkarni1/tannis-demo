@@ -7,15 +7,56 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
+import "./onRadar.css";
 import axios from "axios";
-import { NavLink, Link } from "react-router-dom";
-function RecentView() {
-  const [moredata, setMoreData] = useState([]);
+import toast from "react-hot-toast";
+import { NavLink, Link, useNavigate, useParams } from "react-router-dom";
+import { getCart } from "./../contextApi/GetCart";
 
+function RecentView() {
+  const navigate = useNavigate();
+  const params = useParams();
+  const [moredata, setMoreData] = useState([]);
+  const [likedProducts, setLikedProducts] = useState({});
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const [isLastSlide, setIsLastSlide] = useState(false);
-  const [likedProducts, setLikedProducts] = useState({});
+  // API
+  useEffect(() => {
+    getCategory();
+  }, []);
+
+  const getCategory = async () => {
+    try {
+      const result = await axios.get("https://tannis.in/api/wishlist/");
+      setMoreData(result?.data?.data);
+      console.log(moredata);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleAddToCart = async (id, qty) => {
+    console.log(id, ".,.,.,.,.,.,");
+    const token = localStorage.getItem("token");
+    const body = { variant: id, qty: qty };
+    try {
+      const res = await axios.post(
+        "https://tannis.in/api/add-to-cart/",
+        body,
+
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+
+      toast.success("Item Added Successfully");
+      console.log(res, "************");
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
 
   const NextArrow = ({ onClick }) => (
     <div
@@ -44,6 +85,8 @@ function RecentView() {
     slidesToShow: 4,
     autoplay: false,
     slidesToScroll: 1.5,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -72,17 +115,6 @@ function RecentView() {
     },
   };
 
-  useEffect(() => {
-    getMoreData();
-  }, []);
-  const getMoreData = async () => {
-    try {
-      const result = await axios.get("https://tannis.in/api/products/");
-      setMoreData(result.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const toggleLike = (id, event) => {
     event.preventDefault();
     setLikedProducts((prevLiked) => ({
@@ -90,6 +122,7 @@ function RecentView() {
       [id]: !prevLiked[id],
     }));
   };
+
   return (
     <div className="container  ">
       <div className="row ">
@@ -103,21 +136,17 @@ function RecentView() {
               moredata?.map((item, i) => {
                 let {
                   id,
+                  product: { img, variant, discount, qty, p_name, brand, mrp },
                   thumbnail,
-                  discount,
-                  category,
-                  p_name,
-                  brand,
-                  product_type,
-                  mrp,
-                  sub_category,
                 } = item;
+
                 return (
                   <NavLink
-                    to="/product-details"
-                    className="d-flex dealCard col-md-4  col-sm-6 col-6 mb-3 "
+                    to={`/product-details/${item.id}`}
+                    navigate
+                    className="d-flex dealCard col-md-4 col-sm-6 col-6 mb-3 "
                   >
-                    <div className="card  productCard  border-0 shadow-sm">
+                    <div className="card  onRadarCard productCard  border-0 shadow-sm">
                       <div className="iconAbs d-flex justify-content-end align-items-center ">
                         <span
                           className={`heartIcon ${
@@ -126,7 +155,7 @@ function RecentView() {
                           onClick={(e) => toggleLike(id, e)}
                         >
                           {likedProducts[id] ? (
-                            <FaHeart className="pFaHeaert" />
+                            <FaHeart className="pFaHeart" />
                           ) : (
                             <CiHeart />
                           )}
@@ -141,9 +170,7 @@ function RecentView() {
                       </div>
                       <div className="card-body">
                         <p className="card-title proTitle">{brand}</p>
-                        <h6 className="card-text proText">
-                          {p_name.substring(0, 50)}
-                        </h6>
+                        <h6 className="card-text proText">{p_name}</h6>
                         <h6 className="titilHead">
                           <MdCurrencyRupee />
                           {mrp - discount}
@@ -162,9 +189,12 @@ function RecentView() {
                             )}
                           </span>
                         </h6>
-                        <p className="offerP3">1 Offer</p>
+
                         <p className="offerP4">15ml</p>
-                        <button className="proCartBtn hoverButton">
+                        <button
+                          className="proCartBtn hoverButton"
+                          onClick={() => handleAddToCart(id, qty)}
+                        >
                           Add to Bag
                         </button>
                       </div>

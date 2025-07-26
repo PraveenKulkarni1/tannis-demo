@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import "./userProfile.css";
+import "./addAddress.css";
 import Layout from "../Components/Layout/Layout";
 import UserMemu from "../User/UserMemu";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import { IoPersonOutline } from "react-icons/io5";
-import { CiImageOn } from "react-icons/ci";
-import { MdPhotoCamera } from "react-icons/md";
-import { Modal, Button } from "react-bootstrap";
-import { AiOutlineDelete } from "react-icons/ai";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import "./addAddress.css";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function AddAddress() {
+  const navigate = useNavigate();
+
   const [houseNo, setHouseNo] = useState("");
   const [buildingName, setBuildingName] = useState("");
   const [pincode, setPincode] = useState("");
@@ -19,13 +17,101 @@ function AddAddress() {
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [fullName, setFullName] = useState("");
-  const [contact, setContact] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-
   const [selectedPlace, setSelectedPlace] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const isValidEmail = (email) =>
+    /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
+
+  const isValidPhone = (phone) => /^[0-9]{10}$/.test(phone);
+
+  const handlePincodeChange = async (e) => {
+    const pin = e.target.value;
+    setPincode(pin);
+
+    if (pin.length === 6) {
+      try {
+        const response = await axios.get(
+          `https://api.postalpincode.in/pincode/${pin}`
+        );
+        const data = response.data[0];
+
+        if (data.Status === "Success") {
+          const postOffice = data.PostOffice[0];
+          setCity(postOffice.District || "");
+          setState(postOffice.State || "");
+          setCountry("India");
+        } else {
+          console.warn("Invalid Pincode");
+          setCity("");
+          setState("");
+          setCountry("");
+        }
+      } catch (error) {
+        console.error("Error fetching pincode info:", error);
+      }
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    // ✅ Phone is required
+    if (!isValidPhone(phone)) {
+      setError("Please enter a valid 10-digit phone number.");
+      toast.error("Invalid phone number.");
+      setLoading(false);
+      return;
+    }
+
+    // ✅ Email is optional but must be valid if entered
+    if (email && !isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      toast.error("Invalid email format.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("token");
+
+      const payload = {
+        name: fullName,
+        address1: houseNo,
+        address2: buildingName,
+        city: city,
+        pin_code: pincode,
+        state: state,
+        phone: phone,
+        country: country,
+        type_of_address: selectedPlace,
+        email: email || "",
+      };
+
+      const res = await axios.post(
+        "https://tannis.in/api/shipping-address/",
+        payload,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+
+      toast.success("Address Saved Successfully");
+      navigate("/address");
+      console.log("Address saved:", res.data);
+    } catch (error) {
+      console.error("Error saving address:", error);
+      toast.error("Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -36,19 +122,23 @@ function AddAddress() {
             <UserMemu />
           </div>
           <div className="col-md-8">
-            <h3 className="userMenuh1 my-2 my-xl-5 my-lg-5 my-md-3 my-sm-3">
-              My Address
-            </h3>
+            <h3 className="userMenuh1 my-2 my-xl-5">My Address</h3>
             <div className="profile-container">
               <h2 className="mb-3 adrsHeading">Add New Address</h2>
-              <div className="col-12 horiRow  my-2 my-xl-4 my-lg-4 my-md-3 my-sm-3 "></div>
+              <div className="col-12 horiRow my-3"></div>
             </div>
 
             <form onSubmit={handleSubmit} className="profile-form">
+              {error && (
+                <div className="alert alert-danger py-2 text-center">
+                  {error}
+                </div>
+              )}
+
               <div className="row">
-                <div className="col-12 col-md-6 mb-3">
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    Flat No/House No/Building No
+                    Flat No/House No/Building No{" "}
                     <span className="proErr">*</span>
                   </label>
                   <input
@@ -59,9 +149,10 @@ function AddAddress() {
                     required
                   />
                 </div>
-                <div className="col-12 col-md-6 mb-3">
+
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    Building Name/Street/Society
+                    Building Name/Street/Society{" "}
                     <span className="proErr">*</span>
                   </label>
                   <input
@@ -75,23 +166,22 @@ function AddAddress() {
               </div>
 
               <div className="row">
-                <div className="col-12 col-md-6 mb-3">
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    Pincode
-                    <span className="proErr">*</span>
+                    Pincode <span className="proErr">*</span>
                   </label>
                   <input
                     type="number"
                     className="form-control py-2"
                     value={pincode}
-                    onChange={(e) => setPincode(e.target.value)}
+                    onChange={handlePincodeChange}
                     required
                   />
                 </div>
-                <div className="col-12 col-md-6 mb-3">
+
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    City
-                    <span className="proErr">*</span>
+                    City <span className="proErr">*</span>
                   </label>
                   <input
                     type="text"
@@ -104,10 +194,9 @@ function AddAddress() {
               </div>
 
               <div className="row">
-                <div className="col-12 col-md-6 mb-3">
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    State
-                    <span className="proErr">*</span>
+                    State <span className="proErr">*</span>
                   </label>
                   <input
                     type="text"
@@ -117,10 +206,10 @@ function AddAddress() {
                     required
                   />
                 </div>
-                <div className="col-12 col-md-6 mb-3">
+
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    Country
-                    <span className="proErr">*</span>
+                    Country <span className="proErr">*</span>
                   </label>
                   <input
                     type="text"
@@ -133,41 +222,39 @@ function AddAddress() {
               </div>
 
               <div className="gender-container mb-3">
-                {/* Male Button */}
                 <button
+                  type="button"
                   className={`gender-button ${
-                    selectedPlace === "home" ? "active" : ""
+                    selectedPlace === "Home" ? "active" : ""
                   }`}
-                  onClick={() => setSelectedPlace("home")}
+                  onClick={() => setSelectedPlace("Home")}
                 >
                   Home
                 </button>
-
-                {/* Female Button */}
                 <button
+                  type="button"
                   className={`gender-button ${
-                    selectedPlace === "work" ? "active" : ""
+                    selectedPlace === "Work" ? "active" : ""
                   }`}
-                  onClick={() => setSelectedPlace("work")}
+                  onClick={() => setSelectedPlace("Work")}
                 >
                   Work
                 </button>
-
-                {/* Other Button */}
                 <button
+                  type="button"
                   className={`gender-button ${
-                    selectedPlace === "other" ? "active" : ""
+                    selectedPlace === "Other" ? "active" : ""
                   }`}
-                  onClick={() => setSelectedPlace("other")}
+                  onClick={() => setSelectedPlace("Other")}
                 >
                   Other
                 </button>
               </div>
+
               <div className="row">
-                <div className="col-12 col-md-6 mb-3">
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    Full Name
-                    <span className="proErr">*</span>
+                    Full Name <span className="proErr">*</span>
                   </label>
                   <input
                     type="text"
@@ -177,34 +264,35 @@ function AddAddress() {
                     required
                   />
                 </div>
-                <div className="col-12 col-md-6 mb-3">
+
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">
-                    Contact
-                    <span className="proErr">*</span>
+                    Contact <span className="proErr">*</span>
                   </label>
                   <input
                     type="text"
                     className="form-control py-2"
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required
                   />
                 </div>
               </div>
+
               <div className="row">
-                <div className="col-12 col-md-6 mb-3">
+                <div className="col-md-6 mb-3">
                   <label className="adrsLabel1">Email (Optional)</label>
                   <input
                     type="email"
                     className="form-control py-2"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                   />
                 </div>
-                <div className="col-12 col-md-6  form-check my-3">
+
+                <div className="col-md-6 form-check my-3">
                   <input
-                    className="form-check-input signupCheckbox p-0 p-sm-1 p-md-1 p-lg-1"
+                    className="form-check-input signupCheckbox"
                     type="checkbox"
                     id="flexCheckChecked"
                     defaultChecked
@@ -219,8 +307,14 @@ function AddAddress() {
                   </label>
                 </div>
               </div>
-              <button className="userPbtn my-3 ">Save</button>
-              {/* <div className="col-12 horiRow "></div> */}
+
+              <button
+                type="submit"
+                className="userPbtn my-3"
+                disabled={loading}
+              >
+                {loading ? "Saving..." : "Save"}
+              </button>
             </form>
           </div>
         </div>

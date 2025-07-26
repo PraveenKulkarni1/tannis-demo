@@ -1,105 +1,339 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./cartPage.css";
 import "./orderDetails.css";
-import p3 from "../../assets/p3.avif";
-import p1 from "../../assets/p1.avif";
+
 import { MdCurrencyRupee } from "react-icons/md";
 import { RiTruckLine } from "react-icons/ri";
 import { AiOutlineMinus } from "react-icons/ai";
 import { TbCircleDashedPercentage } from "react-icons/tb";
 import { LuPartyPopper } from "react-icons/lu";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 import { FiPlus } from "react-icons/fi";
 import MoreToLike from "./../SliderPage/MoreToLike";
-
+import toast from "react-hot-toast";
 import Header2 from "./../Layout/Header2";
 import Footer from "../Layout/Footer";
 import ChangeAddress from "./../../Modal/ChangeAddress";
-
+import { useNavigate } from "react-router-dom";
 // modal
+
 import { Modal, Form } from "react-bootstrap";
 import { IoIosArrowForward } from "react-icons/io";
 import { FiEdit } from "react-icons/fi";
+import { IoIosArrowUp } from "react-icons/io";
 // import "./changeAddress.css";
+import UseMediaQuery from "./../../UseMediaQuery";
+import ShipmentDetails from "./../../UserPage/ShipmentDetails";
 function OrderDetails() {
+  const navigate = useNavigate();
+  const isMobile = UseMediaQuery("(max-width:486px)");
   const [showMainModal, setShowMainModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [isAddingNew, setIsAddingNew] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [cart, setCart] = useState();
 
-  const [addresses, setAddresses] = useState([
-    {
-      id: 1,
-      houseNo: "#32",
-      buildingName: "Sai",
-      pincode: "400093",
+  const [houseNo, setHouseNo] = useState("");
+  const [buildingName, setBuildingName] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [isDefault, setIsDefault] = useState(false); //defalut Address
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [defaultAddressId, setDefaultAddressId] = useState(null);
+  //start here
 
-      city: "Mumbai",
-      state: "Maharastra",
-      name: "Praveen Kulkarni",
-      type: "Home",
-      email: "",
-      country: "India",
-      contact: "7406506051",
-    },
-  ]);
+  const [reviewOrder, setReviewOrder] = useState([]);
+  const getReviewOrder = async () => {
+    let token = localStorage.getItem("token");
+    try {
+      let res = await axios.get("https://tannis.in/api/review-order-details", {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+      setReviewOrder(res?.data);
+      console.log(reviewOrder.shipping_address, "3333333333");
+      if (res?.data?.length > 0 && !selectedAddress) {
+        setSelectedAddress(res?.shipping_address);
+      }
+      setTotalAmount(res?.data?.total_amount);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getReviewOrder();
+  }, []);
 
-  const [formData, setFormData] = useState({
-    id: null,
-    type: "Home",
-    houseNo: "",
-    buildingName: "",
-    pincode: "",
-    city: "",
-    state: "",
-    name: "",
-    email: "",
-    country: "",
-    contact: "",
-  });
+  const [address, setAddress] = useState([]);
 
+  // get all Shipting address
+  const getAllAddress = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios.get(
+        "https://tannis.in/api/get-shipping-address/",
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+      setAddress(res?.data);
+      // if (res?.data?.length > 0 && !selectedAddress) {
+      //   setSelectedAddress(res?.data[0]);
+      // }
+      setAddress(res?.data);
+      navigate("/order-details");
+
+      const def = res.data.find((a) => a.is_default);
+      if (def) setDefaultAddressId(def.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllAddress();
+  }, []);
+
+  // handleSubmit and Post all Shipting address
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const token = localStorage.getItem("token");
+      const headers = {
+        Authorization: `Token ${token}`,
+        "Content-Type": "application/json",
+      };
+
+      const formData = {
+        name: fullName,
+        address1: houseNo,
+        address2: buildingName,
+        pin_code: pincode,
+        city: city,
+        state: state,
+        phone: contact,
+        country: country,
+        type_of_address: selectedPlace,
+        email: email,
+      };
+
+      const response = await axios.post(
+        "https://tannis.in/api/shipping-address/",
+        formData,
+        { headers }
+      );
+
+      toast.success("Address saved successfully");
+
+      // ✅ Close Add Address modal
+      setShowEditModal(false);
+
+      // ✅ Optional: reopen main modal or go back
+      setShowMainModal(true); // if you want to show the address list modal again
+    } catch (error) {
+      console.error(
+        "Error saving address:",
+        error.response?.data || error.message
+      );
+      toast.error("Failed to save address");
+    }
+  };
+
+  const handlePincodeChange = async (e) => {
+    const pin = e.target.value;
+    setPincode(pin);
+
+    if (pin.length === 6) {
+      try {
+        const response = await axios.get(
+          `https://api.postalpincode.in/pincode/${pin}`
+        );
+        const data = response.data[0];
+
+        if (data.Status === "Success") {
+          const postOffice = data.PostOffice[0];
+          setCity(postOffice.District || "");
+          setState(postOffice.State || "");
+          setCountry("India");
+        } else {
+          console.warn("Invalid Pincode");
+          setCity("");
+          setState("");
+          setCountry("");
+        }
+      } catch (error) {
+        console.error("Error fetching pincode info:", error);
+      }
+    }
+  };
+
+  const loadRazorpay = () => {
+    const options = {
+      key: "rzp_test_BzGty5Y8oo9gcQ", // ✅ Your test key
+      amount: totalAmount * 100, // Amount in paise = ₹100.00
+      currency: "INR",
+      name: "Tannis Store",
+      description: "Test Transaction",
+      image: "https://tannis.in/static/logo.png", // Optional logo
+      handler: function (response) {
+        alert("✅ Payment successful!");
+        // const paymentId = response.razorpay_payment_id;
+        // console.log("Payment ID:", paymentId);
+        // postOrder(paymentId);
+      },
+      prefill: {
+        name: "Praveen Kulkarni",
+        email: "praveen@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "Tannis Pvt Ltd, Bengaluru",
+      },
+      theme: {
+        color: "#0d6efd",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
   const handleEdit = (address) => {
     setShowMainModal(false);
-    setFormData(address);
+    // setFormData(address);
     setIsAddingNew(false);
     setTimeout(() => setShowEditModal(true), 300);
   };
 
   const handleAddNew = () => {
+    setIsAddingNew(true); // Indicates it's a new address
+    setShowMainModal(false); // Close the main modal if it's open
+    setTimeout(() => setShowEditModal(true), 300); // Show the edit modal
+  };
+
+  const handleSelectAddress = (address) => {
+    setSelectedAddress(address);
     setShowMainModal(false);
-    setFormData({
-      id: null,
-      type: "Home",
-      houseNo: "",
-      buildingName: "",
-      pincode: "",
-      city: "",
-      state: "",
-      name: "",
-      email: "",
-      country: "",
-      contact: "",
-    });
-    setIsAddingNew(true);
-    setTimeout(() => setShowEditModal(true), 300);
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  //defaultAddress
 
-  const handleSaveChanges = (e) => {
-    e.preventDefault();
-
-    if (isAddingNew) {
-      setAddresses([...addresses, { ...formData, id: addresses.length + 1 }]);
-    } else {
-      setAddresses(
-        addresses.map((addr) => (addr.id === formData.id ? formData : addr))
+  //post Defalu Address
+  const defaultAddress = async (id) => {
+    const token = localStorage.getItem("token");
+    try {
+      let updateData = await axios.patch(
+        `https://tannis.in/api/make-default-shipping-address/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
       );
+      {
+        getDefalutAddress();
+      }
+      setDefaultAddressId(id);
+      getAllAddress();
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    setShowEditModal(false);
+  //get Defalu Address
+
+  const getDefalutAddress = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      let res = await axios.get(
+        "https://tannis.in/api/get-default-shipping-address",
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+
+      //paused here only
+      setSelectedAddress(res?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getDefalutAddress();
+  }, []);
+
+  // const postOrder = async (paymentId) => {
+  //   const token = localStorage.getItem("token");
+  //   const body = {
+  //     payment_mode: "ONLINE",
+  //     transaction_id: paymentId,
+  //     payment_status: "COMPLETED",
+  //     order_status: "created",
+  //   };
+  //   try {
+  //     let res = await axios.post("https://tannis.in/api/order/", body, {
+  //       headers: {
+  //         Authorization: `Token ${token}`,
+  //       },
+  //     });
+  //     console.log(res, "/////////////////////");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const onlineOrder = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      let res = await axios.post(
+        "https://tannis.in/api/order/",
+        { payment_mode: "ONLINE" },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const CODOrder = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      let res = await axios.post(
+        "https://tannis.in/api/order/",
+        { payment_mode: "COD" },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleOnlinePayment = () => {
+    onlineOrder();
+    loadRazorpay();
   };
   return (
     <>
@@ -132,13 +366,27 @@ function OrderDetails() {
                           />
                         </Link>
                       </div>
-                      <h3 className="couP1">
-                        Praveen Kulkarni <span className="copBorder">Home</span>
-                      </h3>
-                      <h3 className="couP3">
-                        #32 Sai, Munne, Mumbai, Maharashtra - 400093
-                      </h3>
-                      <p className="couP5 mb-0">Mobile: 785825325</p>
+                      {selectedAddress && (
+                        <>
+                          <h3 className="couP1 ">
+                            {selectedAddress?.name}
+                            <span className="copBorder ms-2">
+                              {" "}
+                              {selectedAddress?.type_of_address}
+                            </span>
+                          </h3>
+                          <h3 className="couP3">
+                            {selectedAddress?.address1},
+                            {selectedAddress?.address2}, {selectedAddress?.city}
+                            , {selectedAddress?.state} -{" "}
+                            {selectedAddress?.pin_code}
+                          </h3>
+                          <p className="couP5 mb-0">
+                            Mobile: {selectedAddress?.phone}
+                          </p>
+                        </>
+                      )}
+                      {/**/}
                     </div>
                   </div>
                 </div>
@@ -148,11 +396,28 @@ function OrderDetails() {
                 <p className="couP4">Shipment 1 of 1</p>
 
                 <div className="shipBorder">
-                  <h3 className=" couP1 my-2">
-                    <RiTruckLine size={20} className="IoStyle" />
-                    <span className="p-1"> Delivery by Tue, 11 Mar</span>
-                  </h3>
-                  <img src={p1} alt="" className="img-fluid shipImg" />
+                  <div className="d-flex gap-3">
+                    {Object.entries(reviewOrder?.data || {}).map(
+                      ([date, items]) => {
+                        return items.map((item, i) => (
+                          <div
+                            key={item.id}
+                            className="row d-flex justify-content-between"
+                          >
+                            <h3 className=" couP1 my-2">
+                              <RiTruckLine size={20} className="IoStyle me-2" />
+                              <span className="couP1"> Delivery by {date}</span>
+                            </h3>
+                            <img
+                              src={item.thumbnail}
+                              alt={item.p_name}
+                              className="img-fluid shipImg"
+                            />
+                          </div>
+                        ));
+                      }
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,7 +428,11 @@ function OrderDetails() {
               <h3 className="couHead">
                 <span className="">Payment Method</span>
               </h3>
-              <h3 className="couP1">
+              <h3
+                className="couP1"
+                onClick={loadRazorpay}
+                style={{ cursor: "pointer" }}
+              >
                 Select <IoIosArrowForward size={15} className="IoStyle" />
               </h3>
             </div>
@@ -178,7 +447,7 @@ function OrderDetails() {
                   <h3 className="couP1">
                     {" "}
                     <MdCurrencyRupee />
-                    11,145.01
+                    {reviewOrder?.total_mrp}
                   </h3>
                 </div>
               </div>
@@ -187,7 +456,7 @@ function OrderDetails() {
                 <h4 className="couP1">
                   {" "}
                   <MdCurrencyRupee />
-                  9,802
+                  {reviewOrder?.total_mrp}
                 </h4>
               </div>
             </div>
@@ -197,18 +466,101 @@ function OrderDetails() {
                 <h4 className="couh1">
                   {" "}
                   <MdCurrencyRupee />
-                  9,802
+                  {reviewOrder?.total_amount}
                 </h4>
               </div>
             </div>
-            <div className="d-flex my-2 justify-content-center align-items-center">
-              <Link
-                to="/order-details"
-                className="couCheckOut d-flex justify-content-center align-items-center"
-              >
-                Select Payment Method
-              </Link>
-            </div>
+
+            {isMobile ? (
+              <>
+                <div className="container ">
+                  <div className="row userOnlineFixed">
+                    <div className="col-12">
+                      {" "}
+                      <h3 className="couSave mb-2">
+                        Woohoo! You save <MdCurrencyRupee /> 200 on this order.
+                      </h3>
+                    </div>
+                    <div className="col-6">
+                      <p className="totalPayP">
+                        Total Amount <IoIosArrowUp />
+                      </p>
+                      <h3 className="totalPayh1">
+                        <MdCurrencyRupee />
+                        {reviewOrder?.total_amount}
+                        <span className="totalPayh2">
+                          <del>
+                            {" "}
+                            <MdCurrencyRupee />
+                            {reviewOrder?.total_mrp}
+                          </del>
+                        </span>
+                      </h3>
+                    </div>
+
+                    <div className="col-3 mt-3">
+                      <div className="">
+                        <button
+                          className="couCheckOut d-flex justify-content-center align-items-center"
+                          onClick={handleOnlinePayment}
+                        >
+                          Pay Online
+                        </button>
+                      </div>
+                    </div>
+                    <div className="col-3 mt-3">
+                      <div className="">
+                        <Link
+                          to="/"
+                          className="couCheckOut d-flex justify-content-center align-items-center"
+                          onClick={CODOrder}
+                        >
+                          Cash on Delievry
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h3 className="couSave mb-2">
+                  Woohoo! You save <MdCurrencyRupee />{" "}
+                  {reviewOrder?.total_discount} on this order.
+                </h3>
+                {/* <div className="d-flex mt-xl-5 justify-content-center align-items-center">
+                  <Link
+                    to="/"
+                    className="couCheckOut d-flex justify-content-center align-items-center"
+                    onClick={loadRazorpay}
+                  >
+                    Select Payment Method
+                  </Link>
+                </div> */}
+                <div className="row my-2 ms-2 ">
+                  <div className="col-5 mt-3 payObtn ">
+                    <div className="">
+                      <button
+                        className="couCheckOut d-flex justify-content-center align-items-center"
+                        onClick={handleOnlinePayment}
+                      >
+                        Pay Online
+                      </button>
+                    </div>
+                  </div>
+                  <div className="col-7 mt-3 payObtn">
+                    <div className=" ">
+                      <button
+                        className="couCheckOut d-flex justify-content-center align-items-center "
+                        onClick={CODOrder}
+                      >
+                        Cash on Delievry
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -226,26 +578,39 @@ function OrderDetails() {
         onHide={() => setShowMainModal(false)}
         end
         dialogClassName="right-side-modal"
+        scrollable
       >
         <Modal.Header closeButton>
           <Modal.Title>Change Address</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {addresses.map((address) => (
+          {address?.map((address) => (
             <div
               key={address.id}
-              className="card p-3 shadow-sm  d-flex justify-content-between"
+              className=" p-3 shadow-sm  my-4 d-flex justify-content-between"
             >
               <div className="d-flex gap-2 flex-start align-items-start">
-                <input type="radio" name="selectedAddress" className="me-2" />
+                <Form.Check
+                  type="radio"
+                  name="selectedAddress"
+                  checked={selectedAddress?.id === address.id}
+                  onChange={() => handleSelectAddress(address)}
+                />
                 <div className="flex-grow-2">
-                  <h5 className="">
+                  <h5 className="couP1">
                     {address.name}{" "}
-                    <span className="copBorder">{address.type}</span>
+                    <span className="copBorder">{address.type_of_address}</span>
                   </h5>
-                  <span className="">{address.address}</span>
 
-                  <p className="mb-0">Mobile: {address.contact}</p>
+                  <p className="storeData m-0">
+                    {address.address1}{" "}
+                    <span>
+                      {address.address2} {address.city}, {address.state} -{" "}
+                      {address.pin_code}{" "}
+                    </span>
+                  </p>
+
+                  <p className="mb-0">Mobile: {address.phone}</p>
                 </div>
 
                 <FiEdit
@@ -253,6 +618,19 @@ function OrderDetails() {
                   onClick={() => handleEdit(address)}
                   className="ms-2"
                 />
+              </div>
+
+              <div key={address.id} className="mb-3 p-2 rounded">
+                {address.id === defaultAddressId ? (
+                  <p className="defaultBtn">Default</p>
+                ) : (
+                  <button
+                    className="setBefaultBtn"
+                    onClick={() => defaultAddress(address.id)}
+                  >
+                    Set as Default
+                  </button>
+                )}
               </div>
             </div>
           ))}
@@ -276,7 +654,7 @@ function OrderDetails() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSaveChanges} className="formAddreess">
+          <Form onSubmit={handleSubmit} className="formAddreess">
             <Form.Group className="mb-3">
               <Form.Label className="modelFLabel">
                 {" "}
@@ -286,25 +664,44 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="houseNo"
-                value={formData.houseNo}
-                onChange={handleChange}
+                value={houseNo}
+                onChange={(e) => setHouseNo(e.target.value)}
                 required
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label className="modelFLabel">Address Type</Form.Label>
-              <Form.Select
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-              >
-                <option value="Home">Home</option>
-                <option value="Work">Work</option>
-                <option value="Other">Other</option>
-              </Form.Select>
-            </Form.Group>
 
+              <div className="gender-container mb-3">
+                <button
+                  type="button"
+                  className={`gender-button ${
+                    selectedPlace === "Home" ? "active" : ""
+                  }`}
+                  onClick={() => setSelectedPlace("Home")}
+                >
+                  Home
+                </button>
+                <button
+                  type="button"
+                  className={`gender-button ${
+                    selectedPlace === "Work" ? "active" : ""
+                  }`}
+                  onClick={() => setSelectedPlace("Work")}
+                >
+                  Work
+                </button>
+                <button
+                  type="button"
+                  className={`gender-button ${
+                    selectedPlace === "Other" ? "active" : ""
+                  }`}
+                  onClick={() => setSelectedPlace("Other")}
+                >
+                  Other
+                </button>
+              </div>
+            </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label className="modelFLabel">
                 {" "}
@@ -314,8 +711,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="buildingName"
-                value={formData.buildingName}
-                onChange={handleChange}
+                value={buildingName}
+                onChange={(e) => setBuildingName(e.target.value)}
                 required
               />
             </Form.Group>
@@ -328,8 +725,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="pincode"
-                value={formData.pincode}
-                onChange={handleChange}
+                value={pincode}
+                onChange={handlePincodeChange}
                 required
               />
             </Form.Group>
@@ -342,8 +739,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="city"
-                value={formData.city}
-                onChange={handleChange}
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 required
               />
             </Form.Group>
@@ -355,8 +752,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="state"
-                value={formData.state}
-                onChange={handleChange}
+                value={state}
+                onChange={(e) => setState(e.target.value)}
                 required
               />
             </Form.Group>
@@ -369,8 +766,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="country"
-                value={formData.country}
-                onChange={handleChange}
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
                 required
               />
             </Form.Group>
@@ -383,8 +780,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 required
               />
             </Form.Group>
@@ -397,8 +794,8 @@ function OrderDetails() {
               <Form.Control
                 type="text"
                 name="contact"
-                value={formData.contact}
-                onChange={handleChange}
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
                 required
               />
             </Form.Group>
@@ -407,18 +804,17 @@ function OrderDetails() {
               <Form.Control
                 type="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-            </Form.Group>
+            </Form.Group>{" "}
+            <Modal.Footer>
+              <button type="submit" className="couCheckOut mx-auto">
+                {isAddingNew ? "Add Address" : "Save Changes"}
+              </button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <button type="submit" className="couCheckOut mx-auto">
-            {isAddingNew ? "Add Address" : "Save Changes"}
-          </button>
-        </Modal.Footer>
       </Modal>
       <Footer />
     </>
