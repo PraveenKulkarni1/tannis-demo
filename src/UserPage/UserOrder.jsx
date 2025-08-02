@@ -19,27 +19,8 @@ function UserOrder() {
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [selectedSort1, setSelectedSort1] = useState("Recent");
   const [selectedSort2, setSelectedSort2] = useState("All Status");
-  const [cart, setCart] = useState();
+  const [getOrderDetail, setGetOrderDetail] = useState([]);
 
-  const getCart = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const res = await axios.get("https://tannis.in/api/get-cart", {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      });
-      setCart(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getCart();
-  }, []);
-
-  const cartProduct = cart?.data?.data?.carts;
   const getOrder = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -48,7 +29,7 @@ function UserOrder() {
           Authorization: `Token ${token}`,
         },
       });
-      console.log(res.data, "*/getorder");
+      setGetOrderDetail(res?.data?.order || []);
     } catch (error) {
       console.log(error);
     }
@@ -183,83 +164,110 @@ function UserOrder() {
                   )}
                 </div>
 
-                {selectedOrderType === "online" && cartProduct?.length > 0 && (
-                  <div className="row d-flex gap-3 px-2">
-                    <div className="col-12">
-                      <div className="card mb-2 border-0">
-                        <h3 className="cartItem my-3 px-2">
-                          Order Id - FY68789D5A0E6D3E8D86s
-                          <span className="cartSpan">
-                            {/* {cartProduct?.length} items */}
-                          </span>
-                        </h3>
+                {selectedOrderType === "online" &&
+                  getOrderDetail?.length > 0 && (
+                    <div className="row d-flex gap-3 px-2">
+                      <div className="col-12">
+                        <div className="card mb-2 border-0">
+                          <h3 className="cartItem my-3 px-2">
+                            Order Id - FY68789D5A0E6D3E8D86s
+                            <span className="cartSpan">
+                              {getOrderDetail?.length} items
+                            </span>
+                          </h3>
 
-                        {cartProduct?.map((item, i) => {
-                          const { p_name, thumbnail, price, qty } = item;
-                          return (
-                            <NavLink
-                              to="shipment"
-                              key={i}
-                              style={{ listStyle: "none", color: "black" }}
-                            >
-                              <div className="row g-0 px-2">
-                                <h6 className="card-text">Shipment 1 of 1</h6>
-                                <p className="card-title">
-                                  Delivery by: Mon 21 Jun 2025
-                                </p>
-                                <div className="col-2">
-                                  <img
-                                    src={`https://tannis.in${thumbnail}`}
-                                    className="img-fluid cartImg"
-                                    alt="..."
-                                  />
-                                </div>
-                                <div className="col-10">
-                                  <div className="card-body">
-                                    <p className="card-title">
-                                      {p_name.substring(0, 6)}
-                                      <span className="orderTransit">
-                                        In Transit
-                                      </span>
-                                    </p>
-                                    <h6 className="card-text">
-                                      {p_name.substring(0, 30)}
-                                    </h6>
-                                    <div className="container-fluid p-0 mt-3">
-                                      <div className="row">
-                                        <div className="col-md-8">
-                                          <h6 className="titilHead">
-                                            <MdCurrencyRupee />
-                                            {qty * price}
-                                            <span>
-                                              <del className="delProduct">
-                                                <MdCurrencyRupee />
-                                                799
-                                              </del>
-                                              <span className="offdes">
-                                                {" "}
-                                                (10% Off) |1 QTY
-                                              </span>
+                          {getOrderDetail?.map((item, i) => {
+                            const {
+                              id,
+                              thumbnail,
+                              delivery_date,
+                              qty,
+                              product: {
+                                p_name,
+                                price,
+                                mrp,
+                                selling_price,
+                                discount,
+                              },
+                            } = item.ordered_items[0].variant;
+                            // console.log(
+                            //   item.ordered_items[0].variant,
+                            //   "************"
+                            // ); // ✅ Correct key
+                            return (
+                              <>
+                                <div key={i}>
+                                  <NavLink
+                                    to="shipment"
+                                    state={{ orderId: item.id }}
+                                    key={id}
+                                    style={{
+                                      listStyle: "none",
+                                      color: "black",
+                                    }}
+                                  >
+                                    <div className="row g-0 px-2">
+                                      <h6 className="card-text">
+                                        Shipment 1 of 1
+                                      </h6>
+                                      <p className="card-title">
+                                        Delivery by: {delivery_date}
+                                      </p>
+                                      <div className="col-2">
+                                        <img
+                                          src={`https://tannis.in${thumbnail}`}
+                                          className="img-fluid cartImg"
+                                          alt="..."
+                                        />
+                                      </div>
+                                      <div className="col-10">
+                                        <div className="card-body">
+                                          <p className="card-title">
+                                            {p_name.substring(0, 6)}
+                                            <span className="orderTransit">
+                                              In Transit
                                             </span>
+                                          </p>
+                                          <h6 className="card-text">
+                                            {p_name.substring(0, 30)}
                                           </h6>
+                                          <div className="container-fluid p-0 mt-3">
+                                            <div className="row">
+                                              <div className="col-md-8">
+                                                <h6 className="titilHead">
+                                                  <MdCurrencyRupee />
+                                                  {selling_price}
+                                                  <span>
+                                                    <del className="delProduct">
+                                                      <MdCurrencyRupee />
+                                                      {mrp}
+                                                    </del>
+                                                    <span className="offdes">
+                                                      {" "}
+                                                      ({discount}% Off) |{qty}{" "}
+                                                      QTY
+                                                    </span>
+                                                  </span>
+                                                </h6>
+                                              </div>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                    <hr />
+                                  </NavLink>
                                 </div>
-                              </div>
-                              <hr />
-                            </NavLink>
-                          );
-                        })}
+                              </>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
               </>
             )}
 
-            {/* Nested route view */}
             <Outlet />
           </div>
         </div>

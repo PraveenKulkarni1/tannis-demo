@@ -7,46 +7,39 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
+
 function ShipmentDetails({ selectedAddress }) {
-  const [cart, setCart] = useState();
-  const getCart = async () => {
+  const location = useLocation();
+  const orderId = location.state?.orderId;
+  const [orderDetail, setOrderDetail] = useState([]);
+  const [address, setAddress] = useState({});
+  const getOrder = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("https://tannis.in/api/get-cart", {
+      const res = await axios.get(" https://tannis.in/api/get-order/", {
         headers: {
           Authorization: `Token ${token}`,
         },
       });
-      setCart(res);
+
+      const allOrders = res?.data?.order || [];
+
+      // Find the one matching order by ID
+      const matchedOrder = allOrders.find((order) => order.id === orderId);
+
+      setOrderDetail(matchedOrder ? [matchedOrder] : []);
+
+      setAddress(res.data.shipping_address, "address");
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getCart();
-  }, []);
-
-  console.log(cart, "cart");
-  // const getOrder = async () => {
-  //   try {
-  //     const token = localStorage.getItem("token");
-  //     const res = await axios.get(" https://tannis.in/api/get-order/", {
-  //       headers: {
-  //         Authorization: `Token ${token}`,
-  //       },
-  //     });
-  //     console.log(res, "getOrders");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getOrder();
-  // }, []);
-
-  const cartProduct = cart?.data?.data?.carts;
+    if (orderId) {
+      getOrder();
+    }
+  }, [orderId]);
 
   return (
     <div className="container">
@@ -56,8 +49,15 @@ function ShipmentDetails({ selectedAddress }) {
             Shipment Details
           </h1>
           <hr />
-          {cartProduct?.map((item, i) => {
-            const { p_name, thumbnail, price, qty } = item;
+
+          {orderDetail?.map((item, i) => {
+            const {
+              id,
+              thumbnail,
+              delivery_date,
+              qty,
+              product: { p_name, price, mrp, selling_price, discount },
+            } = item.ordered_items[0].variant;
             return (
               <>
                 <div className="container">
@@ -74,7 +74,7 @@ function ShipmentDetails({ selectedAddress }) {
                             <MdOutlineContentCopy size={18} />
                           </h6>
                           <p className="card-title orderp">
-                            Delivery by: Mon 21 Jun 2025
+                            Delivery by: {delivery_date}
                           </p>
                           <div className="col-2 px-2 mt-2">
                             <img
@@ -97,15 +97,15 @@ function ShipmentDetails({ selectedAddress }) {
                                   <div className="col-md-8">
                                     <h6 className="titilHead">
                                       <MdCurrencyRupee />
-                                      {qty * price}
+                                      {selling_price}
                                       <span>
                                         <del className="delProduct">
                                           <MdCurrencyRupee />
-                                          799
+                                          {mrp}
                                         </del>
                                         <span className="offdes">
                                           {" "}
-                                          (10% Off) |1 QTY
+                                          ({discount}% Off) |{qty} QTY
                                         </span>
                                       </span>
                                     </h6>
@@ -117,7 +117,6 @@ function ShipmentDetails({ selectedAddress }) {
                         </div>
                       </div>
                     </div>
-                    {/* do here */}
 
                     <div className="col-md-2">
                       <p className="pTrach">Track</p>
@@ -213,13 +212,17 @@ function ShipmentDetails({ selectedAddress }) {
                     <>
                       <h3 className="couHead my-3">Address</h3>
                       <h3 className="couP1">
-                        Praveen
-                        <span className="copBorder ms-2"> Home</span>
+                        {address?.name}
+                        <span className="copBorder ms-2">
+                          {" "}
+                          {address?.type_of_address}
+                        </span>
                       </h3>
                       <h3 className="couP3">
-                        #32,Munnekolala, Bangalore , Karnataka - 560036
+                        {address?.address1}, {address?.address2},{" "}
+                        {address?.city} , {address?.state} - {address?.pin_code}
                       </h3>
-                      <p className="couP5 mb-0">Mobile: 7406506051</p>
+                      <p className="couP5 mb-0">Mobile: {address?.phone}</p>
                     </>
                   </div>
                   <hr className="mt-3" />
@@ -230,61 +233,73 @@ function ShipmentDetails({ selectedAddress }) {
                       <h3 className="couHead my-3">Payment</h3>
                       <p className="couP5">
                         <HiOutlineCurrencyRupee size={22} />{" "}
-                        <span className="ms-2 codOrder mt-1">COD</span>
+                        <span className="ms-2 codOrder mt-1">
+                          {orderDetail[0]?.payment_mode}
+                        </span>
                       </p>
                     </div>
                   </div>
                   <hr className="mt-3" />
                 </div>
                 <div className="container">
-                  <div className="row">
-                    <h3 className="couHead my-3">Payment</h3>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">MRP Total</h1>
-                      <p className="orderP">₹999</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">MRP Total</h1>
-                      <p className="orderP">₹999</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Tannis Points</h1>
-                      <p className="orderP">0 points</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Promotion</h1>
-                      <p className="orderP">₹0</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Coupon</h1>
-                      <p className="orderP">₹999</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Reward Points</h1>
-                      <p className="orderP">₹999</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">COD Charges</h1>
-                      <p className="orderP">₹19</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Delivery Charges</h1>
-                      <p className="orderP">₹0</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Discount</h1>
-                      <p className="orderP">₹300</p>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="orderP1">Gift Card</h1>
-                      <p className="orderP">₹0</p>
-                    </div>
-                    <hr />
-                    <div className="col-12 d-flex justify-content-between">
-                      <h1 className="couHead">Total</h1>
-                      <p className="couHead">₹0</p>
-                    </div>
-                  </div>
+                  {orderDetail?.map((item, i) => {
+                    const {
+                      id,
+                      thumbnail,
+                      delivery_date,
+                      qty,
+                      product: { p_name, price, mrp, selling_price, discount },
+                    } = item.ordered_items[0].variant;
+                    return (
+                      <>
+                        <div className="row">
+                          <h3 className="couHead my-3">Payment</h3>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">MRP Total</h1>
+                            <p className="orderP">₹{qty * mrp}</p>
+                          </div>
+
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Tannis Points</h1>
+                            <p className="orderP">0 points</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Promotion</h1>
+                            <p className="orderP">₹0</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Coupon</h1>
+                            <p className="orderP">₹999</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Reward Points</h1>
+                            <p className="orderP">₹999</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">COD Charges</h1>
+                            <p className="orderP">₹19</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Delivery Charges</h1>
+                            <p className="orderP">₹0</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Discount</h1>
+                            <p className="orderP">₹{mrp / discount}</p>
+                          </div>
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="orderP1">Gift Card</h1>
+                            <p className="orderP">₹0</p>
+                          </div>
+                          <hr />
+                          <div className="col-12 d-flex justify-content-between">
+                            <h1 className="couHead">Total</h1>
+                            <p className="couHead">₹ {qty * selling_price}</p>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
                 </div>
               </>
             );

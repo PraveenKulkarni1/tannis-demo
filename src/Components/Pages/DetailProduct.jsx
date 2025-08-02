@@ -35,7 +35,7 @@ const DetailProduct = () => {
         `https://tannis.in/api/product-details/${params.slug}`
       );
       setProduct(data);
-      setProductImg(data.data[0]?.images || []);
+      setProductImg(data?.data?.images || []);
     } catch (error) {
       console.log(error);
     }

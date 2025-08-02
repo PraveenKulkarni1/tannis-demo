@@ -8,14 +8,16 @@ import "antd/dist/reset.css";
 import { UserProvider } from "./Components/contextApi/UserContext";
 import { ProductProvider } from "./Components/contextApi/ProductContext";
 import { SearchProvider } from "./Components/contextApi/SearchContext";
-
+import { HashRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <UserProvider>
     <SearchProvider>
       <ProductProvider>
         <BrowserRouter>
-          <App />
+          <HashRouter>
+            <App />
+          </HashRouter>
         </BrowserRouter>
       </ProductProvider>
     </SearchProvider>
